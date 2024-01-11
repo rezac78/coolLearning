@@ -1,5 +1,6 @@
 "use client"
 import Header from "@/components/Header";
+import Introduction from "@/components/introduction";
 import { useState, useEffect } from 'react';
 
 export default function Home() {
@@ -14,8 +15,9 @@ export default function Home() {
     setTheme(newTheme);
   };
   return (
-    <div className={`bg-red-600	 dark:bg-blue-100 ${theme === 'dark' ? 'dark' : ''}`}>
+    <div className={`${theme === 'dark' ? 'dark' : ''}`}>
       <Header toggleTheme={toggleTheme} currentTheme={theme} />
+      <Introduction/>
     </div>
   )
 }

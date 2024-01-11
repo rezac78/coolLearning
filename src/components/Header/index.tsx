@@ -43,6 +43,5 @@ export default function Header(props: HeaderProps) {
                         </div>
                         <Menu isMenuOpen={isMenuOpen} currentTheme={props.currentTheme} toggleTheme={props.toggleTheme} />
                 </nav>
-
         )
 }
