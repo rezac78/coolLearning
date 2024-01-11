@@ -11,7 +11,7 @@ export default function Introduction() {
                                 <p className="text-base mb-4 text-light-color-Font dark:text-dark-color-Font">
                                         Our goal in establishing Cool Learning is that anyone with any background and knowledge can easily enter the beautiful and lucrative world of programming.
                                 </p>
-                                <Button Title="See All Courses" className="font-bold py-2 px-4 rounded" />
+                                <Button Title="See All Courses" className="bg-bg-button hover:bg-bg-button-hover text-dark-color-Font font-bold py-2 px-4 rounded" />
                         </div>
                 </div>
 

@@ -1,6 +1,7 @@
 "use client"
 import Header from "@/components/Header";
 import QuestionsPart from "@/components/QuestionsPart/QuestionsPart";
+import Recent from "@/components/RecentPosts/Recent";
 import Introduction from "@/components/introduction";
 import { useState, useEffect } from 'react';
 
@@ -20,6 +21,7 @@ export default function Home() {
       <Header toggleTheme={toggleTheme} currentTheme={theme} />
       <Introduction/>
       <QuestionsPart/>
+      <Recent/>
     </div>
   )
 }

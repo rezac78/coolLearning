@@ -4,7 +4,7 @@ interface ButtonProps {
 }
 export default function Button(props: ButtonProps) {
         return (
-                <button className={`bg-bg-button hover:bg-bg-button-hover text-dark-color-Font ${props.className}`}>
+                <button className={props.className}>
                         {props.Title}
                 </button>
         )

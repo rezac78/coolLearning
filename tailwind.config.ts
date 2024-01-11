@@ -20,7 +20,7 @@ const config: Config = {
         "bg-button-hover": "#1d4ed8",
       },
       screens: {
-        'sm': '425px',
+        sm: "425px",
       },
     },
   },
