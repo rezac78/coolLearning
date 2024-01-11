@@ -14,7 +14,7 @@ export default function Recent() {
                                 {RecentData.map((e) => (
                                         <div key={e.id} className="max-w-72 sm:max-w-80 group/item transition duration-700 rounded overflow-hidden shadow-lg hover:-translate-y-6">
                                                 <div className="relative">
-                                                        <ImagePart className="w-full transition duration-700 hover:brightness-[.3]" Src={e.imgUrl} width={500} height={300} />
+                                                        <ImagePart className="w-full transition duration-700 hover:brightness-[.5]" Src={e.imgUrl} width={500} height={300} />
                                                         <span className="absolute top-5 left-5 text-light-color-Font px-2 py-1 text-sm group/edit invisible group-hover/item:visible">{e.writerName}</span>
                                                 </div>
                                                 <div className="px-1 py-4">

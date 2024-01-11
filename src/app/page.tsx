@@ -17,11 +17,13 @@ export default function Home() {
     setTheme(newTheme);
   };
   return (
-    <div className={`${theme === 'dark' ? 'dark' : ''}`}>
-      <Header toggleTheme={toggleTheme} currentTheme={theme} />
-      <Introduction/>
-      <QuestionsPart/>
-      <Recent/>
+    <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
+      <div className="bg-white dark:bg-black">
+        <Header toggleTheme={toggleTheme} currentTheme={theme} />
+        <Introduction />
+        <QuestionsPart />
+        <Recent />
+      </div>
     </div>
   )
 }
