@@ -2,7 +2,7 @@ import Button from '../Shared/Button/Button';
 import ImagePart from '../Shared/ImgPart/Image';
 export default function Introduction() {
         return (
-                <div className="container mx-auto w-11/12 md:w-5/6 flex flex-col md:flex-row items-center my-32">
+                <div className="container mx-auto w-11/12 md:w-5/6 flex flex-col md:flex-row items-center my-52">
                         <div className="flex-1 mb-4 md:mb-0">
                                 <ImagePart Src="/feature.svg" width={500} height={400} className="rounded-lg shadow-lg" />
                         </div>
