@@ -2,6 +2,8 @@ import { navbar, navbarIcons } from "@/Event/Event"
 import { MoonIcon, SunIcon, Bars3Icon } from "@heroicons/react/24/solid"
 import { useState } from "react";
 import Menu from "../Shared/HamburgerMenu/Menu";
+import ImagePart from "../Shared/ImgPart/Image";
+
 interface HeaderProps {
         currentTheme: string;
         toggleTheme: () => void;
@@ -15,7 +17,7 @@ export default function Header(props: HeaderProps) {
                 <nav className="bg-light-bg-Nav dark:bg-dark-bg-Nav p-4">
                         <div className="container mx-auto flex items-center justify-between flex-wrap">
                                 <div className="flex items-center flex-shrink-0 text-white mr-6">
-                                        <span className="font-semibold text-xl tracking-tight">Your Logo</span>
+                                        <ImagePart Src="/Logo1.png" className="w-full" width={60} height={80}/>
                                 </div>
                                 <div className="hidden md:block">
                                         <div className="text-sm flex-grow">
