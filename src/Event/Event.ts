@@ -33,6 +33,13 @@ export interface RecentPosts {
   Title: string;
 }
 
+export interface InputRegister {
+  id: number;
+  IdName: string;
+  LabelName: string;
+  type: string;
+}
+
 export const navbar: Navbar[] = [
   { id: 1, name: "Home", Link: "/" },
   { id: 2, name: "Courses", Link: "/courses" },
@@ -83,5 +90,38 @@ export const RecentData: RecentPosts[] = [
     writerName: "hadi Sabzevari",
     imgUrl: "/success.png",
     Title: "Choosing the best programming field",
+  },
+];
+
+export const InputRegister: InputRegister[] = [
+  {
+    id: 1,
+    IdName: "name",
+    LabelName: "Name",
+    type: "text",
+  },
+  {
+    id: 2,
+    IdName: "familyName",
+    LabelName: "Family Name",
+    type: "text",
+  },
+  {
+    id: 3,
+    IdName: "email",
+    LabelName: "Email",
+    type: "email",
+  },
+  {
+    id: 4,
+    IdName: "password",
+    LabelName: "Password",
+    type: "password",
+  },
+  {
+    id: 5,
+    IdName: "repeatPassword",
+    LabelName: "Repeat Password",
+    type: "password",
   },
 ];
