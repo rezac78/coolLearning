@@ -7,7 +7,7 @@ export default function AboutUs() {
         const { theme, toggleTheme } = useTheme();
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
-                        <div className="bg-white dark:bg-black">
+                        <div className="bg-white dark:bg-black flex flex-col min-h-screen">
                                 <Header toggleTheme={toggleTheme} currentTheme={theme} />
                                 <About />
                                 <Footer />

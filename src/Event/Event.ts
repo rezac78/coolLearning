@@ -40,6 +40,13 @@ export interface InputRegister {
   type: string;
 }
 
+export interface InputLogin {
+  id: number;
+  IdName: string;
+  LabelName: string;
+  type: string;
+}
+
 export const navbar: Navbar[] = [
   { id: 1, name: "Home", Link: "/" },
   { id: 2, name: "Courses", Link: "/courses" },
@@ -122,6 +129,21 @@ export const InputRegister: InputRegister[] = [
     id: 5,
     IdName: "repeatPassword",
     LabelName: "Repeat Password",
+    type: "password",
+  },
+];
+
+export const InputLogin: InputLogin[] = [
+  {
+    id: 1,
+    IdName: "email",
+    LabelName: "Email",
+    type: "email",
+  },
+  {
+    id: 2,
+    IdName: "password",
+    LabelName: "Password",
     type: "password",
   },
 ];
