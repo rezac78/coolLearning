@@ -15,7 +15,7 @@ const config: Config = {
         "dark-bg-Nav": "#1f2937",
         "light-color-Font": "black",
         "light-color-Font-hover": "#374151",
-        "light-bg-Nav": "#d1d5db",
+        "light-bg-Nav": "#9ca3af",
         "bg-button": "#3b82f6",
         "bg-button-hover": "#1d4ed8",
       },
