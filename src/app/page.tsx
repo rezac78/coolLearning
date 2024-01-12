@@ -1,3 +1,4 @@
+"use client"
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header";
 import QuestionsPart from "@/components/QuestionsPart/QuestionsPart";

@@ -16,7 +16,7 @@ const config: Config = {
         "light-color-Font": "black",
         "light-color-Font-hover": "#374151",
         "light-bg-Nav": "#9ca3af",
-        "bg-button": "#3b82f6",
+        "bg-button": "#0B53BC",
         "bg-button-hover": "#1d4ed8",
       },
       screens: {
