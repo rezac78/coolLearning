@@ -1,8 +1,6 @@
 import {
   MagnifyingGlassIcon,
-  SunIcon,
   ShoppingCartIcon,
-  MoonIcon,
   ArrowLeftEndOnRectangleIcon,
 } from "@heroicons/react/24/solid";
 

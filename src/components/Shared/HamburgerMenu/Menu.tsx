@@ -1,11 +1,13 @@
 import { navbar, navbarIcons } from "@/Event/Event"
-import { MoonIcon, SunIcon} from "@heroicons/react/24/solid"
+import useSearch from "@/hooks/useSearch";
+import { MoonIcon, SunIcon } from "@heroicons/react/24/solid"
 interface HeaderProps {
         isMenuOpen: boolean;
         currentTheme: string;
         toggleTheme: () => void;
 }
 export default function Menu(props: HeaderProps) {
+        const { showSearchInput, toggleSearchInput } = useSearch();
         return (
                 <>
                         {props.isMenuOpen && (
@@ -23,10 +25,17 @@ export default function Menu(props: HeaderProps) {
                                                                 : <MoonIcon className="h-6 w-6 text-gray-500" />}
                                                 </button>
                                                 {navbarIcons.map((e) => (
-                                                        <button key={e.id} className="mr-4">
+                                                        <button aria-label={e.name} key={e.id} className="mr-4" onClick={e.name === 'Search' ? toggleSearchInput : undefined}>
                                                                 <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
                                                         </button>
                                                 ))}
+                                                {showSearchInput && (
+                                                        <input
+                                                                type="text"
+                                                                className="absolute top-5 z-20 mt-2 w-3/6 m-auto rounded-md border border-gray-300 shadow-sm p-2 transition-all duration-300 ease-in-out"
+                                                                autoFocus
+                                                        />
+                                                )}
                                         </div>
                                 </>
                         )}

@@ -3,6 +3,7 @@ import { MoonIcon, SunIcon, Bars3Icon } from "@heroicons/react/24/solid"
 import { useState } from "react";
 import Menu from "../Shared/HamburgerMenu/Menu";
 import ImagePart from "../Shared/ImgPart/Image";
+import useSearch from "@/hooks/useSearch";
 
 interface HeaderProps {
         currentTheme: string;
@@ -13,11 +14,12 @@ export default function Header(props: HeaderProps) {
         const toggleMenu = () => {
                 setIsMenuOpen(!isMenuOpen);
         };
+        const { showSearchInput, toggleSearchInput } = useSearch();
         return (
                 <nav className="bg-light-bg-Nav dark:bg-dark-bg-Nav p-4">
                         <div className="mx-auto flex items-center justify-between flex-wrap">
                                 <div className="flex items-center flex-shrink-0 text-white mr-6">
-                                        <ImagePart Src="/Logo1.png" className="w-full" width={60} height={80}/>
+                                        <ImagePart Src="/Logo1.png" className="w-full" width={60} height={80} />
                                 </div>
                                 <div className="hidden md:block">
                                         <div className="text-base flex-grow">
@@ -31,16 +33,23 @@ export default function Header(props: HeaderProps) {
                                                 <Bars3Icon className="h-7 w-7 text-light-color-Font dark:text-dark-color-Font" />
                                         </button>
                                 </div>
-                                <div className="hidden md:block flex items-center">
+                                <div className="relative hidden md:flex items-center">
                                         <button aria-label="Team" onClick={props.toggleTheme} className="mr-4">
                                                 {props.currentTheme === 'dark' ? <SunIcon className="h-5 w-5 text-yellow-500" />
                                                         : <MoonIcon className="h-6 w-6 text-gray-500" />}
                                         </button>
                                         {navbarIcons.map((e) => (
-                                                <button aria-label={e.name} key={e.id} className="mr-4">
+                                                <button aria-label={e.name} key={e.id} className="mr-4" onClick={e.name === 'Search' ? toggleSearchInput : undefined}>
                                                         <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
                                                 </button>
                                         ))}
+                                        {showSearchInput && (
+                                                <input
+                                                        type="text"
+                                                        className="absolute -top-4 z-10 right-56 mt-2 w-full rounded-md border border-gray-300 shadow-sm p-2 transition-all duration-300 ease-in-out"
+                                                        autoFocus
+                                                />
+                                        )}
                                 </div>
                         </div>
                         <Menu isMenuOpen={isMenuOpen} currentTheme={props.currentTheme} toggleTheme={props.toggleTheme} />
