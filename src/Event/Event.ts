@@ -102,30 +102,24 @@ export const RecentData: RecentPosts[] = [
 export const InputRegister: InputRegister[] = [
   {
     id: 1,
-    IdName: "name",
-    LabelName: "Name",
+    IdName: "username",
+    LabelName: "Username",
     type: "text",
   },
   {
     id: 2,
-    IdName: "familyName",
-    LabelName: "Family Name",
-    type: "text",
-  },
-  {
-    id: 3,
     IdName: "email",
     LabelName: "Email",
     type: "email",
   },
   {
-    id: 4,
+    id: 3,
     IdName: "password",
     LabelName: "Password",
     type: "password",
   },
   {
-    id: 5,
+    id: 4,
     IdName: "repeatPassword",
     LabelName: "Repeat Password",
     type: "password",

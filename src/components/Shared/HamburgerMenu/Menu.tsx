@@ -32,7 +32,7 @@ export default function Menu(props: HeaderProps) {
                                                                                 <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
                                                                         </button>
                                                                 ) : (
-                                                                        <Link href={e.Link} key={e.id} className="mr-4">
+                                                                        <Link aria-label={e.name} href={e.Link} key={e.id} className="mr-4">
                                                                                 <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
                                                                         </Link>
                                                                 )

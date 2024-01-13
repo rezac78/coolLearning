@@ -1,6 +1,8 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header";
+import { useRouter } from 'next/router';
 import useTheme from "@/hooks/useTheme";
+import { RegisterReq } from '../../services/authService';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { registrationSchema } from '../../schema/schema';
@@ -8,18 +10,37 @@ import Inputs from "@/components/Shared/Input/Input";
 import { InputRegister } from "@/Event/Event";
 import Button from "@/components/Shared/Button/Button";
 import Links from "@/components/Shared/Link/Link";
+import { useState } from "react";
+import Alerts from "@/components/Shared/Alert/Alert";
 export default function Register() {
         const { theme, toggleTheme } = useTheme();
         const { register, handleSubmit, formState: { errors } } = useForm({
                 resolver: yupResolver(registrationSchema)
         });
-        const onSubmit = (data: any) => {
-                console.log(data);
+        const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
+        const [numberSuccessMessage, setNumberSuccessMessage] = useState();
+        const [SuccessMessage, setSuccessMessage] = useState();
+        const router = useRouter();
+        const onSubmit = async (data: any) => {
+                try {
+                        const response = await RegisterReq(data);
+                        setNumberSuccessMessage(response.success);
+                        setSuccessMessage(response.message);
+                        setShowSuccessMessage(true);
+                        setTimeout(() => {
+                                setShowSuccessMessage(false);
+                                router.push('/login');
+                        }, 6000);
+
+                } catch (error) {
+                        console.error('Registration failed:', error);
+                }
         };
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">
                                 <Header toggleTheme={toggleTheme} currentTheme={theme} />
+                                {showSuccessMessage && <Alerts Message={SuccessMessage} type={numberSuccessMessage} />}
                                 <main className="relative flex-grow flex items-center justify-center">
                                         <div className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
                                                 style={{
