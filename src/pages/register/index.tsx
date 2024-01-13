@@ -7,7 +7,7 @@ import { registrationSchema } from '../../schema/schema';
 import Inputs from "@/components/Shared/Input/Input";
 import { InputRegister } from "@/Event/Event";
 import Button from "@/components/Shared/Button/Button";
-import Link from "next/link";
+import Links from "@/components/Shared/Link/Link";
 export default function Register() {
         const { theme, toggleTheme } = useTheme();
         const { register, handleSubmit, formState: { errors } } = useForm({
@@ -38,7 +38,7 @@ export default function Register() {
                                                         </div>
                                                         <div className='mt-4 text-sm'>
                                                                 <span className='text-dark-color-Font dark:text-light-color-Font'>Already registered? </span>
-                                                                <Link className="text-blue-600" href="/login">Login here</Link>
+                                                                <Links className="text-blue-600" Href="/login" Title="Login here" />
                                                         </div>
                                                 </form>
                                         </div>
@@ -46,6 +46,5 @@ export default function Register() {
                                 <Footer />
                         </div>
                 </div>
-
         )
 }

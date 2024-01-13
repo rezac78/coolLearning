@@ -14,6 +14,7 @@ export interface NavbarIcons {
   id: number;
   name: string;
   icon: any;
+  Link: string;
 }
 
 export interface QuestionsSchema {
@@ -53,9 +54,9 @@ export const navbar: Navbar[] = [
 ];
 
 export const navbarIcons: NavbarIcons[] = [
-  { id: 1, name: "Search", icon: MagnifyingGlassIcon },
-  { id: 2, name: "Shopping", icon: ShoppingCartIcon },
-  { id: 3, name: "Auth", icon: ArrowLeftEndOnRectangleIcon },
+  { id: 1, name: "Search", icon: MagnifyingGlassIcon, Link: "#" },
+  { id: 2, name: "Shopping", icon: ShoppingCartIcon, Link: "#" },
+  { id: 3, name: "Auth", icon: ArrowLeftEndOnRectangleIcon, Link: "/register" },
 ];
 
 export const Questions: QuestionsSchema[] = [

@@ -7,7 +7,7 @@ import { loginValidationSchema } from '../../schema/schema';
 import Inputs from "@/components/Shared/Input/Input";
 import { InputLogin } from "@/Event/Event";
 import Button from "@/components/Shared/Button/Button";
-import Link from "next/link";
+import Links from "@/components/Shared/Link/Link";
 export default function Login() {
         const { theme, toggleTheme } = useTheme();
         const { register, handleSubmit, formState: { errors } } = useForm({
@@ -38,7 +38,7 @@ export default function Login() {
                                                         </div>
                                                         <div className='mt-4 text-sm'>
                                                                 <span className='text-dark-color-Font dark:text-light-color-Font'>You have not logged in yet? </span>
-                                                                <Link className="text-blue-600" href="/register">Register here</Link>
+                                                                <Links className="text-blue-600" Href="/register" Title="Register here" />
                                                         </div>
                                                 </form>
                                         </div>
@@ -46,6 +46,5 @@ export default function Login() {
                                 <Footer />
                         </div>
                 </div>
-
         )
 }
