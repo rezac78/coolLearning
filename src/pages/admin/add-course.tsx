@@ -1,9 +1,9 @@
-import AdminCourse from '@/components/AdminDash/AdminCourse';
+import AddCourse from '@/components/AdminDash/Add/Course';
 import ProtectedRoute from '@/components/Route/ProtectedRoute';
-export default function Course() {
+export default function CreateCourse() {
         return (
                 <ProtectedRoute requiredRole="admin">
-                        <AdminCourse />
+                        <AddCourse />
                 </ProtectedRoute>
         )
 }
