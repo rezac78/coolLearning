@@ -46,6 +46,13 @@ export interface InputLogin {
   type: string;
 }
 
+export interface Navigation {
+  id: number;
+  name: string;
+  href: string;
+  current: boolean;
+}
+
 export const navbar: Navbar[] = [
   { id: 1, name: "Home", Link: "/" },
   { id: 2, name: "Courses", Link: "/courses" },
@@ -139,4 +146,10 @@ export const InputLogin: InputLogin[] = [
     LabelName: "Password",
     type: "password",
   },
+];
+
+export const navigation: Navigation[] = [
+  { id: 1, name: "Dashboard", href: "/admin/dashboard", current: true },
+  { id: 2, name: "Course", href: "/admin/course", current: false },
+  { id: 3, name: "Blog", href: "/admin/blog", current: false },
 ];

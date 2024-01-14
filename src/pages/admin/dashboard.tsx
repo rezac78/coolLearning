@@ -1,8 +1,9 @@
+import AminDash from "@/components/AminDash/AminDash";
 import ProtectedRoute from "@/components/Route/ProtectedRoute";
 
 const AdminDashboard = () => (
   <ProtectedRoute requiredRole="admin">
-    AdminDashboard
+    <AminDash/>
   </ProtectedRoute>
 );
 
