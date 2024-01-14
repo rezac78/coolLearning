@@ -50,7 +50,6 @@ export interface Navigation {
   id: number;
   name: string;
   href: string;
-  current: boolean;
 }
 
 export const navbar: Navbar[] = [
@@ -149,7 +148,7 @@ export const InputLogin: InputLogin[] = [
 ];
 
 export const navigation: Navigation[] = [
-  { id: 1, name: "Dashboard", href: "/admin/dashboard", current: true },
-  { id: 2, name: "Course", href: "/admin/course", current: false },
-  { id: 3, name: "Blog", href: "/admin/blog", current: false },
+  { id: 1, name: "Dashboard", href: "/admin/dashboard" },
+  { id: 2, name: "Course", href: "/admin/course"},
+  { id: 3, name: "Blog", href: "/admin/blog"},
 ];
