@@ -4,7 +4,8 @@ import { useState } from "react";
 import Menu from "../Shared/HamburgerMenu/Menu";
 import ImagePart from "../Shared/ImgPart/Image";
 import useSearch from "@/hooks/useSearch";
-import Link from "next/link";
+import Links from "../Shared/Link/Link";
+import Button from "../Shared/Button/Button";
 
 interface HeaderProps {
         currentTheme: string;
@@ -25,30 +26,32 @@ export default function Header(props: HeaderProps) {
                                 <div className="hidden md:block">
                                         <div className="text-base flex-grow">
                                                 {navbar.map((e) => (
-                                                        <a key={e.id} href={e.Link} className={`text-light-color-Font dark:text-dark-color-Font hover:text-light-color-Font-hover dark:hover:text-dark-color-Font-hover mr-4`}>{e.name}</a>
+                                                        <Links type="icon" Href={e.Link} key={e.id} className="text-light-color-Font dark:text-dark-color-Font hover:text-light-color-Font-hover dark:hover:text-dark-color-Font-hover mr-4">
+                                                                {e.name}
+                                                        </Links>
                                                 ))}
                                         </div>
                                 </div>
                                 <div className="md:hidden">
-                                        <button aria-label="Bars3Icon" onClick={toggleMenu}>
+                                        <Button Type="child" aria-label="Bars3Icon" Click={toggleMenu}>
                                                 <Bars3Icon className="h-7 w-7 text-light-color-Font dark:text-dark-color-Font" />
-                                        </button>
+                                        </Button>
                                 </div>
                                 <div className="relative hidden md:flex items-center">
-                                        <button aria-label="Team" onClick={props.toggleTheme} className="mr-4">
+                                        <Button Type="child" aria-label="Team" Click={props.toggleTheme} className="mr-4">
                                                 {props.currentTheme === 'dark' ? <SunIcon className="h-5 w-5 text-yellow-500" />
                                                         : <MoonIcon className="h-6 w-6 text-gray-500" />}
-                                        </button>
+                                        </Button>
                                         {navbarIcons.map((e) => {
                                                 return (
                                                         e.name === 'Search' ? (
-                                                                <button aria-label={e.name} key={e.id} className="mr-4" onClick={e.name === 'Search' ? toggleSearchInput : undefined}>
+                                                                <Button Type="child" aria-label={e.name} key={e.id} className="mr-4" Click={e.name === 'Search' ? toggleSearchInput : undefined}>
                                                                         <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
-                                                                </button>
+                                                                </Button>
                                                         ) : (
-                                                                <Link aria-label={e.name} href={e.Link} key={e.id} className="mr-4">
+                                                                <Links type="icon" Href={e.Link} key={e.id} className="mr-4" aria-label={e.name}>
                                                                         <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
-                                                                </Link>
+                                                                </Links>
                                                         )
                                                 );
                                         })}

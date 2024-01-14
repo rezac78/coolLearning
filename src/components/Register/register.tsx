@@ -54,7 +54,7 @@ export default function RegisterPart(props: RegisterPartProps) {
                                         </div>
                                         <div className='mt-4 text-sm'>
                                                 <span className='text-dark-color-Font dark:text-light-color-Font'>Already registered? </span>
-                                                <Links className="text-blue-600" Href="/login" Title="Login here" />
+                                                <Links className="text-blue-600" type="font" Href="/login" Title="Login here" />
                                         </div>
                                 </form>
                         </div>

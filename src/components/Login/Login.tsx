@@ -60,7 +60,7 @@ export default function LoginPart(props: LoginPartProps) {
                                         </div>
                                         <div className='mt-4 text-sm'>
                                                 <span className='text-dark-color-Font dark:text-light-color-Font'>You have not logged in yet? </span>
-                                                <Links className="text-blue-600" Href="/register" Title="Register here" />
+                                                <Links className="text-blue-600" Href="/register" type="font" Title="Register here" />
                                         </div>
                                 </form>
                         </div>
