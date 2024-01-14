@@ -30,7 +30,7 @@ export default function Register() {
                         setTimeout(() => {
                                 setShowSuccessMessage(false);
                                 router.push('/login');
-                        }, 6000);
+                        }, 5000);
 
                 } catch (error) {
                         console.error('Registration failed:', error);
