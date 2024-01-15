@@ -1,6 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import HeaderDash from "../HeaderDash/HeaderDash";
 import NavDash from "../NavDash/NavDash";
+import CourseForm from "./CourseForm";
 
 export default function AddCourse() {
         return (
@@ -16,7 +17,9 @@ export default function AddCourse() {
                         </Disclosure>
                         <HeaderDash Type="home" HeadTitle="Add-Course" HeadLink="#" />
                         <main>
-                                <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">rezcda</div>
+                                <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+                                        <CourseForm/>
+                                </div>
                         </main>
                 </div>
         )

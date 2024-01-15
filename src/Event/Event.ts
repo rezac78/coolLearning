@@ -52,6 +52,18 @@ export interface Navigation {
   href: string;
 }
 
+export interface InputForm {
+  id: number;
+  IdName: string;
+  LabelName: string;
+  type: string;
+}
+export interface InputFormChapter {
+  id: number;
+  IdName: string;
+  LabelName: string;
+  type: string;
+}
 export const navbar: Navbar[] = [
   { id: 1, name: "Home", Link: "/" },
   { id: 2, name: "Courses", Link: "/courses" },
@@ -151,4 +163,90 @@ export const navigation: Navigation[] = [
   { id: 1, name: "Dashboard", href: "/admin/dashboard" },
   { id: 2, name: "Course", href: "/admin/course"},
   { id: 3, name: "Blog", href: "/admin/blog"},
+];
+
+
+export const InputForm: InputForm[] = [
+  {
+    id: 1,
+    IdName: "title",
+    LabelName: "Title",
+    type: "text",
+  },
+  {
+    id: 2,
+    IdName: "duration",
+    LabelName: "Duration",
+    type: "text",
+  },
+  {
+    id: 3,
+    IdName: "courseType",
+    LabelName: "Course Type",
+    type: "text",
+  },
+  {
+    id: 4,
+    IdName: "prerequisites",
+    LabelName: "Prerequisites",
+    type: "text",
+  },
+  {
+    id: 5,
+    IdName: "courseLanguage",
+    LabelName: "Course Language",
+    type: "text",
+  },
+  {
+    id: 6,
+    IdName: "poster",
+    LabelName: "Poster URL",
+    type: "url",
+  },
+  {
+    id: 7,
+    IdName: "description",
+    LabelName: "Course Description",
+    type: "text",
+  },
+  {
+    id: 8,
+    IdName: "coursePhoto",
+    LabelName: "Course Photo URL",
+    type: "url",
+  },
+  {
+    id: 9,
+    IdName: "instructorName",
+    LabelName: "Instructor's Name",
+    type: "text",
+  },
+  {
+    id: 10,
+    IdName: "instructorScope",
+    LabelName: "Instructor's Scope",
+    type: "text",
+  },
+];
+
+export const InputFormChapter: InputFormChapter[] = [
+  {
+    id: 1,
+    IdName: "name",
+    LabelName: "Chapter Name",
+    type: "text",
+  },
+  {
+    id: 2,
+    IdName: "description",
+    LabelName: "Chapter Description",
+    type: "text",
+  },
+  {
+    id: 3,
+    IdName: "videoUrl",
+    LabelName: "Video URL",
+    type: "text",
+  },
+
 ];

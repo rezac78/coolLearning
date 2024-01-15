@@ -47,10 +47,10 @@ export default function RegisterPart(props: RegisterPartProps) {
                                 <h2 className="text-2xl text-dark-color-Font dark:text-light-color-Font font-bold mb-4">Register</h2>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                         {InputRegister.map((e) => (
-                                                <Inputs Ekey={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
+                                                <Inputs Type="validation" Ekey={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
                                         ))}
                                         <div className="flex items-center justify-between">
-                                                <Button Title="Register" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
+                                                <Button Type="button" Title="Register" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
                                         </div>
                                         <div className='mt-4 text-sm'>
                                                 <span className='text-dark-color-Font dark:text-light-color-Font'>Already registered? </span>

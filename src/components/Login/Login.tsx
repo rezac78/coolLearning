@@ -24,8 +24,8 @@ export default function LoginPart(props: LoginPartProps) {
                         props.Success(response.message);
                         props.Message(true);
                         if (response.token) {
-                                localStorage.setItem('userData', JSON.stringify(response.role));
-                                localStorage.setItem('token', JSON.stringify(response.token));
+                                localStorage.setItem('userData', response.role);
+                                localStorage.setItem('token', response.token);
                                 if (response.role === "admin") {
                                         router.push("/admin/dashboard");
                                 } else if (response.role === "user") {
@@ -53,10 +53,10 @@ export default function LoginPart(props: LoginPartProps) {
                                 <h2 className="text-2xl text-dark-color-Font dark:text-light-color-Font font-bold mb-4">Login</h2>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                         {InputLogin.map((e) => (
-                                                <Inputs Ekey={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
+                                                <Inputs Type="validation" Ekey={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
                                         ))}
                                         <div className="flex items-center justify-between">
-                                                <Button Title="Login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
+                                                <Button Type="button" Title="Login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
                                         </div>
                                         <div className='mt-4 text-sm'>
                                                 <span className='text-dark-color-Font dark:text-light-color-Font'>You have not logged in yet? </span>

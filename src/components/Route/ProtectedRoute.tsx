@@ -16,7 +16,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requiredRole 
     if (isBrowser) {
       const userData = localStorage.getItem('userData');
       if (userData) {
-        accessRole = JSON.parse(userData);
+        accessRole = userData;
       }
     }
     if (accessRole === requiredRole) {
