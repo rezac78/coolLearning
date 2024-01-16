@@ -2,8 +2,13 @@ import { Disclosure } from "@headlessui/react";
 import HeaderDash from "../HeaderDash/HeaderDash";
 import NavDash from "../NavDash/NavDash";
 import CourseForm from "./CourseForm";
+import { useState } from "react";
+import Alerts from "@/components/Shared/Alert/Alert";
 
 export default function AddCourse() {
+        const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
+        const [numberSuccessMessage, setNumberSuccessMessage] = useState<boolean>();
+        const [SuccessMessage, setSuccessMessage] = useState<string>();
         return (
                 <div className="min-h-full">
                         <Disclosure as="nav" className="bg-gray-800">
@@ -16,9 +21,10 @@ export default function AddCourse() {
                                 )}
                         </Disclosure>
                         <HeaderDash Type="home" HeadTitle="Add-Course" HeadLink="#" />
+                        {showSuccessMessage && <Alerts Message={SuccessMessage} type={numberSuccessMessage} />}
                         <main>
                                 <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                                        <CourseForm/>
+                                        <CourseForm Message={setShowSuccessMessage} SuccessMessage={setNumberSuccessMessage} Success={setSuccessMessage} />
                                 </div>
                         </main>
                 </div>

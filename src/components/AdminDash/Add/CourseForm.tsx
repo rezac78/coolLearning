@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { courseSchema } from '../../../schema/schema';
@@ -6,21 +6,29 @@ import { InputForm, InputFormChapter } from "@/Event/Event";
 import Inputs from '@/components/Shared/Input/Input';
 import Button from '@/components/Shared/Button/Button';
 import { CourseReq } from '@/services/createCourseService';
-
-export default function CourseForm() {
-  const { register, control, handleSubmit, formState: { errors } } = useForm({
+interface CourseFormProps {
+  Message: (value: boolean) => void;
+  SuccessMessage: (value: boolean) => void;
+  Success: (value: string) => void;
+}
+export default function CourseForm(props: CourseFormProps) {
+  const { register, control, handleSubmit, formState: { errors }, reset } = useForm({
     resolver: yupResolver(courseSchema)
   });
   const { fields, append, remove } = useFieldArray({
     control,
     name: 'chapters'
   });
-
   const onSubmit = async (data: any) => {
-    const getToken = localStorage.getItem('token');
     try {
-      const response = await CourseReq(data, getToken);
-      console.log(response)
+      const response = await CourseReq(data);
+      props.SuccessMessage(response.success);
+      props.Success(response.message);
+      props.Message(true);
+      setTimeout(() => {
+        props.Message(false);
+      }, 5000);
+      reset();
     } catch (error) {
       console.error('Registration failed:', error);
     }
