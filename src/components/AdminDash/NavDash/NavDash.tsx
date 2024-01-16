@@ -5,6 +5,7 @@ import { navigation } from "../../../Event/Event"
 import ImagePart from '@/components/Shared/ImgPart/Image'
 import Links from '@/components/Shared/Link/Link';
 import Button from '@/components/Shared/Button/Button';
+import Logout from '@/components/Logout/Logout';
 interface NavDashProps {
         open: boolean;
 }
@@ -30,12 +31,7 @@ export default function NavDash({ open }: NavDashProps) {
                                 </div>
                                 <div className="hidden md:block">
                                         <div className="ml-4 flex items-center md:ml-6">
-                                                <Button
-                                                        Type="child"
-                                                        className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                                >
-                                                        <ArrowLeftEndOnRectangleIcon className="h-6 w-6" aria-hidden="true" />
-                                                </Button>
+                                               <Logout/>
                                         </div>
                                 </div>
                                 <div className="-mr-2 flex md:hidden">

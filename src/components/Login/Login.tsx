@@ -7,6 +7,8 @@ import Button from "@/components/Shared/Button/Button";
 import Links from "@/components/Shared/Link/Link";
 import { LoginReq } from '../../services/authService';
 import { useRouter } from "next/router";
+import { jwtDecode } from "jwt-decode"
+import Cookies from 'js-cookie';
 interface LoginPartProps {
         Message: (value: boolean) => void;
         SuccessMessage: (value: boolean) => void;
@@ -24,21 +26,24 @@ export default function LoginPart(props: LoginPartProps) {
                         props.Success(response.message);
                         props.Message(true);
                         if (response.token) {
-                                localStorage.setItem('userData', response.role);
-                                localStorage.setItem('token', response.token);
-                                if (response.role === "admin") {
-                                        router.push("/admin/dashboard");
-                                } else if (response.role === "user") {
-                                        router.push("/user/dashboard");
-                                } else {
+                                Cookies.set('token', response.token, {
+                                  expires: 7,
+                                  path: '/', 
+                                });
+                                const decoded:any = jwtDecode(response.token);
+                          
+                                if (decoded.role === "admin") {
+                                  router.push("/admin/dashboard");
+                                } else if (decoded.role === "user") {
+                                  router.push("/user/dashboard");
                                 }
-                        }
+                              }
                         setTimeout(() => {
                                 props.Message(false);
                         }, 5000);
 
                 } catch (error) {
-                        console.error('Registration failed:', error);
+                        console.error('Login failed:', error);
                 }
         };
         return (

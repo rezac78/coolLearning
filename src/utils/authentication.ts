@@ -8,7 +8,6 @@ export async function checkAuthentication(
   const { req } = context;
   const cookies = cookie.parse(req.headers.cookie || '');
   const token = cookies.token;
-  
   if (!token) {
     return {
       redirect: {
@@ -17,7 +16,6 @@ export async function checkAuthentication(
       },
     };
   }
-  
   try {
     const decoded: any = jwt.verify(token, process.env.JWT_SECRET ?? '');
     

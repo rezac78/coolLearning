@@ -1,10 +1,22 @@
-import AminDash from "@/components/AdminDash/AdminDash";
-import ProtectedRoute from "@/components/Route/ProtectedRoute";
+import AdminDash from "@/components/AdminDash/AdminDash";
+import { checkAuthentication } from '../../utils/authentication';
+import { GetServerSidePropsContext } from "next";
 
-const AdminDashboard = () => (
-  <ProtectedRoute requiredRole="admin">
-    <AminDash />
-  </ProtectedRoute>
-);
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+  const decoded:any = await checkAuthentication(context);
+  if (decoded.role !== 'admin') {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {},
+  };
+};
 
-export default AdminDashboard;
+export default function AdminDashboard() {
+  return <AdminDash />
+};

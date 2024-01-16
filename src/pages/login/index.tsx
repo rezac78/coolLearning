@@ -5,7 +5,21 @@ import useTheme from "@/hooks/useTheme";
 import Alerts from "@/components/Shared/Alert/Alert";
 import LoginPart from "@/components/Login/Login";
 import PublicRoute from "@/components/Route/PublicRoute";
-
+import cookie from 'cookie';
+export const getServerSideProps = async (context: { req: any; }) => {
+        const { req } = context;
+        const cookies = cookie.parse(req.headers.cookie || '');
+        const token = cookies.token;
+        if (token) {
+                return {
+                        redirect: {
+                                destination: '/',
+                                permanent: false,
+                        },
+                };
+        }
+        return { props: {} };
+};
 export default function Login() {
         const { theme, toggleTheme } = useTheme();
         const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
