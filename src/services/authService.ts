@@ -18,3 +18,12 @@ export const LoginReq = async (LoginData: LoginData) => {
     return error.response.data;
   }
 };
+
+export const LogoutReq = async () => {
+  try {
+    const response = await axios.get("/auth/logout");
+    return response.data;
+  } catch (error: any) {
+    return error.response.data;
+  }
+};

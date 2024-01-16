@@ -2,12 +2,27 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import Button from '../Shared/Button/Button';
 import { ArrowLeftEndOnRectangleIcon } from '@heroicons/react/24/solid';
-import Cookies from 'js-cookie';
-export default function Logout() {
+import { LogoutReq } from '../../services/authService';
+interface LogoutPartProps {
+        Message: (value: boolean) => void;
+        SuccessMessage: (value: boolean) => void;
+        Success: (value: string) => void;
+}
+export default function Logout(props: LogoutPartProps) {
         const router = useRouter();
-        const logout = () => {
-                Cookies.remove('token');
-                router.push('/login');
+        const logout = async () => {
+                try {
+                        const response = await LogoutReq();
+                        props.SuccessMessage(response.success);
+                        props.Success(response.message);
+                        props.Message(true);
+                        setTimeout(() => {
+                                props.Message(false);
+                                router.push('/login');
+                        }, 3000);
+                } catch (error) {
+                        console.error('Logout failed:', error);
+                }
         };
         return (
                 <Button

@@ -4,7 +4,6 @@ import useTheme from "@/hooks/useTheme";
 import { useState } from "react";
 import Alerts from "@/components/Shared/Alert/Alert";
 import RegisterPart from "@/components/Register/register";
-import PublicRoute from "@/components/Route/PublicRoute";
 import cookie from 'cookie';
 export const getServerSideProps = async (context: { req: any; }) => {
         const { req } = context;
@@ -27,15 +26,13 @@ export default function Register() {
         const [SuccessMessage, setSuccessMessage] = useState<string>();
 
         return (
-                <PublicRoute>
-                        <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
-                                <div className="bg-white dark:bg-black flex flex-col min-h-screen">
-                                        <Header toggleTheme={toggleTheme} currentTheme={theme} />
-                                        {showSuccessMessage && <Alerts Message={SuccessMessage} type={numberSuccessMessage} />}
-                                        <RegisterPart Message={setShowSuccessMessage} SuccessMessage={setNumberSuccessMessage} Success={setSuccessMessage} />
-                                        <Footer />
-                                </div>
+                <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
+                        <div className="bg-white dark:bg-black flex flex-col min-h-screen">
+                                <Header toggleTheme={toggleTheme} currentTheme={theme} />
+                                {showSuccessMessage && <Alerts Message={SuccessMessage} type={numberSuccessMessage} />}
+                                <RegisterPart Message={setShowSuccessMessage} SuccessMessage={setNumberSuccessMessage} Success={setSuccessMessage} />
+                                <Footer />
                         </div>
-                </PublicRoute>
+                </div>
         )
 }

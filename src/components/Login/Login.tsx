@@ -8,7 +8,6 @@ import Links from "@/components/Shared/Link/Link";
 import { LoginReq } from '../../services/authService';
 import { useRouter } from "next/router";
 import { jwtDecode } from "jwt-decode"
-import Cookies from 'js-cookie';
 interface LoginPartProps {
         Message: (value: boolean) => void;
         SuccessMessage: (value: boolean) => void;
@@ -26,12 +25,7 @@ export default function LoginPart(props: LoginPartProps) {
                         props.Success(response.message);
                         props.Message(true);
                         if (response.token) {
-                                Cookies.set('token', response.token, {
-                                  expires: 7,
-                                  path: '/', 
-                                });
                                 const decoded:any = jwtDecode(response.token);
-                          
                                 if (decoded.role === "admin") {
                                   router.push("/admin/dashboard");
                                 } else if (decoded.role === "user") {

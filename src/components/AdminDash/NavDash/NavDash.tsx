@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Disclosure } from '@headlessui/react'
 import { Bars3Icon, ArrowLeftEndOnRectangleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { navigation } from "../../../Event/Event"
@@ -6,12 +6,17 @@ import ImagePart from '@/components/Shared/ImgPart/Image'
 import Links from '@/components/Shared/Link/Link';
 import Button from '@/components/Shared/Button/Button';
 import Logout from '@/components/Logout/Logout';
+import Alerts from '@/components/Shared/Alert/Alert';
 interface NavDashProps {
         open: boolean;
 }
 export default function NavDash({ open }: NavDashProps) {
+        const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
+        const [numberSuccessMessage, setNumberSuccessMessage] = useState<boolean>();
+        const [SuccessMessage, setSuccessMessage] = useState<string>();
         return (
                 <>
+                        {showSuccessMessage && <Alerts Message={SuccessMessage} type={numberSuccessMessage} />}
                         <div className="flex h-16 items-center justify-between">
                                 <div className="flex items-center">
                                         <div className="flex-shrink-0">
@@ -31,7 +36,7 @@ export default function NavDash({ open }: NavDashProps) {
                                 </div>
                                 <div className="hidden md:block">
                                         <div className="ml-4 flex items-center md:ml-6">
-                                               <Logout/>
+                                                <Logout Message={setShowSuccessMessage} SuccessMessage={setNumberSuccessMessage} Success={setSuccessMessage} />
                                         </div>
                                 </div>
                                 <div className="-mr-2 flex md:hidden">

@@ -3,8 +3,12 @@ import { checkAuthentication } from '../../utils/authentication';
 import { GetServerSidePropsContext } from "next";
 
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  const decoded:any = await checkAuthentication(context);
-  if (decoded.role !== 'admin') {
+  const result: any = await checkAuthentication(context);
+  if ('redirect' in result) {
+    return result;
+  }
+  const { user } = result.props;
+  if (user.role !== 'admin') {
     return {
       redirect: {
         destination: '/',
