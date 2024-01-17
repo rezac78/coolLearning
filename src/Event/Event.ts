@@ -64,6 +64,10 @@ export interface InputFormChapter {
   LabelName: string;
   type: string;
 }
+export interface TableHead {
+  id: number;
+  Title: string;
+}
 export const navbar: Navbar[] = [
   { id: 1, name: "Home", Link: "/" },
   { id: 2, name: "Courses", Link: "/courses" },
@@ -161,10 +165,9 @@ export const InputLogin: InputLogin[] = [
 
 export const navigation: Navigation[] = [
   { id: 1, name: "Dashboard", href: "/admin/dashboard" },
-  { id: 2, name: "Course", href: "/admin/course"},
-  { id: 3, name: "Blog", href: "/admin/blog"},
+  { id: 2, name: "Course", href: "/admin/course" },
+  { id: 3, name: "Blog", href: "/admin/blog" },
 ];
-
 
 export const InputForm: InputForm[] = [
   {
@@ -248,5 +251,70 @@ export const InputFormChapter: InputFormChapter[] = [
     LabelName: "Video URL",
     type: "text",
   },
+];
 
+export const TableHead: TableHead[] = [
+  {
+    id: 1,
+    Title: "Title",
+  },
+  {
+    id: 2,
+    Title: "Duration",
+  },
+  {
+    id: 3,
+    Title: "Course Type",
+  },
+  {
+    id: 4,
+    Title: "Prerequisites",
+  },
+  {
+    id: 5,
+    Title: "Course Language",
+  },
+  {
+    id: 6,
+    Title: "Poster",
+  },
+  {
+    id: 7,
+    Title: "Description",
+  },
+  {
+    id: 8,
+    Title: "Course Photo",
+  },
+  {
+    id: 9,
+    Title: "Instructor Name",
+  },
+  {
+    id: 10,
+    Title: "Instructor Scope",
+  },
+  {
+    id: 11,
+    Title: "Actions",
+  }
+];
+
+export const TableHeadChapter: TableHead[] = [
+  {
+    id: 1,
+    Title: "Name",
+  },
+  {
+    id: 2,
+    Title: "Description",
+  },
+  {
+    id: 3,
+    Title: "Video URL",
+  },
+  {
+    id: 4,
+    Title: "Actions",
+  }
 ];

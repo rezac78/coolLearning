@@ -5,10 +5,11 @@ interface LinkProps {
         Title?: string;
         type: string;
         children?: React.ReactNode;
+        target?: string;
 }
 export default function Links(props: LinkProps) {
         return (
-                <Link className={props.className} href={props.Href}>
+                <Link target={props.target ? "_blank" : undefined} className={props.className} href={props.Href}>
                         {props.type === "icon" ? props.children : props.Title}
                 </Link>
         )

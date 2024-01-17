@@ -11,13 +11,15 @@ export interface LoginData {
   password: string;
 }
 
-interface Chapter {
+export interface Chapter {
+  _id: string;
   name: string;
   description: string;
   videoUrl: string;
 }
 
 export interface Course {
+  _id: string;
   title: string;
   duration: string;
   courseType: string;
