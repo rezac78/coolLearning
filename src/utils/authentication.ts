@@ -17,10 +17,11 @@ export async function checkAuthentication(
   }
   try {
     const decoded: any = jwt.verify(token, process.env.JWT_SECRET ?? "");
+    const userRole = decoded.role;
     if (redirectIfAuthenticated) {
       return { redirect: { destination: "/", permanent: false } };
     }
-    return { props: { user: decoded } };
+    return { props: { user: decoded, userRole } };
   } catch (err) {
     return {
       redirect: {

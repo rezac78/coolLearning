@@ -6,10 +6,10 @@ import ImagePart from "../Shared/ImgPart/Image";
 import useSearch from "@/hooks/useSearch";
 import Links from "../Shared/Link/Link";
 import Button from "../Shared/Button/Button";
-
 interface HeaderProps {
         currentTheme: string;
         toggleTheme: () => void;
+        Role: string | null;
 }
 export default function Header(props: HeaderProps) {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -49,9 +49,11 @@ export default function Header(props: HeaderProps) {
                                                                         <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
                                                                 </Button>
                                                         ) : (
-                                                                <Links type="icon" Href={e.Link} key={e.id} className="mr-4" aria-label={e.name}>
-                                                                        <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
-                                                                </Links>
+                                                                <>
+                                                                        <Links type="icon" Href={props.Role === 'admin' ? '/admin/dashboard' : props.Role === 'user' ? '/user/dashboard' : e.Link} key={e.id} className="mr-4" aria-label={e.name}>
+                                                                                <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
+                                                                        </Links>
+                                                                </>
                                                         )
                                                 );
                                         })}

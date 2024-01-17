@@ -1,7 +1,7 @@
 import {
   MagnifyingGlassIcon,
   ShoppingCartIcon,
-  ArrowLeftEndOnRectangleIcon,
+  UserIcon,
 } from "@heroicons/react/24/solid";
 
 export interface Navbar {
@@ -74,7 +74,7 @@ export const navbar: Navbar[] = [
 export const navbarIcons: NavbarIcons[] = [
   { id: 1, name: "Search", icon: MagnifyingGlassIcon, Link: "#" },
   { id: 2, name: "Shopping", icon: ShoppingCartIcon, Link: "#" },
-  { id: 3, name: "Auth", icon: ArrowLeftEndOnRectangleIcon, Link: "/register" },
+  { id: 3, name: "Auth", icon: UserIcon, Link: "/login" },
 ];
 
 export const Questions: QuestionsSchema[] = [
