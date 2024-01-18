@@ -1,6 +1,7 @@
 import { Chapter } from "@/types/auth";
 import Button from "../Button/Button";
 import ImagePart from "../ImgPart/Image";
+import { useRouter } from "next/router";
 interface CardProps {
         keyPart: number;
         instructorName: string;
@@ -14,8 +15,10 @@ interface CardProps {
         chapters: Chapter[];
         userBy: string;
         type: string;
+        LinkId: string;
 }
 export default function Card(props: CardProps) {
+        const router = useRouter();
         return (
                 <div key={props.keyPart} className="group/item border-y-4 border-dark-bg-border dark:border-light-bg-border p-1 max-w-72 sm:max-w-80 transition duration-700 rounded overflow-hidden shadow-lg hover:-translate-y-6">
                         <div className="relative">
@@ -32,13 +35,13 @@ export default function Card(props: CardProps) {
                         <div className="px-4 py-4">
                                 <div className="font-bold text-sm sm:text-base text-light-color-Font dark:text-dark-color-Font mb-2">{props.title}</div>
                                 <p className="text-light-color-Font dark:text-dark-color-Font text-xs">{props.description}</p>
-                                <Button className="w-24 mt-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700" Title="Continue" Type={""} />
+                                <Button Click={() => router.push(`/courses/${props.LinkId}`)} className="w-24 mt-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700" Title="Continue" Type={""} />
                         </div>
                         <div className="border-t border-gray-200 px-4 py-3">
                                 <div className="flex justify-between text-xs text-light-color-Font dark:text-dark-color-Font">
                                         <span>{props.userBy} People</span>
                                         <span>{props.duration} Hours</span>
-                                        <span>{props.chapters.length} Seasons</span>
+                                        {/* <span>{props.chapters.length} Seasons</span> */}
                                 </div>
                         </div>
                 </div>
