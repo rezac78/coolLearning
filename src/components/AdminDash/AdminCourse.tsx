@@ -2,7 +2,6 @@ import { Disclosure } from '@headlessui/react'
 import NavDash from './NavDash/NavDash'
 import HeaderDash from './HeaderDash/HeaderDash'
 import Dashboard from './Dashboard/Dashboard'
-import { useState } from 'react';
 import { Course } from '../../types/auth';
 interface AdminCourseProps {
         coursesData: Course[];

@@ -19,10 +19,10 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
         }
         const coursesData = await CourseAllData();
         return {
-                props: { coursesData },
+                props: { coursesData: coursesData.data },
         };
 };
 
 export default function Course({ coursesData }: { coursesData: Course[] }) {
-        return <AdminCourse coursesData={coursesData.data} />;
+        return <AdminCourse coursesData={coursesData} />;
 }

@@ -5,8 +5,16 @@ import { Course, Chapter } from '../../../types/auth';
 interface TableProps {
         coursesData: Course[];
         onCourseDelete: (courseId: string) => void;
+        onChapterDelete: (courseId: string, chapterId: string) => void;
 }
-export default function Table({ coursesData, onCourseDelete }: TableProps) {
+export default function Table({ coursesData, onCourseDelete, onChapterDelete }: TableProps) {
+        if (coursesData.length === 0) {
+                return (
+                        <div className="text-center my-4">
+                                <p className="text-lg text-gray-500">No courses available.</p>
+                        </div>
+                );
+        }
         return (
                 <>
                         <table className="min-w-full divide-y divide-gray-200">
@@ -43,21 +51,32 @@ export default function Table({ coursesData, onCourseDelete }: TableProps) {
                                         </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
-                                        {coursesData.flatMap((course: any) => course.chapters.map((chapter: any, index: any) => (
-                                                <tr key={index}>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{chapter.name}</td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{chapter.description}</td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                                <Links target="_blank" className="text-blue-600 hover:text-blue-800" Href={chapter.videoUrl} type={"icon"}>
-                                                                        View Video
-                                                                </Links>
-                                                        </td>
-                                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                                <Links className="text-indigo-600 hover:text-indigo-900 mr-4" Href='#' type={"icon"}>Edit</Links>
-                                                                <DeleteButton onDelete={() => onCourseDelete(course._id)} />
-                                                        </td>
-                                                </tr>
-                                        )))}
+                                        {coursesData.flatMap((course: any) => (
+                                                <>
+                                                        {course.chapters.length > 0 ? (
+                                                                course.chapters.map((chapter: any, index: any) => (
+                                                                        <tr key={index}>
+                                                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{chapter.name}</td>
+                                                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{chapter.description}</td>
+                                                                                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                                                        <Links target="_blank" className="text-blue-600 hover:text-blue-800" Href={chapter.videoUrl} type={"icon"}>
+                                                                                                View Video
+                                                                                        </Links>
+                                                                                </td>
+                                                                                <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                                                                        <Links className="text-indigo-600 hover:text-indigo-900 mr-4" Href='#' type={"icon"}>Edit</Links>
+                                                                                        <DeleteButton onDelete={() => onChapterDelete(course._id, chapter._id)} />
+                                                                                </td>
+                                                                        </tr>
+                                                                ))
+                                                        ) : (
+                                                                <tr>
+                                                                        <td colSpan={TableHead.length} className="text-center text-gray-500">No chapters available for this course.</td>
+                                                                </tr>
+                                                        )}
+
+                                                </>
+                                        ))}
                                 </tbody>
                         </table>
                 </>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Table from '@/components/Shared/Table/Table';
 import { Course } from '../../../types/auth';
-import { CourseDeletedData } from '@/services/createCourseService';
+import { CourseDeletedData, CourseDeletedChapter } from '@/services/createCourseService';
 import Alerts from '@/components/Shared/Alert/Alert';
 
 
@@ -29,11 +29,33 @@ export default function Dashboard({ initialCoursesData }: DashboardProps) {
                 }
                 setTimeout(() => setShowSuccessMessage(false), 5000);
         };
-
+        const deleteChapter = async (courseId: string, chapterId: string) => {
+                try {
+                        const response = await CourseDeletedChapter(courseId, chapterId);
+                        const updatedCourses = coursesData.map(course => {
+                                if (course._id === courseId) {
+                                        return {
+                                                ...course,
+                                                chapters: course.chapters.filter(chapter => chapter._id !== chapterId)
+                                        };
+                                }
+                                return course;
+                        });
+                        setCoursesData(updatedCourses);
+                        setShowSuccessMessage(true);
+                        setNumberSuccessMessage(response.success);
+                        setSuccessMessage(response.message || 'Course deleted successfully');
+                } catch (error) {
+                        console.error('Error deleting chapter', error);
+                        setShowSuccessMessage(true);
+                        setNumberSuccessMessage(false);
+                        setSuccessMessage('Failed to delete the chapters');
+                }
+        };
         return (
                 <div className="overflow-x-auto">
                         {showSuccessMessage && <Alerts Message={SuccessMessage} type={numberSuccessMessage} />}
-                        <Table coursesData={coursesData} onCourseDelete={deleteCourse} />
+                        <Table coursesData={coursesData} onCourseDelete={deleteCourse} onChapterDelete={deleteChapter} />
                 </div>
         );
 }

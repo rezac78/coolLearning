@@ -2,7 +2,6 @@
 import React from 'react';
 import Button from '../Button/Button';
 import { TrashIcon } from "@heroicons/react/24/solid";
-
 interface DeleteButtonProps {
         onDelete: () => void;
 }
