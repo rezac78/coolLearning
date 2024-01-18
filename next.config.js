@@ -7,6 +7,9 @@ const nextConfig =withSourceMaps({
     config.resolve.alias["~"] = path.resolve(__dirname, "src/");
     return config;
   },
+  images: {
+    domains: ['lh3.googleusercontent.com'],
+},
 });
 
 module.exports = nextConfig;

@@ -4,8 +4,11 @@ import AllCourse from "@/components/AllCourse";
 import useTheme from "@/hooks/useTheme";
 import { GetServerSidePropsContext } from "next";
 import { checkAuthentication } from "@/utils/authentication";
+import { CourseAllData } from "@/services/createCourseService";
+import { Course } from "@/types/auth";
 interface CoursesProps {
         role: string | null;
+        coursesData:Course[];
 }
 export default function Courses(props: CoursesProps) {
         const { theme, toggleTheme } = useTheme();
@@ -13,7 +16,7 @@ export default function Courses(props: CoursesProps) {
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">
                                 <Header Role={props.role} toggleTheme={toggleTheme} currentTheme={theme} />
-                                <AllCourse />
+                                <AllCourse CourseData={props.coursesData} />
                                 <Footer />
                         </div>
                 </div>
@@ -22,5 +25,6 @@ export default function Courses(props: CoursesProps) {
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
         const result: any = await checkAuthentication(context);
         const role = result.props ? result.props.userRole : null;
-        return { props: { role } };
+        const coursesData = await CourseAllData();
+        return { props: { role, coursesData: coursesData.data } };
 };

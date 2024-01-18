@@ -25,7 +25,7 @@ export const courseSchema = Yup.object().shape({
   courseType: Yup.string().required("Course type is required"),
   prerequisites: Yup.string().required("Prerequisites are required"),
   courseLanguage: Yup.string().required("Course language is required"),
-  poster: Yup
+  instructorPoster: Yup
     .string()
     .url("Enter a valid URL")
     .required("Poster URL is required"),

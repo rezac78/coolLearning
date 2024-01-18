@@ -25,7 +25,7 @@ export interface Course {
   courseType: string;
   prerequisites: string;
   courseLanguage: string;
-  poster: string;
+  instructorPoster: string;
   description: string;
   coursePhoto: string;
   instructorName: string;

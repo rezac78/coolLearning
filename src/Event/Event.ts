@@ -30,6 +30,11 @@ export interface RecentPosts {
   writerName: string;
   imgUrl: string;
   Title: string;
+  PeopleCount: string;
+  CourseHours: string;
+  SeasonsCount: string;
+  Description: string;
+  Tag: string;
 }
 
 export interface InputRegister {
@@ -106,18 +111,36 @@ export const RecentData: RecentPosts[] = [
     writerName: "hadi Sabzevari",
     imgUrl: "/success.png",
     Title: "Choosing the best programming field",
+    Description:
+      "Comprehensive learning of the Python programming language along with free course updates",
+    PeopleCount: "700",
+    CourseHours: "500",
+    SeasonsCount: "52",
+    Tag: "programing",
   },
   {
     id: 2,
     writerName: "hadi Sabzevari",
     imgUrl: "/success.png",
     Title: "Choosing the best programming field",
+    Description:
+      "Comprehensive learning of the Python programming language along with free course updates",
+    PeopleCount: "700",
+    CourseHours: "500",
+    SeasonsCount: "52",
+    Tag: "programing",
   },
   {
     id: 3,
     writerName: "hadi Sabzevari",
     imgUrl: "/success.png",
     Title: "Choosing the best programming field",
+    Description:
+      "Comprehensive learning of the Python programming language along with free course updates",
+    PeopleCount: "700",
+    CourseHours: "500",
+    SeasonsCount: "52",
+    Tag: "programing",
   },
 ];
 
@@ -297,7 +320,7 @@ export const TableHead: TableHead[] = [
   {
     id: 11,
     Title: "Actions",
-  }
+  },
 ];
 
 export const TableHeadChapter: TableHead[] = [
@@ -316,5 +339,5 @@ export const TableHeadChapter: TableHead[] = [
   {
     id: 4,
     Title: "Actions",
-  }
+  },
 ];
