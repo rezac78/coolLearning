@@ -30,7 +30,26 @@ export const CourseDeletedData = async (itemId: string) => {
 
 export const CourseDeletedChapter = async (itemId: string, itemId2: string) => {
   try {
-    const response = await axios.delete(`/courses/${itemId}/chapter/${itemId2}`);
+    const response = await axios.delete(
+      `/courses/${itemId}/chapter/${itemId2}`
+    );
+    return response.data;
+  } catch (error: any) {
+    return error.response.data;
+  }
+};
+export const CourseData = async (itemId: string | undefined) => {
+  try {
+    const response = await axios.get(`/courses/${itemId}`);
+    return response.data;
+  } catch (error: any) {
+    return error.response.data;
+  }
+};
+
+export const CourseDataUpdate = async (itemId: string, CourseData: Course) => {
+  try {
+    const response = await axios.put(`/courses/${itemId}`, CourseData);
     return response.data;
   } catch (error: any) {
     return error.response.data;

@@ -1,7 +1,8 @@
 import { TableHead, TableHeadChapter } from "../../../Event/Event"
 import DeleteButton from "../ButtonDelete/ButtonDelete";
+import { Course } from '../../../types/auth';
 import Links from "../Link/Link";
-import { Course, Chapter } from '../../../types/auth';
+import { PencilIcon } from "@heroicons/react/24/solid";
 interface TableProps {
         coursesData: Course[];
         onCourseDelete: (courseId: string) => void;
@@ -34,8 +35,10 @@ export default function Table({ coursesData, onCourseDelete, onChapterDelete }: 
                                                                 }
                                                                 return null;
                                                         })}
-                                                        <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                                <Links className="text-indigo-600 hover:text-indigo-900 mr-4" Href='#' type={"icon"}>Edit</Links>
+                                                        <td className="px-6 py-4 whitespace-nowrap flex text-sm font-medium">
+                                                                <Links className="text-blue-600 hover:text-blue-800 p-2" Href={`/admin/update/course/${course._id}`} type={"icon"}>
+                                                                        <PencilIcon width={20} height={20} />
+                                                                </Links>
                                                                 <DeleteButton onDelete={() => onCourseDelete(course._id)} />
                                                         </td>
                                                 </tr>
@@ -63,8 +66,10 @@ export default function Table({ coursesData, onCourseDelete, onChapterDelete }: 
                                                                                                 View Video
                                                                                         </Links>
                                                                                 </td>
-                                                                                <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                                                        <Links className="text-indigo-600 hover:text-indigo-900 mr-4" Href='#' type={"icon"}>Edit</Links>
+                                                                                <td className="px-6 py-4 whitespace-nowrap flex text-sm font-medium">
+                                                                                        <Links className="text-blue-600 hover:text-blue-800 p-2" Href={`/admin/update/course/${course._id}`} type={"icon"}>
+                                                                                                <PencilIcon width={20} height={20} />
+                                                                                        </Links>
                                                                                         <DeleteButton onDelete={() => onChapterDelete(course._id, chapter._id)} />
                                                                                 </td>
                                                                         </tr>
