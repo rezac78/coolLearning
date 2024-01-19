@@ -1,6 +1,9 @@
-import { RecentData } from '@/Event/Event';
 import Card from '../Shared/Card';
-export default function Recent() {
+import { Course } from '@/types/auth';
+interface RecentProps {
+        CourseData: Course[];
+}
+export default function Recent(props:RecentProps) {
         return (
                 <>
                         <div className="w-11/12	md:w-3/6 mx-auto text-center py-6">
@@ -10,8 +13,8 @@ export default function Recent() {
                                 </p>
                         </div>
                         <div className="w-full md:w-5/6 mx-auto mb-5 flex flex-wrap justify-center gap-4">
-                                {RecentData.map((e) => (
-                                        <Card keyPart={e.id} ImagePoster={e.imgUrl} TitlePoster={e.writerName} Title={e.Title} type="Recent" />
+                                {props.CourseData.slice(0, 3).map((e, i) => (
+                                        <Card LinkId={e._id} keyPart={i} userBy={e.peopleNumber} chapters={e.chapters} duration={e.duration} description={e.description} title={e.title} courseType={e.courseType} instructorPoster={e.instructorPoster} instructorName={e.instructorName} instructorScope={e.instructorScope} coursePhoto={e.coursePhoto}  type="Recent" />
                                 ))}
                         </div>
                 </>

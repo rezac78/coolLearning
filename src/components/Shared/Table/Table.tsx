@@ -22,7 +22,7 @@ export default function Table({ coursesData, onCourseDelete, onChapterDelete }: 
                                 <thead className="bg-gray-200">
                                         <tr>
                                                 {TableHead.map((e, i) => (
-                                                        <th key={i} scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{e.Title}</th>
+                                                        <th key={i} scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">{e.Title}</th>
                                                 ))}
                                         </tr>
                                 </thead>
@@ -31,7 +31,7 @@ export default function Table({ coursesData, onCourseDelete, onChapterDelete }: 
                                                 <tr key={course._id}>
                                                         {Object.keys(course).map(key => {
                                                                 if (key !== '_id' && key !== 'chapters' && key !== '__v') {
-                                                                        return <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{course[key]}</td>;
+                                                                        return <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 truncate w-32">{course[key]}</td>;
                                                                 }
                                                                 return null;
                                                         })}

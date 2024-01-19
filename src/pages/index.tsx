@@ -7,8 +7,11 @@ import Introduction from "@/components/introduction";
 import useTheme from "@/hooks/useTheme";
 import { checkAuthentication } from '../utils/authentication';
 import { GetServerSidePropsContext } from "next";
+import { CourseAllData } from "@/services/createCourseService";
+import { Course } from "@/types/auth";
 interface HomeProps {
         role: string | null;
+        coursesData: Course[];
 }
 export default function Home(props: HomeProps) {
         const { theme, toggleTheme } = useTheme();
@@ -18,7 +21,7 @@ export default function Home(props: HomeProps) {
                                 <Header Role={props.role} toggleTheme={toggleTheme} currentTheme={theme} />
                                 <Introduction />
                                 <QuestionsPart />
-                                <Recent />
+                                <Recent CourseData={props.coursesData} />
                                 <Footer />
                         </div>
                 </div>
@@ -28,6 +31,6 @@ export default function Home(props: HomeProps) {
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
         const result: any = await checkAuthentication(context);
         const role = result.props ? result.props.userRole : null;
-
-        return { props: { role } };
+        const coursesData = await CourseAllData();
+        return { props: { role, coursesData: coursesData.data } };
 };

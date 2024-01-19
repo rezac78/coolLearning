@@ -23,10 +23,13 @@ export interface Course {
   title: string;
   duration: string;
   courseType: string;
+  coursePrice: string;
+  peopleNumber: string;
   prerequisites: string;
   courseLanguage: string;
   instructorPoster: string;
   description: string;
+  longDescription: string;
   coursePhoto: string;
   instructorName: string;
   instructorScope: string;

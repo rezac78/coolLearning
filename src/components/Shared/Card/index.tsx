@@ -41,7 +41,7 @@ export default function Card(props: CardProps) {
                                 <div className="flex justify-between text-xs text-light-color-Font dark:text-dark-color-Font">
                                         <span>{props.userBy} People</span>
                                         <span>{props.duration} Hours</span>
-                                        {/* <span>{props.chapters.length} Seasons</span> */}
+                                        <span>{props.chapters.length} Seasons</span>
                                 </div>
                         </div>
                 </div>

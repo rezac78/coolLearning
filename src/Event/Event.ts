@@ -2,6 +2,11 @@ import {
   MagnifyingGlassIcon,
   ShoppingCartIcon,
   UserIcon,
+  UserGroupIcon,
+  ClockIcon,
+  VideoCameraIcon,
+  BookOpenIcon,
+  GlobeAltIcon,
 } from "@heroicons/react/24/solid";
 
 export interface Navbar {
@@ -72,6 +77,13 @@ export interface InputFormChapter {
 export interface TableHead {
   id: number;
   Title: string;
+}
+export interface LeftSideCourse {
+  id: number;
+  Label: string;
+  color: string;
+  idPart: string;
+  icon: any;
 }
 export const navbar: Navbar[] = [
   { id: 1, name: "Home", Link: "/" },
@@ -213,42 +225,60 @@ export const InputForm: InputForm[] = [
   },
   {
     id: 4,
+    IdName: "coursePrice",
+    LabelName: "Course Price",
+    type: "text",
+  },
+  {
+    id: 5,
+    IdName: "peopleNumber",
+    LabelName: "People Number",
+    type: "text",
+  },
+  {
+    id: 6,
     IdName: "prerequisites",
     LabelName: "Prerequisites",
     type: "text",
   },
   {
-    id: 5,
+    id: 7,
     IdName: "courseLanguage",
     LabelName: "Course Language",
     type: "text",
   },
   {
-    id: 6,
+    id: 8,
     IdName: "poster",
     LabelName: "Poster URL",
     type: "url",
   },
   {
-    id: 7,
+    id: 9,
     IdName: "description",
     LabelName: "Course Description",
     type: "text",
   },
   {
-    id: 8,
+    id: 10,
+    IdName: "longDescription",
+    LabelName: "Long Description",
+    type: "text",
+  },
+  {
+    id: 11,
     IdName: "coursePhoto",
     LabelName: "Course Photo URL",
     type: "url",
   },
   {
-    id: 9,
+    id: 12,
     IdName: "instructorName",
     LabelName: "Instructor's Name",
     type: "text",
   },
   {
-    id: 10,
+    id: 13,
     IdName: "instructorScope",
     LabelName: "Instructor's Scope",
     type: "text",
@@ -291,34 +321,46 @@ export const TableHead: TableHead[] = [
   },
   {
     id: 4,
-    Title: "Prerequisites",
+    Title: "Course Price",
   },
   {
     id: 5,
-    Title: "Course Language",
+    Title: "People Number",
   },
   {
     id: 6,
-    Title: "Poster",
+    Title: "Prerequisites",
   },
   {
     id: 7,
-    Title: "Description",
+    Title: "Course Language",
   },
   {
     id: 8,
-    Title: "Course Photo",
+    Title: "Poster",
   },
   {
     id: 9,
-    Title: "Instructor Name",
+    Title: "Description",
   },
   {
     id: 10,
-    Title: "Instructor Scope",
+    Title: "Long Description",
   },
   {
     id: 11,
+    Title: "Course Photo",
+  },
+  {
+    id: 12,
+    Title: "Instructor Name",
+  },
+  {
+    id: 13,
+    Title: "Instructor Scope",
+  },
+  {
+    id: 14,
     Title: "Actions",
   },
 ];
@@ -339,5 +381,43 @@ export const TableHeadChapter: TableHead[] = [
   {
     id: 4,
     Title: "Actions",
+  },
+];
+
+export const LeftSideCourse: LeftSideCourse[] = [
+  {
+    id: 1,
+    Label: "Students:",
+    color: "text-blue-500",
+    icon: UserGroupIcon,
+    idPart: "peopleNumber",
+  },
+  {
+    id: 2,
+    Label: "Chapters:",
+    color: "text-green-500",
+    icon: VideoCameraIcon,
+    idPart: "length",
+  },
+  {
+    id: 3,
+    Label: "Duration:",
+    color: "text-red-500",
+    icon: ClockIcon,
+    idPart: "duration",
+  },
+  {
+    id: 4,
+    Label: "Prerequisite:",
+    color: "text-purple-500",
+    icon: BookOpenIcon,
+    idPart: "prerequisites",
+  },
+  {
+    id: 5,
+    Label: "Language:",
+    color: "text-yellow-500",
+    icon: GlobeAltIcon,
+    idPart: "courseLanguage",
   },
 ];
