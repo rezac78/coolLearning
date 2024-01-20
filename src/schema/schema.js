@@ -52,3 +52,8 @@ export const courseSchema = Yup.object().shape({
     })
   ),
 });
+
+export const CommentFormSchema = Yup.object().shape({
+  name: Yup.string(),
+  comment: Yup.string().required("comment is required"),
+});

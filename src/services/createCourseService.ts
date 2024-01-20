@@ -1,5 +1,5 @@
 import axios from "../utils/axiosInstance";
-import { Course } from "../types/auth";
+import { Course, CommentForm } from "../types/auth";
 
 export const CourseReq = async (CourseData: Course) => {
   try {
@@ -9,7 +9,6 @@ export const CourseReq = async (CourseData: Course) => {
     return error.response.data;
   }
 };
-
 export const CourseAllData = async () => {
   try {
     const response = await axios.get("/courses");
@@ -18,7 +17,6 @@ export const CourseAllData = async () => {
     return error.response.data;
   }
 };
-
 export const CourseDeletedData = async (itemId: string) => {
   try {
     const response = await axios.delete(`/courses/${itemId}`);
@@ -27,7 +25,6 @@ export const CourseDeletedData = async (itemId: string) => {
     return error.response.data;
   }
 };
-
 export const CourseDeletedChapter = async (itemId: string, itemId2: string) => {
   try {
     const response = await axios.delete(
@@ -46,10 +43,25 @@ export const CourseData = async (itemId: string | undefined) => {
     return error.response.data;
   }
 };
-
 export const CourseDataUpdate = async (itemId: string, CourseData: Course) => {
   try {
     const response = await axios.put(`/courses/${itemId}`, CourseData);
+    return response.data;
+  } catch (error: any) {
+    return error.response.data;
+  }
+};
+export const CourseComments = async (data: CommentForm, courseId: string) => {
+  try {
+    const response = await axios.post(`/courses/comments`, { data, courseId });
+    return response.data;
+  } catch (error: any) {
+    return error.response.data;
+  }
+};
+export const getAllCourseComments = async (courseId: string) => {
+  try {
+    const response = await axios.get(`/courses/comments/${courseId}`);
     return response.data;
   } catch (error: any) {
     return error.response.data;

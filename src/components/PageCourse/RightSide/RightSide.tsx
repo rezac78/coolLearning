@@ -1,5 +1,8 @@
+import CommentForm from "@/components/Shared/CommentForm/CommentForm";
 import ImagePart from "@/components/Shared/ImgPart/Image";
+import ShowComment from "@/components/Shared/ShowComment/ShowComment";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/16/solid";
+import { useState } from "react";
 
 interface RightSideProps {
         SrcImage: string;
@@ -7,8 +10,14 @@ interface RightSideProps {
         Chapters: any;
         openChapterIndex: any;
         Click: any;
+        courseId: string;
+        CommentData: any;
 }
 export default function RightSide(props: RightSideProps) {
+        const [comments, setComments] = useState(props.CommentData || []);
+        const addComment = (newComment:any) => {
+                setComments([newComment, ...comments]);
+        };
         return (
                 <>
                         <div className="shadow-lg rounded-lg overflow-hidden">
@@ -39,6 +48,8 @@ export default function RightSide(props: RightSideProps) {
                                                 )}
                                         </div>
                                 ))}
+                                <ShowComment CommentData={comments} />
+                                <CommentForm courseId={props.courseId} onNewComment={addComment} />
                         </div>
                 </>
         )

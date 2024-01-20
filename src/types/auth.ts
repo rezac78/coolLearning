@@ -17,6 +17,11 @@ export interface Chapter {
   description: string;
   videoUrl: string;
 }
+export interface CommentForm {
+  _id: string;
+  name: string;
+  comment: string;
+}
 
 export interface Course {
   _id: string;
