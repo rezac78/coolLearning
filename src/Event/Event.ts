@@ -249,7 +249,7 @@ export const InputForm: InputForm[] = [
   },
   {
     id: 8,
-    IdName: "poster",
+    IdName: "coursePhoto",
     LabelName: "Poster URL",
     type: "url",
   },
@@ -267,8 +267,8 @@ export const InputForm: InputForm[] = [
   },
   {
     id: 11,
-    IdName: "coursePhoto",
-    LabelName: "Course Photo URL",
+    IdName: "instructorPoster",
+    LabelName: "Instructor Poster URL",
     type: "url",
   },
   {

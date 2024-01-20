@@ -20,7 +20,9 @@ export default function NavDash({ open }: NavDashProps) {
                         <div className="flex h-16 items-center justify-between">
                                 <div className="flex items-center">
                                         <div className="flex-shrink-0">
-                                                <ImagePart Src="/Logo1.png" className="w-full" width={60} height={80} />
+                                                <Links Href={"/"} type={"icon"}>
+                                                        <ImagePart Src="/Logo1.png" className="w-full" width={60} height={80} />
+                                                </Links>
                                         </div>
                                         <div className="hidden md:block">
                                                 <div className="ml-10 flex items-baseline space-x-4">

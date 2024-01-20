@@ -27,26 +27,26 @@ export const courseSchema = Yup.object().shape({
   peopleNumber: Yup.string().required("Course people Number is required"),
   prerequisites: Yup.string().required("Prerequisites are required"),
   courseLanguage: Yup.string().required("Course language is required"),
-  instructorPoster: Yup
-    .string()
+  instructorPoster: Yup.string()
     .url("Enter a valid URL")
     .required("Poster URL is required"),
   description: Yup.string().required("Course description is required"),
   longDescription: Yup.string().required("Course longDescription is required"),
-  coursePhoto: Yup
-    .string()
+  coursePhoto: Yup.string()
     .url("Enter a valid URL")
     .required("Course photo URL is required"),
+    instructorPoster: Yup.string()
+    .url("Enter a valid URL")
+    .required("Course instructorPoster URL is required"),
   instructorName: Yup.string().required("Instructor's name is required"),
-  instructorScope: Yup
-    .string()
-    .required("Instructor's activity area is required"),
+  instructorScope: Yup.string().required(
+    "Instructor's activity area is required"
+  ),
   chapters: Yup.array().of(
     Yup.object().shape({
       name: Yup.string().required("Chapter name is required"),
       description: Yup.string().required("Chapter description is required"),
-      videoUrl: Yup
-        .string()
+      videoUrl: Yup.string()
         .url("Enter a valid URL")
         .required("Video URL is required"),
     })

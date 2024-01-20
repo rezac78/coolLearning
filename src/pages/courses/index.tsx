@@ -8,10 +8,11 @@ import { CourseAllData } from "@/services/createCourseService";
 import { Course } from "@/types/auth";
 interface CoursesProps {
         role: string | null;
-        coursesData:Course[];
+        coursesData: Course[];
 }
 export default function Courses(props: CoursesProps) {
         const { theme, toggleTheme } = useTheme();
+        console.log(props.role)
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">
@@ -25,6 +26,20 @@ export default function Courses(props: CoursesProps) {
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
         const result: any = await checkAuthentication(context);
         const role = result.props ? result.props.userRole : null;
-        const coursesData = await CourseAllData();
-        return { props: { role, coursesData: coursesData.data } };
+        try {
+                const coursesData = await CourseAllData();
+                if (!coursesData) {
+                        throw new Error('Failed to fetch courses data');
+                }
+                return { props: { role, coursesData: coursesData.data } };
+        } catch (error) {
+                console.error("Error in getServerSideProps:", error);
+                const originalUrl = context.resolvedUrl;
+                return {
+                        redirect: {
+                                destination: `/500?redirect=${encodeURIComponent(originalUrl)}`,
+                                permanent: false,
+                        },
+                };
+        }
 };

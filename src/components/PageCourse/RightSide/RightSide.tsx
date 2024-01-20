@@ -14,12 +14,12 @@ export default function RightSide(props: RightSideProps) {
                         <div className="shadow-lg rounded-lg overflow-hidden">
                                 <ImagePart Src={props.SrcImage} width={600} height={600} className="w-full object-cover" />
                         </div>
-                        <div className="text-gray-700 mt-4 p-4 bg-white rounded-lg shadow">
+                        <div className="text-light-color-Font dark:text-dark-color-Font mt-4 p-4 bg-light-bg-box dark:bg-dark-bg-box rounded-lg shadow">
                                 <p className="text-justify">
                                         {props.LongDescription}
                                 </p>
                         </div>
-                        <div className="mt-4 p-4 bg-white rounded-lg shadow">
+                        <div className="mt-4 p-4 bg-light-bg-box dark:bg-dark-bg-box rounded-lg shadow">
                                 <h2 className="text-xl font-semibold text-gray-700 mb-4">Seasons</h2>
                                 {props.Chapters.map((season: any, index: any) => (
                                         <div key={index} className="mb-4">
