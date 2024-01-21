@@ -1,7 +1,12 @@
-import { Disclosure} from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import NavDash from './NavDash/NavDash'
 import HeaderDash from './HeaderDash/HeaderDash'
-export default function AdminBlog() {
+import { Blog } from '@/types/auth';
+import DashboardBlog from './Dashboard/DashboardBlog';
+interface AdminBlogProps {
+        BlogData: Blog[];
+}
+export default function AdminBlog({ BlogData }: AdminBlogProps) {
         return (
                 <>
                         <div className="min-h-full">
@@ -9,14 +14,16 @@ export default function AdminBlog() {
                                         {({ open }) => (
                                                 <>
                                                         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                                                                <NavDash open={open}/>
+                                                                <NavDash open={open} />
                                                         </div>
                                                 </>
                                         )}
                                 </Disclosure>
-                                <HeaderDash Type="create" HeadTitle="Blog" HeadLink="/"/>
+                                <HeaderDash Type="create" HeadTitle="Blog" HeadLink="/admin/add-blog" />
                                 <main>
-                                        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">reza</div>
+                                        <div className="mx-auto max-w-7xl py-6 px-2 sm:px-8 lg:px-8">
+                                                <DashboardBlog initialCoursesData={BlogData} />
+                                        </div>
                                 </main>
                         </div>
                 </>

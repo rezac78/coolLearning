@@ -40,3 +40,13 @@ export interface Course {
   instructorScope: string;
   chapters: Chapter[];
 }
+
+export interface Blog {
+  _id: string;
+  subject: string;
+  tags: string;
+  description: string;
+  creatorName: string;
+  cardPhoto: string;
+  creationDate: Date;
+}

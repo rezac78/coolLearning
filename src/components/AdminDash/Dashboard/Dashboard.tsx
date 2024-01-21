@@ -9,7 +9,7 @@ interface DashboardProps {
         initialCoursesData: Course[];
 }
 
-export default function Dashboard({ initialCoursesData }: DashboardProps) {
+export default function DashboardCourse({ initialCoursesData }: DashboardProps) {
         const [coursesData, setCoursesData] = useState<Course[]>(initialCoursesData);
         const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
         const [numberSuccessMessage, setNumberSuccessMessage] = useState<boolean>();
@@ -55,7 +55,7 @@ export default function Dashboard({ initialCoursesData }: DashboardProps) {
         return (
                 <div className="overflow-x-auto">
                         {showSuccessMessage && <Alerts Message={SuccessMessage} type={numberSuccessMessage} />}
-                        <Table coursesData={coursesData} onCourseDelete={deleteCourse} onChapterDelete={deleteChapter} />
+                        <Table type="course" data={coursesData} onItemDelete={deleteCourse} onChapterDelete={deleteChapter} />
                 </div>
         );
 }

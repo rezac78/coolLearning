@@ -35,7 +35,7 @@ export const courseSchema = Yup.object().shape({
   coursePhoto: Yup.string()
     .url("Enter a valid URL")
     .required("Course photo URL is required"),
-    instructorPoster: Yup.string()
+  instructorPoster: Yup.string()
     .url("Enter a valid URL")
     .required("Course instructorPoster URL is required"),
   instructorName: Yup.string().required("Instructor's name is required"),
@@ -56,4 +56,15 @@ export const courseSchema = Yup.object().shape({
 export const CommentFormSchema = Yup.object().shape({
   name: Yup.string(),
   comment: Yup.string().required("comment is required"),
+});
+
+export const blogSchema = Yup.object().shape({
+  cardPhoto: Yup.string()
+    .url("Enter a valid URL for the card photo.")
+    .required("Card photo URL is required."),
+  creatorName: Yup.string().required("Creator name is required."),
+  creationDate: Yup.date().default(() => new Date()),
+  subject: Yup.string().required("Subject is required."),
+  tags: Yup.string().required("tags is required"),
+  description: Yup.string().required("Description is required."),
 });
