@@ -51,9 +51,9 @@ export const CourseDataUpdate = async (itemId: string, CourseData: Course) => {
     return error.response.data;
   }
 };
-export const CourseComments = async (data: CommentForm, courseId: string) => {
+export const CourseComments = async (data: CommentForm) => {
   try {
-    const response = await axios.post(`/courses/comments`, { data, courseId });
+    const response = await axios.post(`/courses/comments`, { data });
     return response.data;
   } catch (error: any) {
     return error.response.data;
@@ -62,6 +62,14 @@ export const CourseComments = async (data: CommentForm, courseId: string) => {
 export const getAllCourseComments = async (courseId: string) => {
   try {
     const response = await axios.get(`/courses/comments/${courseId}`);
+    return response.data;
+  } catch (error: any) {
+    return error.response.data;
+  }
+};
+export const ReplayComments = async (commentData: any) => {
+  try {
+    const response = await axios.post(`/courses/comments/reply`, commentData);
     return response.data;
   } catch (error: any) {
     return error.response.data;
