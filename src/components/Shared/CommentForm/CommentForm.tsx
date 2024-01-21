@@ -1,7 +1,6 @@
 import { CommentFormSchema } from '../../../schema/schema';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { CourseComments, ReplayComments } from '@/services/createCourseService';
 import { useState } from 'react';
 import Alerts from '../Alert/Alert';
 import Button from '../Button/Button';
@@ -9,6 +8,8 @@ interface CommentFormProps {
         courseId: string;
         onNewComment: (newComment: any) => void;
         parentCommentId?: string;
+        CreateComment: (commentData: any) => Promise<any>
+        ReplayComment: any;
 }
 export default function CommentForm(props: CommentFormProps) {
         const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -20,9 +21,9 @@ export default function CommentForm(props: CommentFormProps) {
         const onSubmit = async (data: any) => {
                 let response;
                 if (props.parentCommentId) {
-                        response = await ReplayComments({ ...data, courseId: props.courseId, parentCommentId: props.parentCommentId });
+                        response = await props.ReplayComment({ ...data, courseId: props.courseId, parentCommentId: props.parentCommentId });
                 } else {
-                        response = await CourseComments({ ...data, courseId: props.courseId });
+                        response = await props.CreateComment({ ...data, courseId: props.courseId });
                 }
                 if (response.success) {
                         props.onNewComment({

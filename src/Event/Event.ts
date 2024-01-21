@@ -315,6 +315,18 @@ export const InputFormBlog: InputForm[] = [
     LabelName: "Description",
     type: "text",
   },
+  {
+    id: 6,
+    IdName: "creatorPhoto",
+    LabelName: "Creator Photo",
+    type: "text",
+  },
+  {
+    id: 7,
+    IdName: "creatorScope",
+    LabelName: "Creator Scope",
+    type: "text",
+  },
 ];
 
 export const InputFormChapter: InputFormChapter[] = [
@@ -426,22 +438,30 @@ export const TableHeadBlog: TableHead[] = [
   },
   {
     id: 3,
-    Title: "Creation Date",
-  },
-  {
-    id: 4,
-    Title: "Subject",
-  },
-  {
-    id: 5,
     Title: "Tags",
   },
   {
+    id: 4,
+    Title: "Creator Photo",
+  },
+  {
+    id: 5,
+    Title: "Creation Date",
+  },
+  {
     id: 6,
-    Title: "Description",
+    Title: "Subject",
   },
   {
     id: 7,
+    Title: "Creator Scope",
+  },
+  {
+    id: 8,
+    Title: "Description",
+  },
+  {
+    id: 9,
     Title: "Actions",
   },
 ];

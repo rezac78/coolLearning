@@ -48,5 +48,7 @@ export interface Blog {
   description: string;
   creatorName: string;
   cardPhoto: string;
+  creatorPhoto: string;
+  creatorScope: string;
   creationDate: Date;
 }

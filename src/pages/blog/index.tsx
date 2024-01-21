@@ -4,8 +4,11 @@ import AllBlog from "@/components/AllBlog";
 import useTheme from "@/hooks/useTheme";
 import { GetServerSidePropsContext } from "next";
 import { checkAuthentication } from "@/utils/authentication";
+import { BlogAllData } from "@/services/createBlogService";
+import { Blog } from "@/types/auth";
 interface BlogProps {
         role: string | null;
+        blogsData: Blog[];
 }
 export default function Blog(props: BlogProps) {
         const { theme, toggleTheme } = useTheme();
@@ -13,7 +16,7 @@ export default function Blog(props: BlogProps) {
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">
                                 <Header Role={props.role} toggleTheme={toggleTheme} currentTheme={theme} />
-                                <AllBlog />
+                                <AllBlog BlogsData={props.blogsData}/>
                                 <Footer />
                         </div>
                 </div>
@@ -22,5 +25,20 @@ export default function Blog(props: BlogProps) {
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
         const result: any = await checkAuthentication(context);
         const role = result.props ? result.props.userRole : null;
-        return { props: { role } };
+        try {
+                const blogsData = await BlogAllData();
+                if (!blogsData) {
+                        throw new Error('Failed to fetch courses data');
+                }
+                return { props: { role, blogsData: blogsData.data } };
+        } catch (error) {
+                console.error("Error in getServerSideProps:", error);
+                const originalUrl = context.resolvedUrl;
+                return {
+                        redirect: {
+                                destination: `/500?redirect=${encodeURIComponent(originalUrl)}`,
+                                permanent: false,
+                        },
+                };
+        }
 };

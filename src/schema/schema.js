@@ -67,4 +67,8 @@ export const blogSchema = Yup.object().shape({
   subject: Yup.string().required("Subject is required."),
   tags: Yup.string().required("tags is required"),
   description: Yup.string().required("Description is required."),
+  creatorPhoto: Yup.string()
+  .url("Enter a valid URL for the creator photo.")
+  .required("creator photo URL is required."),
+  creatorScope: Yup.string().required("Creator Scope is required."),
 });

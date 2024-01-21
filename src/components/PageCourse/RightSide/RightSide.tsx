@@ -2,6 +2,7 @@ import CommentForm from "@/components/Shared/CommentForm/CommentForm";
 import ImagePart from "@/components/Shared/ImgPart/Image";
 import ShowComment from "@/components/Shared/ShowComment/ShowComment";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/16/solid";
+import { CourseComments, ReplayComments } from '@/services/createCourseService';
 import { useState } from "react";
 interface RightSideProps {
         SrcImage: string;
@@ -56,8 +57,8 @@ export default function RightSide(props: RightSideProps) {
                                                 )}
                                         </div>
                                 ))}
-                                <ShowComment courseId={props.courseId} CommentData={comments} onReply={addReply} />
-                                <CommentForm courseId={props.courseId} onNewComment={addComment} />
+                                <ShowComment CreateComment={CourseComments} ReplayComment={ReplayComments} courseId={props.courseId} CommentData={comments} onReply={addReply} />
+                                <CommentForm CreateComment={CourseComments} ReplayComment={ReplayComments} courseId={props.courseId} onNewComment={addComment} />
                         </div>
                 </>
         )
