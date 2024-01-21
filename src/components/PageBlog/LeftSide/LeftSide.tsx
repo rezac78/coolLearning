@@ -1,9 +1,12 @@
 import ImagePart from "@/components/Shared/ImgPart/Image";
+import Links from "@/components/Shared/Link/Link";
+import { Blog } from "@/types/auth";
 interface LeftSideProps {
         creatorName: string;
         tags: string;
-        Profile:string;
-        creatorScope:string;
+        Profile: string;
+        creatorScope: string;
+        blogsData: Blog[];
 }
 export default function LeftSide(props: LeftSideProps) {
         return (
@@ -15,13 +18,17 @@ export default function LeftSide(props: LeftSideProps) {
                         </div>
                         <div className="mt-4 text-center">
                                 <h4 className="text-md text-light-color-Font dark:text-dark-color-Font font-semibold mb-10">Last Post Title</h4>
-                                <div className="flex justify-end ">
-                                        <div className="mr-10">
-                                                <p className="text-sm font-medium text-light-color-Font dark:text-dark-color-Font">Post's Title</p>
-                                                <p className="text-sm text-gray-600">Author's Name</p>
-                                        </div>
-                                        <img src="/success.png" alt="Post Picture" className="w-16 h-16" />
-                                </div>
+                                {props.blogsData.map((e, i) => (
+                                        <Links Href={`/blog/${e._id}`} type={"icon"}>
+                                                <div key={i} className="flex justify-end ">
+                                                        <div className="mr-10">
+                                                                <p className="text-sm font-medium text-light-color-Font dark:text-dark-color-Font">{e.subject}</p>
+                                                                <p className="text-sm text-gray-600">{e.creatorName}</p>
+                                                        </div>
+                                                        <ImagePart Src={e.cardPhoto} width={500} height={500} className="w-16 h-16" />
+                                                </div>
+                                        </Links>
+                                ))}
                         </div>
                         <div className="mt-4">
                                 <p className="text-sm text-gray-600"><strong>Tags:</strong> {props.tags}</p>
