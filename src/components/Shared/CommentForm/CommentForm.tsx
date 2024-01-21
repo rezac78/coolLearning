@@ -1,13 +1,14 @@
 import { CommentFormSchema } from '../../../schema/schema';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { CourseComments } from '@/services/createCourseService';
+import { CourseComments, ReplayComments } from '@/services/createCourseService';
 import { useState } from 'react';
 import Alerts from '../Alert/Alert';
 import Button from '../Button/Button';
 interface CommentFormProps {
         courseId: string;
-        onNewComment:(newComment: any) => void
+        onNewComment: (newComment: any) => void;
+        parentCommentId?: string;
 }
 export default function CommentForm(props: CommentFormProps) {
         const { register, handleSubmit, formState: { errors }, reset } = useForm({
@@ -17,11 +18,16 @@ export default function CommentForm(props: CommentFormProps) {
         const [numberSuccessMessage, setNumberSuccessMessage] = useState<boolean>();
         const [SuccessMessage, setSuccessMessage] = useState<string>();
         const onSubmit = async (data: any) => {
-                const response = await CourseComments(data, props.courseId);
+                let response;
+                if (props.parentCommentId) {
+                        response = await ReplayComments({ ...data, courseId: props.courseId, parentCommentId: props.parentCommentId });
+                } else {
+                        response = await CourseComments({ ...data, courseId: props.courseId });
+                }
                 if (response.success) {
                         props.onNewComment({
                                 ...data,
-                                courseId:props.courseId,
+                                courseId: props.courseId,
                                 postedAt: new Date().toISOString()
                         });
                 }
@@ -54,7 +60,7 @@ export default function CommentForm(props: CommentFormProps) {
                                 />
                         </div>
                         {errors['comment'] && <p className="mt-2 text-sm text-red-600">{errors['comment']?.message}</p>}
-                        <Button Title="Submit Comment" Type={'button'} className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"/>
+                        <Button Title="Submit Comment" Type={'button'} className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" />
                 </form>
         );
 };

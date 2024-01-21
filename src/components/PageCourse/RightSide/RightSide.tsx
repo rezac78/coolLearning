@@ -3,7 +3,6 @@ import ImagePart from "@/components/Shared/ImgPart/Image";
 import ShowComment from "@/components/Shared/ShowComment/ShowComment";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/16/solid";
 import { useState } from "react";
-
 interface RightSideProps {
         SrcImage: string;
         LongDescription: string;
@@ -15,8 +14,17 @@ interface RightSideProps {
 }
 export default function RightSide(props: RightSideProps) {
         const [comments, setComments] = useState(props.CommentData || []);
-        const addComment = (newComment:any) => {
+        const addComment = (newComment: any) => {
                 setComments([newComment, ...comments]);
+        };
+        const addReply = (newReply:any) => {
+                setComments(comments.map((comment: { _id: string; replies: any; }) => {
+                        if (comment._id === newReply.parentCommentId) {
+                                const updatedReplies = comment.replies ? [...comment.replies, newReply] : [newReply];
+                                return { ...comment, replies: updatedReplies };
+                        }
+                        return comment;
+                }));
         };
         return (
                 <>
@@ -48,7 +56,7 @@ export default function RightSide(props: RightSideProps) {
                                                 )}
                                         </div>
                                 ))}
-                                <ShowComment CommentData={comments} />
+                                <ShowComment courseId={props.courseId} CommentData={comments} onReply={addReply} />
                                 <CommentForm courseId={props.courseId} onNewComment={addComment} />
                         </div>
                 </>

@@ -1,24 +1,42 @@
+import { useState } from "react";
 import ImagePart from "../ImgPart/Image";
+import CommentForm from "../CommentForm/CommentForm";
 interface ShowCommentProps {
         CommentData: any;
+        onReply: any;
+        courseId: any;
 }
 export default function ShowComment(props: ShowCommentProps) {
-        return (
-                <div>
-                        {props.CommentData.map((comment:any) => (
-                                <div key={comment._id} className="border-b border-gray-300 py-4">
-                                        <div className="flex items-start">
-                                                <ImagePart Src={"/user.png"} width={400} height={400} className={"w-10 h-10 rounded-full mr-4"}/>
-                                                <div className="flex-1">
-                                                        <div className="flex justify-between items-center">
-                                                                <h5 className="font-bold">{comment.name}</h5>
-                                                                <span className="text-sm text-gray-500">{new Date(comment.postedAt).toLocaleDateString()}</span>
-                                                        </div>
-                                                        <p className="mt-2">{comment.comment}</p>
+        const [replyTo, setReplyTo] = useState(null);
+        const handleReplyClick = (commentId: any) => {
+                setReplyTo(replyTo === commentId ? null : commentId);
+        };
+        const renderComments = (comments:any) => {
+                return comments.map((comment:any) => (
+                        <div key={comment._id} className="mb-4">
+                                <div className="flex items-start">
+                                        <ImagePart Src={"/user.png"} width={400} height={400} className="w-10 h-10 rounded-full mr-4" />
+                                        <div className="flex-1">
+                                                <div className="flex justify-between items-center">
+                                                        <h5 className="font-bold">{comment.name}</h5>
+                                                        <span className="text-sm text-gray-500">{new Date(comment.postedAt).toLocaleDateString()}</span>
                                                 </div>
+                                                <p className="text-base">{comment.comment}</p>
+                                                <button onClick={() => handleReplyClick(comment._id)} className="text-blue-500 hover:text-blue-700 text-sm mt-2">
+                                                        Reply
+                                                </button>
+                                                {replyTo === comment._id && (
+                                                        <CommentForm parentCommentId={comment._id} courseId={props.courseId} onNewComment={props.onReply} />
+                                                )}
                                         </div>
                                 </div>
-                        ))}
-                </div>
-        );
+                                {comment.replies && comment.replies.length > 0 && (
+                                        <div className="mt-2 bg-red-500">
+                                                {renderComments(comment.replies)}
+                                        </div>
+                                )}
+                        </div>
+                ));
+        };
+        return <div>{renderComments(props.CommentData)}</div>;
 };
