@@ -24,16 +24,18 @@ export default function LoginPart(props: LoginPartProps) {
                         props.SuccessMessage(response.success);
                         props.Success(response.message);
                         props.Message(true);
-                        const decoded:any = jwtDecode(response.token);
-                        console.log('decoded',decoded)
-                        console.log('response.token',response.token)
+                        const decoded: any = jwtDecode(response.token);
+                        console.log("Login response:", response);
+
                         if (response.token) {
                                 if (decoded.role === "admin") {
-                                  router.push("/admin/dashboard");
+                                        console.log("Redirecting to /admin/dashboard");
+
+                                        router.push("/admin/dashboard");
                                 } else if (decoded.role === "user") {
-                                  router.push("/user/dashboard");
+                                        router.push("/user/dashboard");
                                 }
-                              }
+                        }
                         setTimeout(() => {
                                 props.Message(false);
                         }, 5000);
