@@ -8,14 +8,14 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
     return result;
   }
   const { user } = result.props;
-  // if (user.role !== 'admin') {
-  //   return {
-  //     redirect: {
-  //       destination: '/',
-  //       permanent: false,
-  //     },
-  //   };
-  // }
+  if (user.role !== 'admin') {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
   return {
     props: { user },
   };
