@@ -24,14 +24,15 @@ export default function LoginPart(props: LoginPartProps) {
                         props.SuccessMessage(response.success);
                         props.Success(response.message);
                         props.Message(true);
-                        if (response.token) {
-                                const decoded:any = jwtDecode(response.token);
-                                if (decoded.role === "admin") {
-                                  router.push("/admin/dashboard");
-                                } else if (decoded.role === "user") {
-                                  router.push("/user/dashboard");
-                                }
-                              }
+                        const decoded:any = jwtDecode(response.token);
+                        console.log(decoded)
+                        // if (response.token) {
+                        //         if (decoded.role === "admin") {
+                        //           router.push("/admin/dashboard");
+                        //         } else if (decoded.role === "user") {
+                        //           router.push("/user/dashboard");
+                        //         }
+                        //       }
                         setTimeout(() => {
                                 props.Message(false);
                         }, 5000);
