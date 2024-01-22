@@ -21,7 +21,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
   };
 };
 
-export default function AdminDashboard({ user }) {
+export default function AdminDashboard(user: any) {
   console.log(user)
   return <AdminDash />
 };
