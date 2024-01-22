@@ -8,19 +8,20 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
     return result;
   }
   const { user } = result.props;
-  if (user.role !== 'admin') {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false,
-      },
-    };
-  }
+  // if (user.role !== 'admin') {
+  //   return {
+  //     redirect: {
+  //       destination: '/',
+  //       permanent: false,
+  //     },
+  //   };
+  // }
   return {
-    props: {},
+    props: { user },
   };
 };
 
-export default function AdminDashboard() {
+export default function AdminDashboard({ user }) {
+  console.log(user)
   return <AdminDash />
 };

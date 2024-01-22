@@ -25,7 +25,8 @@ export default function LoginPart(props: LoginPartProps) {
                         props.Success(response.message);
                         props.Message(true);
                         const decoded:any = jwtDecode(response.token);
-                        console.log(decoded)
+                        console.log('decoded',decoded)
+                        console.log('response.token',response.token)
                         // if (response.token) {
                         //         if (decoded.role === "admin") {
                         //           router.push("/admin/dashboard");
