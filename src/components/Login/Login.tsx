@@ -27,15 +27,15 @@ export default function LoginPart(props: LoginPartProps) {
                         const decoded: any = jwtDecode(response.token);
                         console.log("Login response:", response);
 
-                        if (response.token) {
-                                if (decoded.role === "admin") {
-                                        console.log("Redirecting to /admin/dashboard");
+                        // if (response.token) {
+                        //         if (decoded.role === "admin") {
+                        //                 console.log("Redirecting to /admin/dashboard");
 
-                                        router.push("/admin/dashboard");
-                                } else if (decoded.role === "user") {
-                                        router.push("/user/dashboard");
-                                }
-                        }
+                        //                 router.push("/admin/dashboard");
+                        //         } else if (decoded.role === "user") {
+                        //                 router.push("/user/dashboard");
+                        //         }
+                        // }
                         setTimeout(() => {
                                 props.Message(false);
                         }, 5000);
