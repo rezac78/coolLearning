@@ -32,7 +32,7 @@ export default function BlogForm(props: BlogFormProps) {
         return (
                 <form onSubmit={handleSubmit(onSubmit)} className="p-4">
                         {InputFormBlog.map((e) => (
-                                <Inputs Type="Form" Ekey={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
+                                <Inputs Type="Form" key={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
                         ))}
                         <div className="text-right">
                                 <Button className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" Type={'child'}>

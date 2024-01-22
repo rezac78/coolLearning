@@ -17,25 +17,25 @@ export default function Menu(props: HeaderProps) {
                                         <div className="">
                                                 <div className="text-base">
                                                         {navbar.map((e) => (
-                                                                <Links type="icon" Href={e.Link} key={e.id} className="text-light-color-Font flex justify-center dark:text-dark-color-Font hover:text-light-color-Font-hover dark:hover:text-dark-color-Font-hover m-4">
+                                                                <Links IdName={e.name} type="icon" Href={e.Link} key={e.id} className="text-light-color-Font flex justify-center dark:text-dark-color-Font hover:text-light-color-Font-hover dark:hover:text-dark-color-Font-hover m-4">
                                                                         {e.name}
                                                                 </Links>
                                                         ))}
                                                 </div>
                                         </div>
                                         <div className="flex justify-center mt-5">
-                                                <Button Type="child" Click={props.toggleTheme} className="mr-4">
+                                                <Button IdName="Team" Type="child" Click={props.toggleTheme} className="mr-4">
                                                         {props.currentTheme === 'dark' ? <SunIcon className="h-5 w-5 text-yellow-500" />
                                                                 : <MoonIcon className="h-6 w-6 text-gray-500" />}
                                                 </Button>
                                                 {navbarIcons.map((e) => {
                                                         return (
                                                                 e.name === 'Search' ? (
-                                                                        <Button Type="child" aria-label={e.name} key={e.id} className="mr-4" Click={e.name === 'Search' ? toggleSearchInput : undefined}>
+                                                                        <Button Type="child" IdName={e.name} key={e.id} className="mr-4" Click={e.name === 'Search' ? toggleSearchInput : undefined}>
                                                                                 <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
                                                                         </Button>
                                                                 ) : (
-                                                                        <Links type="icon" aria-label={e.name} Href={e.Link} key={e.id} className="mr-4">
+                                                                        <Links IdName={e.name} type="icon" Href={e.Link} key={e.id} className="mr-4">
                                                                                 <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
                                                                         </Links>
                                                                 )

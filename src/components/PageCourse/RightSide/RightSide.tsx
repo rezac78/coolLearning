@@ -38,11 +38,11 @@ export default function RightSide(props: RightSideProps) {
                                 </p>
                         </div>
                         <div className="mt-4 p-4 bg-light-bg-box dark:bg-dark-bg-box rounded-lg shadow">
-                                <h2 className="text-xl font-semibold text-gray-700 mb-4">Seasons</h2>
+                                <h2 className="text-xl font-semibold text-light-color-Font dark:text-dark-color-Font mb-4">Seasons</h2>
                                 {props.Chapters.map((season: any, index: any) => (
                                         <div key={index} className="mb-4">
                                                 <div className="flex justify-between items-center cursor-pointer" onClick={() => props.Click(index)}>
-                                                        <h3 className="text-lg font-semibold text-blue-600">{season.name}</h3>
+                                                        <h3 className="text-lg font-semibold text-dark-blue dark:text-light-blue">{season.name}</h3>
                                                         {props.openChapterIndex === index ? (
                                                                 <ChevronUpIcon className="h-5 w-5 text-gray-500" />
                                                         ) : (

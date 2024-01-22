@@ -477,7 +477,7 @@ export const LeftSideCourse: LeftSideCourse[] = [
   {
     id: 2,
     Label: "Chapters:",
-    color: "text-green-500",
+    color: "text-yellow-500",
     icon: VideoCameraIcon,
     idPart: "length",
   },
@@ -491,7 +491,7 @@ export const LeftSideCourse: LeftSideCourse[] = [
   {
     id: 4,
     Label: "Prerequisite:",
-    color: "text-purple-500",
+    color: "text-blue-500",
     icon: BookOpenIcon,
     idPart: "prerequisites",
   },

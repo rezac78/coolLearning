@@ -8,7 +8,7 @@ interface DeleteButtonProps {
 
 export default function DeleteButton({ onDelete }: DeleteButtonProps) {
   return (
-    <Button className='text-red-600 hover:text-red-900' Click={onDelete} Type={'child'}>
+    <Button IdName="onDelete" className='text-dark-red hover:text-red-900' Click={onDelete} Type={'child'}>
       <TrashIcon width={20} height={20} />
     </Button>
   );

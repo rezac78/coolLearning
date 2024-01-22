@@ -14,16 +14,16 @@ export default function LeftSide(props: LeftSideProps) {
                         <div className="text-center">
                                 <ImagePart Src={props.Profile} width={500} height={500} className="w-24 h-24 rounded-full mx-auto" />
                                 <h3 className="text-lg font-semibold mt-2 text-light-color-Font dark:text-dark-color-Font">{props.creatorName}</h3>
-                                <p className="text-gray-600">{props.creatorScope}</p>
+                                <p className="text-dark-gray dark:text-light-gray">{props.creatorScope}</p>
                         </div>
                         <div className="mt-4 text-center">
                                 <h4 className="text-md text-light-color-Font dark:text-dark-color-Font font-semibold mb-10">Last Post Title</h4>
                                 {props.blogsData.map((e, i) => (
-                                        <Links Href={`/blog/${e._id}`} type={"icon"}>
+                                        <Links key={i} Href={`/blog/${e._id}`} type={"icon"}>
                                                 <div key={i} className="flex justify-end ">
                                                         <div className="mr-10">
                                                                 <p className="text-sm font-medium text-light-color-Font dark:text-dark-color-Font">{e.subject}</p>
-                                                                <p className="text-sm text-gray-600">{e.creatorName}</p>
+                                                                <p className="text-sm text-dark-gray dark:text-light-gray">{e.creatorName}</p>
                                                         </div>
                                                         <ImagePart Src={e.cardPhoto} width={500} height={500} className="w-16 h-16" />
                                                 </div>
@@ -31,7 +31,7 @@ export default function LeftSide(props: LeftSideProps) {
                                 ))}
                         </div>
                         <div className="mt-4">
-                                <p className="text-sm text-gray-600"><strong>Tags:</strong> {props.tags}</p>
+                                <p className="text-sm text-dark-gray dark:text-light-gray"><strong>Tags:</strong> {props.tags}</p>
                         </div>
                 </>
         )

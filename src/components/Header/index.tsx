@@ -28,37 +28,43 @@ export default function Header(props: HeaderProps) {
                                 <div className="hidden md:block">
                                         <div className="text-base flex-grow">
                                                 {navbar.map((e) => (
-                                                        <Links type="icon" Href={e.Link} key={e.id} className="text-light-color-Font dark:text-dark-color-Font hover:text-light-color-Font-hover dark:hover:text-dark-color-Font-hover mr-4">
+                                                        <Links IdName={e.name} type="icon" Href={e.Link} key={e.id} className="text-light-color-Font dark:text-dark-color-Font hover:text-light-color-Font-hover dark:hover:text-dark-color-Font-hover mr-4">
                                                                 {e.name}
                                                         </Links>
                                                 ))}
                                         </div>
                                 </div>
                                 <div className="md:hidden">
-                                        <Button Type="child" aria-label="Bars3Icon" Click={toggleMenu}>
+                                        <Button Type="child" IdName="Bars3Icon" Click={toggleMenu}>
                                                 <Bars3Icon className="h-7 w-7 text-light-color-Font dark:text-dark-color-Font" />
                                         </Button>
                                 </div>
                                 <div className="relative hidden md:flex items-center">
-                                        <Button Type="child" aria-label="Team" Click={props.toggleTheme} className="mr-4">
+                                        <Button Type="child" IdName="Team" Click={props.toggleTheme} className="mr-4">
                                                 {props.currentTheme === 'dark' ? <SunIcon className="h-5 w-5 text-yellow-500" />
                                                         : <MoonIcon className="h-6 w-6 text-gray-500" />}
                                         </Button>
-                                        {navbarIcons.map((e) => {
-                                                return (
-                                                        e.name === 'Search' ? (
-                                                                <Button Type="child" aria-label={e.name} key={e.id} className="mr-4" Click={e.name === 'Search' ? toggleSearchInput : undefined}>
-                                                                        <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
-                                                                </Button>
-                                                        ) : (
-                                                                <>
-                                                                        <Links type="icon" Href={props.Role === 'admin' ? '/admin/dashboard' : props.Role === 'user' ? '/user/dashboard' : e.Link} key={e.id} className="mr-4" aria-label={e.name}>
-                                                                                <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
-                                                                        </Links>
-                                                                </>
-                                                        )
-                                                );
-                                        })}
+                                        {navbarIcons.map((e) => (
+                                                e.name === 'Search' ? (
+                                                        <Button
+                                                                Type="child"
+                                                                IdName={e.name}
+                                                                key={e.name}
+                                                                className="mr-4"
+                                                                Click={e.name === 'Search' ? toggleSearchInput : undefined}>
+                                                                <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
+                                                        </Button>
+                                                ) : (
+                                                        <Links
+                                                                type="icon"
+                                                                Href={props.Role === 'admin' ? '/admin/dashboard' : props.Role === 'user' ? '/user/dashboard' : e.Link}
+                                                                key={e.name}
+                                                                className="mr-4"
+                                                                IdName={e.name}>
+                                                                <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
+                                                        </Links>
+                                                )
+                                        ))}
                                         {showSearchInput && (
                                                 <input
                                                         type="text"

@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import cl from '../../../../cloudinaryConfig';
 interface ImageProps {
         Src: string;
         width: number;
@@ -12,7 +13,7 @@ export default function ImagePart(props: ImageProps) {
                         alt="Not Found"
                         width={props.width}
                         height={props.height}
-                        className={props.className}
+                        className={`${props.className} object-cover`}
                 />
         )
 }

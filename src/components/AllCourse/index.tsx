@@ -8,7 +8,7 @@ export default function AllCourse(props: AllCourseProps) {
                 <main className="flex-grow">
                         <div className="w-full h-min md:w-5/6 mx-auto my-40 flex flex-wrap justify-center gap-4 ">
                                 {props.CourseData.map((e,i) => (
-                                        <Card type="courses" LinkId={e._id} keyPart={i} user={e.peopleNumber} chapters={e.chapters} duration={e.duration} description={e.description} title={e.title} Type={e.courseType} instructorPoster={e.instructorPoster} instructorName={e.instructorName} instructorScope={e.instructorScope} CardPhoto={e.coursePhoto}  />
+                                        <Card type="courses" LinkId={e._id} key={e._id} user={e.peopleNumber} chapters={e.chapters} duration={e.duration} description={e.description} title={e.title} Type={e.courseType} instructorPoster={e.instructorPoster} instructorName={e.instructorName} instructorScope={e.instructorScope} CardPhoto={e.coursePhoto}  />
                                 ))}
                         </div>
                 </main>

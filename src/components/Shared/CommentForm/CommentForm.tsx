@@ -61,7 +61,7 @@ export default function CommentForm(props: CommentFormProps) {
                                 />
                         </div>
                         {errors['comment'] && <p className="mt-2 text-sm text-red-600">{errors['comment']?.message}</p>}
-                        <Button Title="Submit Comment" Type={'button'} className="mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" />
+                        <Button Title="Submit Comment" Type={'button'} className="mt-2 bg-bg-button hover:bg-bg-button-hover text-dark-color-Font font-bold py-2 px-4 rounded" />
                 </form>
         );
 };

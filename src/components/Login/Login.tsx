@@ -52,14 +52,14 @@ export default function LoginPart(props: LoginPartProps) {
                                 <h2 className="text-2xl text-dark-color-Font dark:text-light-color-Font font-bold mb-4">Login</h2>
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                         {InputLogin.map((e) => (
-                                                <Inputs Type="validation" Ekey={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
+                                                <Inputs Type="validation" key={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
                                         ))}
                                         <div className="flex items-center justify-between">
-                                                <Button Type="button" Title="Login" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
+                                                <Button Type="button" Title="Login" className="bg-bg-button hover:bg-bg-button-hover text-dark-color-Font font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
                                         </div>
                                         <div className='mt-4 text-sm'>
                                                 <span className='text-dark-color-Font dark:text-light-color-Font'>You have not logged in yet? </span>
-                                                <Links className="text-blue-600" Href="/register" type="font" Title="Register here" />
+                                                <Links className="text-dark-blue" Href="/register" type="font" Title="Register here" />
                                         </div>
                                 </form>
                         </div>
