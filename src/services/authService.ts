@@ -13,6 +13,9 @@ export const RegisterReq = async (registrationData: RegistrationData) => {
 export const LoginReq = async (LoginData: LoginData) => {
   try {
     const response = await axios.post("/auth/login", LoginData);
+    if (response.data.success) {
+      localStorage.setItem("token", response.data.token); // Storing token
+    }
     return response.data;
   } catch (error: any) {
     return error.response.data;

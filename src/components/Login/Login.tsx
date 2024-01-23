@@ -26,8 +26,7 @@ export default function LoginPart(props: LoginPartProps) {
                         props.Success(response.message);
                         props.Message(true);
                         const decoded: any = jwtDecode(response.token);
-                        console.log("Login response:", response);
-
+                        localStorage.setItem('token', response.data.token);
                         // if (response.token) {
                         //         if (decoded.role === "admin") {
                         //                 console.log("Redirecting to /admin/dashboard");

@@ -12,6 +12,7 @@ export default function Logout(props: LogoutPartProps) {
         const router = useRouter();
         const logout = async () => {
                 try {
+                        localStorage.removeItem('token');
                         const response = await LogoutReq();
                         props.SuccessMessage(response.success);
                         props.Success(response.message);
