@@ -11,7 +11,7 @@ export const getServerSideProps = async (context: GetServerSidePropsContext) => 
         const result: any = await checkAuthentication(context);
         const { req } = context;
         const cookies = cookie.parse(req.headers.cookie || '');
-        const token = cookies.cookieToken;
+        const token = cookies.token;
         if (token) {
                 return {
                         redirect: {
