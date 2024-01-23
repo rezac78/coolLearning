@@ -8,7 +8,7 @@ export async function checkAuthentication(
 ): Promise<GetServerSidePropsResult<{}>> {
   const { req } = context;
   const cookies = cookie.parse(req.headers.cookie || "");
-  const token = cookies.token;
+  const token = cookies.cookieToken;
   if (!token) {
     if (!redirectIfAuthenticated) {
       return { redirect: { destination: "/login", permanent: false } };
@@ -16,7 +16,7 @@ export async function checkAuthentication(
     return { props: {} };
   }
   try {
-    const decoded: any = jwt.verify(token, process.env.JWT_SECRET ?? "");
+    const decoded: any = jwt.verify(token, '123456789qazxsedrtg?!@*');
     const userRole = decoded.role;
     if (redirectIfAuthenticated) {
       return { redirect: { destination: "/", permanent: false } };

@@ -18,6 +18,7 @@ export default function LoginPart(props: LoginPartProps) {
                 resolver: yupResolver(loginValidationSchema)
         });
         const router = useRouter();
+        console.log(process.env.API_BASE_URL)
         const onSubmit = async (data: any) => {
                 try {
                         const response = await LoginReq(data);
