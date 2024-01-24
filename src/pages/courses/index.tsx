@@ -23,6 +23,7 @@ export default function Courses(props: CoursesProps) {
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+        context.res.setHeader('Content-Security-Policy', 'default-src \'self\'');
         try {
                 const coursesData = await CourseAllData();
                 if (!coursesData) {

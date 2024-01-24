@@ -6,6 +6,7 @@ import { BlogAllData } from "@/services/createBlogService";
 import { Blog } from "@/types/auth";
 import useAuth from "@/hooks/useAuth";
 import { GetServerSidePropsContext } from "next";
+import xssFilters from 'xss-filters';
 interface BlogProps {
         blogsData: Blog[];
 }
@@ -23,6 +24,7 @@ export default function Blog(props: BlogProps) {
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+        context.res.setHeader('Content-Security-Policy', 'default-src \'self\'');
         try {
                 const blogsData = await BlogAllData();
                 if (!blogsData) {

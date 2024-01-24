@@ -1,4 +1,3 @@
-import { RecentData } from "@/Event/Event";
 import Card from "../Shared/Card";
 import { Blog } from "@/types/auth";
 interface AllBlogProps {
