@@ -3,8 +3,12 @@ import { Blog } from '../../../../types/auth';
 import { BlogData } from '@/services/createBlogService';
 import EditBlogPart from '@/components/AdminDash/Edite/EditBlog';
 import useAccess from "@/hooks/useAccess";
+import LoadingPage from "@/components/Shared/Loading/Loading";
 export default function EditBlog({ initialBlogData }: { initialBlogData: Blog[] }) {
-        useAccess('admin');
+        const { loading } = useAccess('admin');
+        if (loading) {
+                return <LoadingPage />;
+        }
         return (
                 <EditBlogPart initialBlogData={initialBlogData} />
         )

@@ -3,8 +3,12 @@ import { GetServerSidePropsContext } from "next";
 import { CourseData } from '@/services/createCourseService';
 import { Course } from '../../../../types/auth';
 import useAccess from '@/hooks/useAccess';
+import LoadingPage from '@/components/Shared/Loading/Loading';
 export default function EditCourse({ initialCourseData }: { initialCourseData: Course[] }) {
-        useAccess('admin');
+        const { loading } = useAccess('admin');
+        if (loading) {
+                return <LoadingPage />;
+        }
         return (
                 <EditCoursePart initialCourseData={initialCourseData} />
         )

@@ -10,11 +10,11 @@ interface CoursesProps {
 }
 export default function Courses(props: CoursesProps) {
         const { theme, toggleTheme } = useTheme();
-        const role = useAuth({});
+        const { user } = useAuth({ restricted: false });
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">
-                                <Header Role={role?.role} toggleTheme={toggleTheme} currentTheme={theme} />
+                                <Header Role={user?.role} toggleTheme={toggleTheme} currentTheme={theme} />
                                 <AllCourse CourseData={props.coursesData} />
                                 <Footer />
                         </div>

@@ -7,12 +7,12 @@ interface BlogIdProps {
         role: string | null;
         initialBlogData: Blog[];
         CommentData: any;
-        blogsData:Blog[];
+        blogsData: Blog[];
 }
 export default function PageBlog(props: BlogIdProps) {
-        const role = useAuth({});
+        const { user } = useAuth({ restricted: false });
         return (
-                <PageBlogPart blogsData={props.blogsData} CommentData={props.CommentData.data} Role={role?.role} initialBlogData={props.initialBlogData} />
+                <PageBlogPart blogsData={props.blogsData} CommentData={props.CommentData.data} Role={user?.role} initialBlogData={props.initialBlogData} />
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {

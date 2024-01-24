@@ -10,11 +10,11 @@ interface BlogProps {
 }
 export default function Blog(props: BlogProps) {
         const { theme, toggleTheme } = useTheme();
-        const role = useAuth({});
+        const { user } = useAuth({ restricted: false });
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">
-                                <Header Role={role?.role} toggleTheme={toggleTheme} currentTheme={theme} />
+                                <Header Role={user?.role} toggleTheme={toggleTheme} currentTheme={theme} />
                                 <AllBlog BlogsData={props.blogsData} />
                                 <Footer />
                         </div>

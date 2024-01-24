@@ -6,21 +6,18 @@ import Recent from "@/components/RecentPosts/Recent";
 import Introduction from "@/components/introduction";
 import useTheme from "@/hooks/useTheme";
 import { CourseAllData } from "@/services/createCourseService";
-import { Course, Token } from "@/types/auth";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { jwtDecode } from "jwt-decode"
+import { Course } from "@/types/auth";
 import useAuth from "@/hooks/useAuth";
 interface HomeProps {
         coursesData: Course[];
 }
 export default function Home(props: HomeProps) {
         const { theme, toggleTheme } = useTheme();
-        const role = useAuth({});
+        const { user } = useAuth({ restricted: false });
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black">
-                                <Header Role={role?.role} toggleTheme={toggleTheme} currentTheme={theme} />
+                                <Header Role={user?.role} toggleTheme={toggleTheme} currentTheme={theme} />
                                 <Introduction />
                                 <QuestionsPart />
                                 <Recent CourseData={props.coursesData} />

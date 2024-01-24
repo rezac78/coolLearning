@@ -8,9 +8,9 @@ interface CoursesIdProps {
         CommentData: any;
 }
 export default function PageCourse(props: CoursesIdProps) {
-        const role = useAuth({});
+        const { user } = useAuth({ restricted: false });
         return (
-                <PageCoursePart CommentData={props.CommentData.data} Role={role?.role} initialCourseData={props.initialCourseData} />
+                <PageCoursePart CommentData={props.CommentData.data} Role={user?.role} initialCourseData={props.initialCourseData} />
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
