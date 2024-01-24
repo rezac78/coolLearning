@@ -113,7 +113,7 @@ export const Questions: QuestionsSchema[] = [
     Paragraph:
       "First and foremost, you need to have access to good education and courses. Because if you undergo the wrong training, then you'll find yourself not reaching the desired results after spending a lot of time. Secondly, it's essential to have access to the instructor who is teaching. If the person teaching is not accessible, then how are you going to ask your questions? And the third and most important point is that you must do proper exercises and projects, or else you'll forget everything you've learned. This also helps you to be thoroughly prepared for building your resume and to use those suitable projects.",
     Direction: "ltr",
-    imgUrl: "/Online-learning.gif",
+    imgUrl: "/Online.gif",
   },
 ];
 
