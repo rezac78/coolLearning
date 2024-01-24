@@ -9,7 +9,7 @@ import Button from "../Shared/Button/Button";
 interface HeaderProps {
         currentTheme: string;
         toggleTheme: () => void;
-        Role: string | null;
+        Role: string | undefined;
 }
 export default function Header(props: HeaderProps) {
         const [isMenuOpen, setIsMenuOpen] = useState(false);

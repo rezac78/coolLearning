@@ -9,7 +9,7 @@ import RightSide from "./RightSide/RightSide";
 import { useState } from "react";
 interface PageCoursePartProps {
         initialCourseData?: any;
-        Role: string | null;
+        Role: string | undefined;
         CommentData: any;
 }
 export default function PageCoursePartProps(props: PageCoursePartProps) {

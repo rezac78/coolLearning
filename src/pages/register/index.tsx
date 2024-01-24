@@ -4,37 +4,17 @@ import useTheme from "@/hooks/useTheme";
 import { useState } from "react";
 import Alerts from "@/components/Shared/Alert/Alert";
 import RegisterPart from "@/components/Register/register";
-import cookie from 'cookie';
-import { GetServerSidePropsContext } from "next";
-import { checkAuthentication } from "@/utils/authentication";
-export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-        const result: any = await checkAuthentication(context);
-        const { req } = context;
-        const cookies = cookie.parse(req.headers.cookie || '');
-        const token = cookies.token;
-        if (token) {
-                return {
-                        redirect: {
-                                destination: '/',
-                                permanent: false,
-                        },
-                };
-        }
-        if (result.props) {
-                return { props: { role: result.props.role } };
-        }
-        return { props: {} };
-};
-export default function Register({ role }: any) {
+import useAuth from "@/hooks/useAuth";
+export default function Register() {
         const { theme, toggleTheme } = useTheme();
         const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
         const [numberSuccessMessage, setNumberSuccessMessage] = useState<boolean>();
         const [SuccessMessage, setSuccessMessage] = useState<string>();
-
+        const role = useAuth({ redirectToHome: true });
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">
-                                <Header Role={role} toggleTheme={toggleTheme} currentTheme={theme} />
+                                <Header Role={role?.role} toggleTheme={toggleTheme} currentTheme={theme} />
                                 {showSuccessMessage && <Alerts Message={SuccessMessage} type={numberSuccessMessage} />}
                                 <RegisterPart Message={setShowSuccessMessage} SuccessMessage={setNumberSuccessMessage} Success={setSuccessMessage} />
                                 <Footer />

@@ -1,29 +1,16 @@
 import AdminBlog from '@/components/AdminDash/AdminBlog'
-import { checkAuthentication } from '../../utils/authentication';
-import { GetServerSidePropsContext } from "next";
 import { BlogAllData } from '@/services/createBlogService';
 import { Blog } from '@/types/auth';
-export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-        const result: any = await checkAuthentication(context);
-        if ('redirect' in result) {
-                return result;
-        }
-        const { user } = result.props;
-        if (user.role !== 'admin') {
-                return {
-                        redirect: {
-                                destination: '/',
-                                permanent: false,
-                        },
-                };
-        }
+import useAccess from '@/hooks/useAccess';
+export default function Blog({ BlogData }: { BlogData: Blog[] }) {
+        useAccess('admin');
+        return (
+                <AdminBlog BlogData={BlogData} />
+        )
+}
+export const getServerSideProps = async () => {
         const BlogData = await BlogAllData();
         return {
                 props: { BlogData: BlogData.data },
         };
 };
-export default function Blog({ BlogData }: { BlogData: Blog[] }) {
-        return (
-                <AdminBlog BlogData={BlogData}/>
-        )
-}

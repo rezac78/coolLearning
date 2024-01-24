@@ -1,17 +1,14 @@
 import axios from "axios";
 const axiosInstance = axios.create({
-  baseURL: 'https://cool-api-75mo.onrender.com/api',
+  baseURL: "http://localhost:3001/api",
   timeout: 10000,
+  headers: { "Content-Type": "application/json" },
 });
 
-axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
+axios.interceptors.request.use(function (config) {
+  const token = localStorage.getItem("token");
+  config.headers.Authorization = token ? `Bearer ${token}` : "";
   return config;
-}, (error) => {
-  return Promise.reject(error);
 });
 
 export default axiosInstance;

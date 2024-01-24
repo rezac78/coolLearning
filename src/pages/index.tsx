@@ -5,20 +5,22 @@ import QuestionsPart from "@/components/QuestionsPart/QuestionsPart";
 import Recent from "@/components/RecentPosts/Recent";
 import Introduction from "@/components/introduction";
 import useTheme from "@/hooks/useTheme";
-import { checkAuthentication } from '../utils/authentication';
-import { GetServerSidePropsContext } from "next";
 import { CourseAllData } from "@/services/createCourseService";
-import { Course } from "@/types/auth";
+import { Course, Token } from "@/types/auth";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { jwtDecode } from "jwt-decode"
+import useAuth from "@/hooks/useAuth";
 interface HomeProps {
-        role: string | null;
         coursesData: Course[];
 }
 export default function Home(props: HomeProps) {
         const { theme, toggleTheme } = useTheme();
+        const role = useAuth({});
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black">
-                                <Header Role={props.role} toggleTheme={toggleTheme} currentTheme={theme} />
+                                <Header Role={role?.role} toggleTheme={toggleTheme} currentTheme={theme} />
                                 <Introduction />
                                 <QuestionsPart />
                                 <Recent CourseData={props.coursesData} />
@@ -27,24 +29,10 @@ export default function Home(props: HomeProps) {
                 </div>
         )
 }
-
-export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-        const result: any = await checkAuthentication(context);
-        const role = result.props ? result.props.userRole : null;
-        try {
-               const coursesData = await CourseAllData();
-                if (!coursesData) {
-                        throw new Error('Failed to fetch courses data');
-                }
-                return { props: { role, coursesData: coursesData.data  } };
-        } catch (error) {
-                console.error("Error in getServerSideProps:", error);
-                const originalUrl = context.resolvedUrl;
-                return {
-                        redirect: {
-                                destination: `/500?redirect=${encodeURIComponent(originalUrl)}`,
-                                permanent: false,
-                        },
-                };
+export const getServerSideProps = async () => {
+        const coursesData = await CourseAllData();
+        if (!coursesData) {
+                throw new Error('Failed to fetch courses data');
         }
+        return { props: { coursesData: coursesData.data } };
 };

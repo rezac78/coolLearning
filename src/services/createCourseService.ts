@@ -14,7 +14,8 @@ export const CourseAllData = async () => {
     const response = await axios.get("/courses");
     return response.data;
   } catch (error: any) {
-    return error.response.data;
+    console.log(error.response)
+    return error.response;
   }
 };
 export const CourseDeletedData = async (itemId: string) => {

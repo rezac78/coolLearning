@@ -18,24 +18,24 @@ export default function LoginPart(props: LoginPartProps) {
                 resolver: yupResolver(loginValidationSchema)
         });
         const router = useRouter();
-        console.log(process.env.API_BASE_URL)
         const onSubmit = async (data: any) => {
                 try {
                         const response = await LoginReq(data);
+                        console.log(response)
+                        localStorage.setItem('token', response.token);
                         props.SuccessMessage(response.success);
                         props.Success(response.message);
                         props.Message(true);
                         const decoded: any = jwtDecode(response.token);
-                        localStorage.setItem('token', response.data.token);
-                        // if (response.token) {
-                        //         if (decoded.role === "admin") {
-                        //                 console.log("Redirecting to /admin/dashboard");
+                        if (response.token) {
+                                if (decoded.role === "admin") {
+                                        console.log("Redirecting to /admin/dashboard");
 
-                        //                 router.push("/admin/dashboard");
-                        //         } else if (decoded.role === "user") {
-                        //                 router.push("/user/dashboard");
-                        //         }
-                        // }
+                                        router.push("/admin/dashboard");
+                                } else if (decoded.role === "user") {
+                                        router.push("/user/dashboard");
+                                }
+                        }
                         setTimeout(() => {
                                 props.Message(false);
                         }, 5000);

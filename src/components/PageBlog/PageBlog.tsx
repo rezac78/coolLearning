@@ -7,7 +7,7 @@ import RightSide from "./RightSide/RightSide";
 import { Blog } from "@/types/auth";
 interface PageBlogPartProps {
         initialBlogData?: any;
-        Role: string | null;
+        Role: string | undefined;
         CommentData: any;
         blogsData: Blog[];
 }
