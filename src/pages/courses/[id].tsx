@@ -14,11 +14,21 @@ export default function PageCourse(props: CoursesIdProps) {
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-        const courseId = Array.isArray(context.params?.id) ? context.params?.id[0] : context.params?.id;
-        const courseData = courseId ? await CourseData(courseId) : null;
-        const CommentData = courseId ? await getAllCourseComments(courseId) : null;
-        if (!courseData) {
-                throw new Error('Failed to fetch courses data');
+        try {
+                const courseId = Array.isArray(context.params?.id) ? context.params?.id[0] : context.params?.id;
+                const courseData = courseId ? await CourseData(courseId) : null;
+                const CommentData = courseId ? await getAllCourseComments(courseId) : null;
+                if (!courseData) {
+                        throw new Error('Failed to fetch courses data');
+                }
+                return { props: { initialCourseData: courseData ? courseData.data : null, CommentData } };
+        } catch (error) {
+                const originalUrl = context.resolvedUrl;
+                return {
+                        redirect: {
+                                destination: `/500?redirect=${encodeURIComponent(originalUrl)}`,
+                                permanent: false,
+                        },
+                };
         }
-        return { props: { initialCourseData: courseData ? courseData.data : null, CommentData } };
 };

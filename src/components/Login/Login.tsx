@@ -21,7 +21,6 @@ export default function LoginPart(props: LoginPartProps) {
         const onSubmit = async (data: any) => {
                 try {
                         const response = await LoginReq(data);
-                        console.log(response)
                         localStorage.setItem('token', response.token);
                         props.SuccessMessage(response.success);
                         props.Success(response.message);
@@ -29,8 +28,6 @@ export default function LoginPart(props: LoginPartProps) {
                         const decoded: any = jwtDecode(response.token);
                         if (response.token) {
                                 if (decoded.role === "admin") {
-                                        console.log("Redirecting to /admin/dashboard");
-
                                         router.push("/admin/dashboard");
                                 } else if (decoded.role === "user") {
                                         router.push("/user/dashboard");

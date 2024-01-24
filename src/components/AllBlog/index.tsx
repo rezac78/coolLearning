@@ -5,7 +5,6 @@ interface AllBlogProps {
         BlogsData: Blog[];
 }
 export default function AllBlog(props: AllBlogProps) {
-        console.log(props.BlogsData)
         return (
                 <main className="flex-grow">
                         <div className="w-full md:w-5/6 mx-auto my-40 flex flex-wrap justify-center gap-4">

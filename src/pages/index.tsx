@@ -8,6 +8,7 @@ import useTheme from "@/hooks/useTheme";
 import { CourseAllData } from "@/services/createCourseService";
 import { Course } from "@/types/auth";
 import useAuth from "@/hooks/useAuth";
+import { GetServerSidePropsContext } from "next";
 interface HomeProps {
         coursesData: Course[];
 }
@@ -26,10 +27,20 @@ export default function Home(props: HomeProps) {
                 </div>
         )
 }
-export const getServerSideProps = async () => {
-        const coursesData = await CourseAllData();
-        if (!coursesData) {
-                throw new Error('Failed to fetch courses data');
-        }
-        return { props: { coursesData: coursesData.data } };
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+        try {
+                const coursesData = await CourseAllData();
+                 if (!coursesData) {
+                         throw new Error('Failed to fetch courses data');
+                 }
+                 return { props: { coursesData: coursesData.data } };
+         } catch (error) {
+                 const originalUrl = context.resolvedUrl;
+                 return {
+                         redirect: {
+                                 destination: `/500?redirect=${encodeURIComponent(originalUrl)}`,
+                                 permanent: false,
+                         },
+                 };
+         }
 };

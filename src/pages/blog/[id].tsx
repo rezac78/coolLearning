@@ -16,12 +16,22 @@ export default function PageBlog(props: BlogIdProps) {
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-        const blogId = Array.isArray(context.params?.id) ? context.params?.id[0] : context.params?.id;
-        const blogData = blogId ? await BlogData(blogId) : null;
-        const CommentData = blogId ? await getAllBlogComments(blogId) : null;
-        const blogsData = await BlogAllData();
-        if (!blogData) {
-                throw new Error('Failed to fetch courses data');
+        try {
+                const blogId = Array.isArray(context.params?.id) ? context.params?.id[0] : context.params?.id;
+                const blogData = blogId ? await BlogData(blogId) : null;
+                const CommentData = blogId ? await getAllBlogComments(blogId) : null;
+                const blogsData = await BlogAllData();
+                if (!blogData) {
+                        throw new Error('Failed to fetch courses data');
+                }
+                return { props: { initialBlogData: blogData ? blogData.data : null, CommentData, blogsData: blogsData.data } };
+        } catch (error) {
+                const originalUrl = context.resolvedUrl;
+                return {
+                        redirect: {
+                                destination: `/500?redirect=${encodeURIComponent(originalUrl)}`,
+                                permanent: false,
+                        },
+                };
         }
-        return { props: { initialBlogData: blogData ? blogData.data : null, CommentData, blogsData: blogsData.data } };
 };

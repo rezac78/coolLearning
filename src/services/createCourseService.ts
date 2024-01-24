@@ -14,7 +14,6 @@ export const CourseAllData = async () => {
     const response = await axios.get("/courses");
     return response.data;
   } catch (error: any) {
-    console.log(error.response)
     return error.response;
   }
 };

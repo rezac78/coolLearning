@@ -5,6 +5,7 @@ import useTheme from "@/hooks/useTheme";
 import { BlogAllData } from "@/services/createBlogService";
 import { Blog } from "@/types/auth";
 import useAuth from "@/hooks/useAuth";
+import { GetServerSidePropsContext } from "next";
 interface BlogProps {
         blogsData: Blog[];
 }
@@ -21,10 +22,20 @@ export default function Blog(props: BlogProps) {
                 </div>
         )
 }
-export const getServerSideProps = async () => {
-        const blogsData = await BlogAllData();
-        if (!blogsData) {
-                throw new Error('Failed to fetch courses data');
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+        try {
+                const blogsData = await BlogAllData();
+                if (!blogsData) {
+                        throw new Error('Failed to fetch courses data');
+                }
+                return { props: { blogsData: blogsData.data } };
+        } catch (error) {
+                const originalUrl = context.resolvedUrl;
+                return {
+                        redirect: {
+                                destination: `/500?redirect=${encodeURIComponent(originalUrl)}`,
+                                permanent: false,
+                        },
+                };
         }
-        return { props: { blogsData: blogsData.data } };
 };
