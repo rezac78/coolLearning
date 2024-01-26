@@ -14,9 +14,10 @@ export default function DashboardCourse({ initialCoursesData }: DashboardProps) 
         const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
         const [numberSuccessMessage, setNumberSuccessMessage] = useState<boolean>();
         const [SuccessMessage, setSuccessMessage] = useState<string>();
+        const token = localStorage.getItem("token");
         const deleteCourse = async (courseId: string) => {
                 try {
-                        const response = await CourseDeletedData(courseId);
+                        const response = await CourseDeletedData(courseId, token);
                         setCoursesData(coursesData.filter(course => course._id !== courseId));
                         setShowSuccessMessage(true);
                         setNumberSuccessMessage(response.success);
@@ -31,7 +32,7 @@ export default function DashboardCourse({ initialCoursesData }: DashboardProps) 
         };
         const deleteChapter = async (courseId: string, chapterId: string) => {
                 try {
-                        const response = await CourseDeletedChapter(courseId, chapterId);
+                        const response = await CourseDeletedChapter(courseId, chapterId, token);
                         const updatedCourses = coursesData.map(course => {
                                 if (course._id === courseId) {
                                         return {

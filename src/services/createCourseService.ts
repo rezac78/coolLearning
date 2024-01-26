@@ -1,9 +1,10 @@
 import axios from "../utils/axiosInstance";
 import { Course, CommentForm } from "../types/auth";
-
-export const CourseReq = async (CourseData: Course) => {
+export const CourseReq = async (CourseData: Course, token: string | null) => {
   try {
-    const response = await axios.post("/courses", CourseData);
+    const response = await axios.post("/courses", CourseData, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error: any) {
     return error.response.data;
@@ -17,18 +18,30 @@ export const CourseAllData = async () => {
     return error.response;
   }
 };
-export const CourseDeletedData = async (itemId: string) => {
+export const CourseDeletedData = async (
+  itemId: string,
+  token: string | null
+) => {
   try {
-    const response = await axios.delete(`/courses/${itemId}`);
+    const response = await axios.delete(`/courses/${itemId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error: any) {
     return error.response.data;
   }
 };
-export const CourseDeletedChapter = async (itemId: string, itemId2: string) => {
+export const CourseDeletedChapter = async (
+  itemId: string,
+  itemId2: string,
+  token: string | null
+) => {
   try {
     const response = await axios.delete(
-      `/courses/${itemId}/chapter/${itemId2}`
+      `/courses/${itemId}/chapter/${itemId2}`,
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
     );
     return response.data;
   } catch (error: any) {
@@ -43,9 +56,15 @@ export const CourseData = async (itemId: string | undefined) => {
     return error.response.data;
   }
 };
-export const CourseDataUpdate = async (itemId: string, CourseData: Course) => {
+export const CourseDataUpdate = async (
+  itemId: string,
+  CourseData: Course,
+  token: string | null
+) => {
   try {
-    const response = await axios.put(`/courses/${itemId}`, CourseData);
+    const response = await axios.put(`/courses/${itemId}`, CourseData, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error: any) {
     return error.response.data;

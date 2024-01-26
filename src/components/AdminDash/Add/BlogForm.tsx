@@ -15,9 +15,10 @@ export default function BlogForm(props: BlogFormProps) {
         const { register, handleSubmit, formState: { errors }, reset } = useForm({
                 resolver: yupResolver(blogSchema)
         });
+        const token = localStorage.getItem("token");
         const onSubmit = async (data: any) => {
                 try {
-                        const response = await BlogReq(data);
+                        const response = await BlogReq(data, token);
                         props.SuccessMessage(response.success);
                         props.Success(response.message);
                         props.Message(true);

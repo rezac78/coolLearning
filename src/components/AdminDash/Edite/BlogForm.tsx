@@ -19,9 +19,10 @@ export default function BlogForm({ initialBlogData, Message, SuccessMessage, Suc
     defaultValues: initialBlogData || {}
   });
   const router = useRouter();
+  const token = localStorage.getItem("token");
   const onSubmit = async (data: any) => {
     try {
-      const response = await BlogDataUpdate(initialBlogData._id, data);
+      const response = await BlogDataUpdate(initialBlogData._id, data, token);
       SuccessMessage(response.success);
       Success(response.message);
       Message(true);

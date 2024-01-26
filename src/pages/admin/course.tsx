@@ -12,7 +12,6 @@ export default function Course({ coursesData }: { coursesData: Course[] }) {
         return <AdminCourse coursesData={coursesData} />;
 }
 export const getServerSideProps = async (context:GetServerSidePropsContext) => {
-        context.res.setHeader('Content-Security-Policy', 'default-src \'self\'');
         const coursesData = await CourseAllData();
         return {
                 props: { coursesData: coursesData.data },

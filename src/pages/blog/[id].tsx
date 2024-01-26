@@ -16,7 +16,6 @@ export default function PageBlog(props: BlogIdProps) {
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-        context.res.setHeader('Content-Security-Policy', 'default-src \'self\'');
         try {
                 const blogId = Array.isArray(context.params?.id) ? context.params?.id[0] : context.params?.id;
                 const blogData = blogId ? await BlogData(blogId) : null;

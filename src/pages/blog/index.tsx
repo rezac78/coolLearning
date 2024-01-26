@@ -24,7 +24,6 @@ export default function Blog(props: BlogProps) {
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-        context.res.setHeader('Content-Security-Policy', 'default-src \'self\'');
         try {
                 const blogsData = await BlogAllData();
                 if (!blogsData) {

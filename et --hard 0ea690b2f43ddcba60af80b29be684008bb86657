@@ -1,0 +1,437 @@
+[33mcommit ac7a7e225854541670bda020812ed4ef89af329a[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 23:15:34 2024 +0330
+
+    home page
+
+[33mcommit 8de362ca5eaead9929e9c5ec502bacdece3f573d[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 22:59:49 2024 +0330
+
+    fix problem
+
+[33mcommit 0ea690b2f43ddcba60af80b29be684008bb86657[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 17:02:09 2024 +0330
+
+    r
+
+[33mcommit aa3dbf27a3ae8dc49ac55ea2c584d8d320fb083e[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 16:56:04 2024 +0330
+
+    Content-Security-Policy
+
+[33mcommit e07b93e16725230f8cb3e28ee01e57792177b22c[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 14:52:29 2024 +0330
+
+    handle error 500
+
+[33mcommit a2326eb887a21c72a206dee57eaeb50fe8e547bf[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 12:31:55 2024 +0330
+
+    reload good
+
+[33mcommit d6b75c423aec95b59b7962d7874efcc58e727144[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 10:50:49 2024 +0330
+
+    ok
+
+[33mcommit cf5912f30c500e45d5ce7acfb464fa114af94ac1[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 10:45:54 2024 +0330
+
+    ok
+
+[33mcommit 083c49bf7f4807e9997c23af3f36105b471bcdaf[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 10:36:33 2024 +0330
+
+    ok
+
+[33mcommit 1d33674e4fd4e5a5f087f8b2edb22b68b705233e[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 10:26:06 2024 +0330
+
+    o
+
+[33mcommit 3416ab076109738ceb3a989a2a09a6f936211fde[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 10:18:40 2024 +0330
+
+    ok
+
+[33mcommit d2fe1d8c89d30b98451a57db254b2fc631e0cdd1[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 24 10:15:48 2024 +0330
+
+    Localstorage
+
+[33mcommit 63ee050190c719020411586c0b51a42f449a3cee[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 23 21:05:42 2024 +0330
+
+    ok
+
+[33mcommit 13e3437fbdb899533196a44f0db868626dd79e2e[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 23 20:24:29 2024 +0330
+
+    ok
+
+[33mcommit 943f1bbd7d36440dfc8c2984197a791b552c578a[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 23 20:02:16 2024 +0330
+
+    ok
+
+[33mcommit 2d4eb031e0e992c7171fb38725e96312e19315d6[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 23 19:41:35 2024 +0330
+
+    netlify
+
+[33mcommit 89df088f42235f4f36802ebfe980ce5547c9a899[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 23 19:31:45 2024 +0330
+
+    خن
+
+[33mcommit 56ef405c09e5c9d16d2778e7f90651b5918d9b57[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 23 19:15:09 2024 +0330
+
+    test
+
+[33mcommit c74c9da3834d2e8969f9edf49b2a392127e1d453[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 23 17:46:56 2024 +0330
+
+    SameSite Policy and Cross-Site Requests
+
+[33mcommit 8ae10c17cf9819225e8de6433085ba7da62b38a3[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 23 11:50:03 2024 +0330
+
+    cookieToken
+
+[33mcommit d0853ab2fdc95beb932396df9c322d6dc121a67c[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 23:54:37 2024 +0330
+
+    ok
+
+[33mcommit 432ca22d96a91048a2eb085669a8eb350f1bc2d7[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 23:47:02 2024 +0330
+
+    l
+
+[33mcommit e0da2c33d16fb26edc611905cfcdf61622a359bb[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 19:04:11 2024 +0330
+
+    reza
+
+[33mcommit fd30565102bbbfc8312ad5ae376ac5787732c123[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 18:53:34 2024 +0330
+
+    s
+
+[33mcommit 865ccc52576f1a2b4f5291c553ec2f959d5107da[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 18:49:08 2024 +0330
+
+    test
+
+[33mcommit 10d428bdd925fb9dd3e4a56127ae98a0a9732186[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 18:33:13 2024 +0330
+
+    decoded
+
+[33mcommit fa2f0d0ef7f08bb8cb4a0bf494449717f11c80da[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 18:16:34 2024 +0330
+
+    baseURL
+
+[33mcommit ddfbc589f1995ef3d26fab31875c77b5a13b8409[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 16:49:48 2024 +0330
+
+    baseURL
+
+[33mcommit c33034a3c4e45f0991183198da7e93ffdfdb3403[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 16:16:29 2024 +0330
+
+    baseURL
+
+[33mcommit 5a57051da1937d658424557b229b6719fb0c4b1b[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 22 16:10:36 2024 +0330
+
+    fix error SEO
+
+[33mcommit 7b08a7218fd860f5b0100bb5352e81e99836291b[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 21 21:05:08 2024 +0330
+
+    handle error build
+
+[33mcommit 219c6ca231bcb62e2ff893bcfcc5074c2fd8dbcc[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 21 20:46:04 2024 +0330
+
+    end part Blog
+
+[33mcommit b32cbf317b977200e8f0cecd82380666e150330b[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 21 16:38:29 2024 +0330
+
+    create admin blog
+
+[33mcommit 8ac622d9e53a939ecaa4196bdddc57119e01f541[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 21 11:45:40 2024 +0330
+
+    end part replay
+
+[33mcommit 541751c90847a6f3ed7b4a23a577da44b2923243[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 21 11:45:22 2024 +0330
+
+    end part replay
+
+[33mcommit 7d94df3f6891f0699d396001915dd8d92dfe2c03[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sat Jan 20 22:45:43 2024 +0330
+
+    finish part comment
+
+[33mcommit f3fe81b272a1cf70126635f1aa43c9dc78331eb8[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sat Jan 20 19:07:09 2024 +0330
+
+    create page error 500
+
+[33mcommit 5b713e69c43a03250780c574bbb4ccc7888d1232[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Fri Jan 19 22:57:52 2024 +0330
+
+    end all part courses
+
+[33mcommit 392854f8afcb9a96c58b76919ca559b45d4a1c11[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Thu Jan 18 23:52:12 2024 +0330
+
+    finish course pages
+
+[33mcommit da0bf04e96318d8f902cc5839f616b639b5347ac[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Thu Jan 18 19:20:39 2024 +0330
+
+    end part card course
+
+[33mcommit 8e6c4c790c294e93c876bb860e034fcec8398f75[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Thu Jan 18 17:01:13 2024 +0330
+
+    end all part course
+
+[33mcommit 4399327663d4d50f7fa82801b215d0de5fd93974[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Thu Jan 18 10:46:38 2024 +0330
+
+    end part deleted
+
+[33mcommit 17c8ad25a60f15a48a3191cfec93fc52b55dfa38[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 17 23:43:23 2024 +0330
+
+    finish table course
+
+[33mcommit b4f632088268ec685b0e0bc48fa9bed5f9c9e474[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 17 14:41:25 2024 +0330
+
+    fix problem accessible
+
+[33mcommit 9ad2399f5c2a64be76618d9395556ac701e9af9c[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 16 23:05:42 2024 +0330
+
+    finish create
+
+[33mcommit 6f37ecf8ca85a39980364e2dc56fda6b578c04eb[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 16 21:32:20 2024 +0330
+
+    end logout
+
+[33mcommit 83f5854462d749bd714da6eb391d094a14d2d11d[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Tue Jan 16 17:36:09 2024 +0330
+
+    url accessability
+
+[33mcommit 0a51e189eeb60efe9224991ff89f7bbbe5c25848[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Mon Jan 15 17:41:40 2024 +0330
+
+    finish
+
+[33mcommit 2e1c77d74b5537f6685818d2230c9d5cf016740f[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 14 23:58:18 2024 +0330
+
+    structure admin
+
+[33mcommit 84112d0083ebbcbde5df2acdeec73df93e7a468a[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 14 23:01:38 2024 +0330
+
+    new structure Links and Button
+
+[33mcommit 3f72e3a2648abe9da52abf2af859da4a0d2eddc4[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 14 21:54:22 2024 +0330
+
+    Finish nav dashboard
+
+[33mcommit 0d5b9e0591638d8540c911f067ff894659e43b66[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 14 20:58:20 2024 +0330
+
+    create dashboardAdmin
+
+[33mcommit b1a900d9c65268d99bc79f0411f4fea124dcfef6[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 14 18:08:33 2024 +0330
+
+    end part login and register
+
+[33mcommit 3121018fb25c9168857a7e7b620b04efc5619746[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 14 16:47:46 2024 +0330
+
+    end part login
+
+[33mcommit add2426c9c0bdfcb561521f40cf98d91b0bd6ceb[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sun Jan 14 00:08:35 2024 +0330
+
+    connect restful api register
+
+[33mcommit c2566355251b517958566c4330c9d9a58215c61e[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Sat Jan 13 11:40:28 2024 +0330
+
+    fix problem
+
+[33mcommit 91e5a5041bbdf5d2cd3b5a031194763c4031618e[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Fri Jan 12 22:59:42 2024 +0330
+
+    created 404
+
+[33mcommit 1af2fe1ada2b8be23f8ad2f76bb959dd24e990ef[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Fri Jan 12 22:41:05 2024 +0330
+
+    end part search
+
+[33mcommit 62887d7284eb8c477a4e4b1ee7b7cfe3f3d936bb[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Fri Jan 12 22:11:54 2024 +0330
+
+    end part Login
+
+[33mcommit efce324d7c6f73bc283362c356d04ba627e0b97f[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Fri Jan 12 19:27:09 2024 +0330
+
+    finish register Form
+
+[33mcommit 01e5a151908ebd9bb249179d360b6b380c13afb0[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Fri Jan 12 17:28:01 2024 +0330
+
+    fix error SEO
+
+[33mcommit 441731bc90349a42d00857ed5624e23afb98681e[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Fri Jan 12 16:25:17 2024 +0330
+
+    handle Problem
+
+[33mcommit 93ad013f66dff3d6eb4578ee3a217c18ac959e70[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Fri Jan 12 13:03:57 2024 +0330
+
+    fix problem
+
+[33mcommit a9eb23a35f1a827db7c6ec7dc871da2c68eb2dc0[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Fri Jan 12 12:45:45 2024 +0330
+
+    end part aboutus,courses,blog
+
+[33mcommit 1f1f62bec65dff2ee6289b88463501ead509a3c8[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Thu Jan 11 23:16:39 2024 +0330
+
+    end part Footer
+
+[33mcommit 8a8f3c1f65b3da166b15da72b4e474bb7f1452ad[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Thu Jan 11 23:06:28 2024 +0330
+
+    fix problem dark and light
+
+[33mcommit ef7634902c55a9ab7c8ae95d3bc4e2d6632778ab[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Thu Jan 11 22:56:06 2024 +0330
+
+    end part Recent
+
+[33mcommit 88374552d7e7c2b86c7dfb158a27303a9e9bc82e[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Thu Jan 11 16:00:17 2024 +0330
+
+    end part Questions
+
+[33mcommit 58433b6355970792895e65f2713f49205ce3c700[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Thu Jan 11 15:13:44 2024 +0330
+
+    end part introduction
+
+[33mcommit 7dbcdec67323411540368bedbfd2dcd58452ddac[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 10 23:21:03 2024 +0330
+
+    remove redux
+
+[33mcommit 433477d04d86f763d87d158cb4ecd0bdf4be55c4[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 10 23:05:53 2024 +0330
+
+    end part navbar
+
+[33mcommit 4c9fb4421c43adc64a6c954134ee8043e3d6d3ba[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 10 12:11:09 2024 +0330
+
+    Initial settings
+
+[33mcommit 3e299ff984d4e5e0b945adb18e727816c8d8bb14[m
+Author: reza.dalvand78@gmail.com <reza.dalvand78@gmail.com>
+Date:   Wed Jan 10 11:08:50 2024 +0330
+
+    start

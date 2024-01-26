@@ -23,9 +23,10 @@ export default function CourseForm({ initialCourseData, Message, SuccessMessage,
     name: 'chapters'
   });
   const router = useRouter();
+  const token = localStorage.getItem("token");
   const onSubmit = async (data: any) => {
     try {
-      const response = await CourseDataUpdate(initialCourseData._id, data);
+      const response = await CourseDataUpdate(initialCourseData._id, data, token);
       SuccessMessage(response.success);
       Success(response.message);
       Message(true);

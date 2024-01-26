@@ -14,7 +14,6 @@ export default function Blog({ BlogData }: { BlogData: Blog[] }) {
         )
 }
 export const getServerSideProps = async (context:GetServerSidePropsContext) => {
-        context.res.setHeader('Content-Security-Policy', 'default-src \'self\'');
         const BlogData = await BlogAllData();
         return {
                 props: { BlogData: BlogData.data },

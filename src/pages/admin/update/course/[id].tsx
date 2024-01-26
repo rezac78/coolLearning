@@ -14,7 +14,6 @@ export default function EditCourse({ initialCourseData }: { initialCourseData: C
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-        context.res.setHeader('Content-Security-Policy', 'default-src \'self\'');
         const courseId = Array.isArray(context.params?.id) ? context.params?.id[0] : context.params?.id;
         const courseData = courseId ? await CourseData(courseId) : null;
         return {

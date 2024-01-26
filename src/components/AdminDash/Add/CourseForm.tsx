@@ -20,8 +20,9 @@ export default function CourseForm(props: CourseFormProps) {
     name: 'chapters'
   });
   const onSubmit = async (data: any) => {
+    const token = localStorage.getItem("token");
     try {
-      const response = await CourseReq(data);
+      const response = await CourseReq(data, token);
       props.SuccessMessage(response.success);
       props.Success(response.message);
       props.Message(true);

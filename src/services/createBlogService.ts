@@ -1,9 +1,11 @@
 import axios from "../utils/axiosInstance";
 import { Blog, CommentForm } from "../types/auth";
 
-export const BlogReq = async (BlogData: Blog) => {
+export const BlogReq = async (BlogData: Blog, token: string | null) => {
   try {
-    const response = await axios.post("/blog", BlogData);
+    const response = await axios.post("/blog", BlogData, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error: any) {
     return error.response.data;
@@ -17,9 +19,11 @@ export const BlogAllData = async () => {
     return error.response.data;
   }
 };
-export const BlogDeletedData = async (itemId: string) => {
+export const BlogDeletedData = async (itemId: string, token: string | null) => {
   try {
-    const response = await axios.delete(`/blog/${itemId}`);
+    const response = await axios.delete(`/blog/${itemId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error: any) {
     return error.response.data;
@@ -33,9 +37,15 @@ export const BlogData = async (itemId: string | undefined) => {
     return error.response.data;
   }
 };
-export const BlogDataUpdate = async (itemId: string, BlogData: Blog) => {
+export const BlogDataUpdate = async (
+  itemId: string,
+  BlogData: Blog,
+  token: string | null
+) => {
   try {
-    const response = await axios.put(`/blog/${itemId}`, BlogData);
+    const response = await axios.put(`/blog/${itemId}`, BlogData, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
     return response.data;
   } catch (error: any) {
     return error.response.data;
