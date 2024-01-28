@@ -94,7 +94,7 @@ export const navbar: Navbar[] = [
 
 export const navbarIcons: NavbarIcons[] = [
   { id: 1, name: "Search", icon: MagnifyingGlassIcon, Link: "#" },
-  { id: 2, name: "Shopping", icon: ShoppingCartIcon, Link: "#" },
+  { id: 2, name: "Shopping", icon: ShoppingCartIcon, Link: "/Cart" },
   { id: 3, name: "Auth", icon: UserIcon, Link: "/login" },
 ];
 

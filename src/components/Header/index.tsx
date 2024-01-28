@@ -1,11 +1,12 @@
 import { navbar, navbarIcons } from "@/Event/Event"
-import { MoonIcon, SunIcon, Bars3Icon } from "@heroicons/react/24/solid"
+import { MoonIcon, SunIcon, Bars3Icon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/solid"
 import { useState } from "react";
 import Menu from "../Shared/HamburgerMenu/Menu";
 import ImagePart from "../Shared/ImgPart/Image";
 import useSearch from "@/hooks/useSearch";
 import Links from "../Shared/Link/Link";
 import Button from "../Shared/Button/Button";
+import { useShoppingCart } from "@/context/ShoppingCartContext";
 interface HeaderProps {
         currentTheme: string;
         toggleTheme: () => void;
@@ -16,6 +17,7 @@ export default function Header(props: HeaderProps) {
         const toggleMenu = () => {
                 setIsMenuOpen(!isMenuOpen);
         };
+        const { cartItems } = useShoppingCart();
         const { showSearchInput, toggleSearchInput } = useSearch();
         return (
                 <nav className="bg-light-bg-Nav dark:bg-dark-bg-Nav p-4">
@@ -54,17 +56,29 @@ export default function Header(props: HeaderProps) {
                                                                 Click={e.name === 'Search' ? toggleSearchInput : undefined}>
                                                                 <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
                                                         </Button>
-                                                ) : (
-                                                        <Links
-                                                                type="icon"
-                                                                Href={props.Role === 'admin' ? '/admin/dashboard' : props.Role === 'user' ? '/user/dashboard' : e.Link}
-                                                                key={e.name}
-                                                                className="mr-4"
-                                                                IdName={e.name}>
-                                                                <e.icon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
-                                                        </Links>
-                                                )
+                                                ) : null
                                         ))}
+                                        <Links
+                                                type="icon"
+                                                Href={props.Role === 'admin' ? '/admin/dashboard' : props.Role === 'user' ? '/user/dashboard' : '/login'}
+                                                key={'Search'}
+                                                className="mr-4"
+                                                IdName={'Search'}>
+                                                <UserIcon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
+                                        </Links>
+                                        <Links
+                                                type="icon"
+                                                Href={'/Cart'}
+                                                key={'Shopping'}
+                                                className="mr-4"
+                                                IdName={'Shopping'}>
+                                                <ShoppingCartIcon className="h-6 w-6 text-light-color-Font dark:text-dark-color-Font" />
+                                                {cartItems.length > 0 && (
+                                                        <span className="absolute -top-2 -right-1 bg-dark-red dark:bg-light-red text-dark-color-Font rounded-full text-xs w-5 h-5 flex items-center justify-center">
+                                                                {cartItems.length}
+                                                        </span>
+                                                )}
+                                        </Links>
                                         {showSearchInput && (
                                                 <input
                                                         type="text"
@@ -74,7 +88,7 @@ export default function Header(props: HeaderProps) {
                                         )}
                                 </div>
                         </div>
-                        <Menu isMenuOpen={isMenuOpen} currentTheme={props.currentTheme} toggleTheme={props.toggleTheme} />
+                        <Menu Role={props.Role} isMenuOpen={isMenuOpen} currentTheme={props.currentTheme} toggleTheme={props.toggleTheme} />
                 </nav>
         )
 }

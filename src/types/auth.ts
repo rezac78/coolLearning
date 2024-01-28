@@ -40,6 +40,9 @@ export interface Course {
   instructorScope: string;
   chapters: Chapter[];
 }
+export interface CartItem extends Course {
+  quantity: number;
+}
 
 export interface Blog {
   _id: string;

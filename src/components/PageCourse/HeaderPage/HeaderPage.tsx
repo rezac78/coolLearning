@@ -15,7 +15,7 @@ export default function HeaderPage(props: HeaderPageProps) {
                                 </div>
                                 <div className="ml-4">
                                         <p className="text-lg font-semibold text-light-color-Font dark:text-dark-color-Font">{props.NameTeach}</p>
-                                        <p className="text-dark-green dark:text-light-green text-xl font-bold mt-2">{props.Prices}</p>
+                                        <p className="text-dark-green dark:text-light-green text-xl font-bold mt-2">${props.Prices}</p>
                                 </div>
                         </div>
                 </>
