@@ -1,7 +1,26 @@
 import { Disclosure } from '@headlessui/react'
 import NavDash from './NavDash/NavDash'
-import HeaderDash from './HeaderDash/HeaderDash'
+import HeaderDash from './HeaderDash/HeaderDash';
+import Typed from 'typed.js';
+import { useEffect } from 'react';
 export default function UserDash({ Data }: any) {
+        useEffect(() => {
+                if (Data && Data.data && Data.data.email && Data.data.username) {
+                        new Typed('#typed-welcome-1', {
+                                strings: [`👨‍💻 Welcome to Cool Learning, ${Data.data.username} 🚀`],
+                                typeSpeed: 50,
+                                showCursor: false,
+                                onComplete: (self) => {
+                                        new Typed('#typed-welcome-2', {
+                                                strings: [`📬 Your Registered Email: ${Data.data.email}.`],
+                                                typeSpeed: 50,
+                                                startDelay: 500,
+                                                showCursor: false,
+                                        });
+                                },
+                        });
+                }
+        }, [Data]);
         return (
                 <>
                         <div className="min-h-full">
@@ -19,12 +38,8 @@ export default function UserDash({ Data }: any) {
                                 <HeaderDash Type="home" HeadTitle="Dashboard" HeadLink="/" />
                                 <main>
                                         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                                                <label htmlFor={Data?.data.email} className="block text-dark-color-Input-label text-sm font-bold mb-2">Email</label>
-                                                <input type={'text'} value={Data?.data.email} id={Data?.data.email} className="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray bg-light-bg-Input dark:bg-dark-bg-Input leading-tight focus:outline-none focus:shadow-outline" />
-                                                <div className="mt-5">
-                                                        <label htmlFor={Data?.data.username} className="block text-dark-color-Input-label text-sm font-bold mb-2">Username</label>
-                                                        <input type={'text'} value={Data?.data.username} id={Data?.data.username} className="shadow appearance-none border rounded w-full py-2 px-3 text-dark-gray bg-light-bg-Input dark:bg-dark-bg-Input leading-tight focus:outline-none focus:shadow-outline" />
-                                                </div>
+                                                <div id="typed-welcome-1" className="text-xl font-bold mb-4"></div>
+                                                <div id="typed-welcome-2" className="text-xl font-bold mb-4"></div>
                                         </div>
                                 </main>
                         </div>
