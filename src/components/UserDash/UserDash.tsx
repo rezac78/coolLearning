@@ -37,9 +37,9 @@ export default function UserDash({ Data }: any) {
                                 </Disclosure>
                                 <HeaderDash Type="home" HeadTitle="Dashboard" HeadLink="/" />
                                 <main>
-                                        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                                                <div id="typed-welcome-1" className="text-xl font-bold mb-4"></div>
-                                                <div id="typed-welcome-2" className="text-xl font-bold mb-4"></div>
+                                        <div className="mx-auto max-w-7xl py-6 px-3 sm:px-6 lg:px-8">
+                                                <div id="typed-welcome-1" className="text-base sm:text-xl font-bold mb-4"></div>
+                                                <div id="typed-welcome-2" className="text-base sm:text-xl font-bold mb-4"></div>
                                         </div>
                                 </main>
                         </div>
