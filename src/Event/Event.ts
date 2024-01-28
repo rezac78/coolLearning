@@ -183,6 +183,21 @@ export const InputRegister: InputRegister[] = [
   },
 ];
 
+export const InputSetting: InputRegister[] = [
+  {
+    id: 1,
+    IdName: "password",
+    LabelName: "Password",
+    type: "text",
+  },
+  {
+    id: 2,
+    IdName: "repeatPassword",
+    LabelName: "Repeat Password",
+    type: "text",
+  },
+];
+
 export const InputLogin: InputLogin[] = [
   {
     id: 1,
@@ -202,6 +217,12 @@ export const navigation: Navigation[] = [
   { id: 1, name: "Dashboard", href: "/admin/dashboard" },
   { id: 2, name: "Course", href: "/admin/course" },
   { id: 3, name: "Blog", href: "/admin/blog" },
+];
+
+export const navigationUser: Navigation[] = [
+  { id: 1, name: "Dashboard", href: "/user/dashboard" },
+  { id: 2, name: "Cart", href: "/user/cart" },
+  { id: 3, name: "Settings", href: "/user/settings" },
 ];
 
 export const InputForm: InputForm[] = [

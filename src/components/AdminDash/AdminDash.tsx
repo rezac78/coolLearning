@@ -1,8 +1,6 @@
 import { Disclosure} from '@headlessui/react'
 import NavDash from './NavDash/NavDash'
 import HeaderDash from './HeaderDash/HeaderDash'
-import Alerts from '../Shared/Alert/Alert'
-import { useState } from 'react';
 export default function AdminDash() {
         return (
                 <>

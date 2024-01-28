@@ -12,6 +12,16 @@ export const registrationSchema = Yup.object().shape({
   ),
 });
 
+export const settingsSchema = Yup.object().shape({
+  password: Yup.string()
+    .required("Password is required")
+    .min(6, "Password must be at least 6 characters long"),
+  repeatPassword: Yup.string().oneOf(
+    [Yup.ref("password"), null],
+    "Passwords must match"
+  ),
+});
+
 export const loginValidationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
