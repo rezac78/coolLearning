@@ -23,13 +23,13 @@ export default function PageCoursePartProps(props: PageCoursePartProps) {
         const { addToCart, successMessage, clearSuccessMessage } = useShoppingCart();
         useEffect(() => {
                 if (successMessage) {
-                        const timer = setTimeout(() => clearSuccessMessage(), 3000); // Message disappears after 3 seconds
+                        const timer = setTimeout(() => clearSuccessMessage(), 3000);
                         return () => clearTimeout(timer);
                 }
         }, [successMessage, clearSuccessMessage]);
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
-                        {successMessage && <Alerts Message={successMessage} type={true} />}
+                        {successMessage && <Alerts Message={successMessage} />}
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">
                                 <Header Role={props.Role} toggleTheme={toggleTheme} currentTheme={theme} />
                                 <div className="max-w-6xl mx-auto mt-5">

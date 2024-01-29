@@ -6,6 +6,7 @@ import { CourseComments, ReplayComments } from '@/services/createCourseService';
 import { useState } from "react";
 import useAuth from "@/hooks/useAuth";
 import { useRouter } from "next/router";
+import Alerts from "@/components/Shared/Alert/Alert";
 interface RightSideProps {
         SrcImage: string;
         LongDescription: string;
@@ -17,8 +18,8 @@ interface RightSideProps {
         isPurchased: any;
 }
 export default function RightSide(props: RightSideProps) {
-        console.log(props.isPurchased)
         const [comments, setComments] = useState(props.CommentData || []);
+        const [successMessage, setSuccessMessage] = useState(false);
         const addComment = (newComment: any) => {
                 setComments([newComment, ...comments]);
         };
@@ -33,16 +34,20 @@ export default function RightSide(props: RightSideProps) {
         };
         const { user } = useAuth({ restricted: false });
         const router = useRouter();
-        const handleChapterClick = (index:any) => {
+        const handleChapterClick = (index: any) => {
                 if (!user) {
-                        alert("Please log in to access the chapters.");
-                        router.push('/login');
-                        return;
+                        setSuccessMessage(true);
+                        const timer = setTimeout(() => {
+                                setSuccessMessage(false); 
+                                router.push('/login');
+                        }, 3000);
+                        return () => clearTimeout(timer);
                 }
                 props.Click(index);
         };
         return (
                 <>
+                        {successMessage && <Alerts Message="Please log in to access the chapters." />}
                         <div className="shadow-lg rounded-lg overflow-hidden">
                                 <ImagePart Src={props.SrcImage} width={600} height={600} className="w-full object-cover" />
                         </div>
@@ -72,7 +77,7 @@ export default function RightSide(props: RightSideProps) {
                                                                         {props.isPurchased ? (
                                                                                 <a href={season.videoUrl} className="text-blue-500 hover:text-blue-700">Download Chapter</a>
                                                                         ) : (
-                                                                                <p className="text-red-500">Purchase the course to access this chapter.</p>
+                                                                                <p className="text-yellow-500">Purchase the course to access this chapter.</p>
                                                                         )}
                                                                         <p className="mt-1 text-gray-600">{season.description}</p>
                                                                 </div>
