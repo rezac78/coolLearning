@@ -11,12 +11,15 @@ interface ShoppingCartContext {
         successMessage: string;
         clearSuccessMessage: () => void;
 }
+interface ShoppingCartProviderProps {
+        children: React.ReactNode;
+}
 
 const ShoppingCartContext = createContext<ShoppingCartContext>(null!);
 
 export const useShoppingCart = () => useContext(ShoppingCartContext);
 
-export const ShoppingCartProvider: React.FC = ({ children }: any) => {
+export const ShoppingCartProvider: React.FC<ShoppingCartProviderProps> = ({ children }) => {
         const [cartItems, setCartItems] = useState<CartItem[]>([]);
         const [successMessage, setSuccessMessage] = useState<string>('');
         useEffect(() => {

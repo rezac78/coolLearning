@@ -4,15 +4,18 @@ import { useShoppingCart } from '@/context/ShoppingCartContext';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import ImagePart from '../Shared/ImgPart/Image';
 import Alerts from '../Shared/Alert/Alert';
+import Button from '../Shared/Button/Button';
+import { useRouter } from 'next/router';
 
 export default function ShoppingCart() {
         const { cartItems, removeFromCart, successMessage, clearSuccessMessage, formattedTotal, emptyCart } = useShoppingCart();
         useEffect(() => {
                 if (successMessage) {
-                        const timer = setTimeout(() => clearSuccessMessage(), 3000); // Message disappears after 3 seconds
+                        const timer = setTimeout(() => clearSuccessMessage(), 3000);
                         return () => clearTimeout(timer);
                 }
         }, [successMessage, clearSuccessMessage]);
+        const router = useRouter();
         return (
                 <main className="relative flex-grow flex items-center justify-center">
                         {successMessage && <Alerts Message={successMessage} type={true} />}
@@ -20,8 +23,8 @@ export default function ShoppingCart() {
                                 <h1 className="text-2xl text-light-color-Font dark:text-dark-color-Font font-bold mb-4 text-center">Shopping Cart</h1>
                                 {cartItems.length === 0 ? (
                                         <div className="text-center">
-                                                <p className="text-lg">Your shopping cart is empty.</p>
-                                                <p>Click on the link below to view all courses.</p>
+                                                <p className="text-lg text-light-color-Font dark:text-dark-color-Font">Your shopping cart is empty.</p>
+                                                <p className='text-light-color-Font dark:text-dark-color-Font'>Click on the link below to view all courses.</p>
                                                 <Links className="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300" Href={'/courses'} type={'icon'}>
                                                         View All Courses
                                                 </Links>
@@ -42,9 +45,9 @@ export default function ShoppingCart() {
                                                 ))}
                                                 <div className="mt-6">
                                                         <p className="text-xl text-light-color-Font dark:text-dark-color-Font font-bold">Total: <span className="text-dark-green dark:text-light-green">${formattedTotal}</span></p>
-                                                        <button className="px-4 py-2 bg-dark-red dark:bg-light-red mt-2 text-dark-color-Font rounded hover:bg-red-500 transition duration-300" onClick={emptyCart}>Empty All Cart</button>
-                                                        {/* Implement the button to continue the order process */}
+                                                        <Button className="px-4 py-2 bg-dark-red dark:bg-light-red mt-2 text-dark-color-Font rounded hover:bg-red-500 transition duration-300" Click={emptyCart} Type={'child'}>Empty All Cart</Button>
                                                 </div>
+                                                <Button className="px-4 py-2 bg-dark-blue dark:bg-light-blue mt-2 text-dark-color-Font rounded hover:bg-blue-500 transition duration-300" Click={() => router.push('/Checkout')} Type={'child'}>Go Checkout</Button>
                                         </div>
                                 )}
                         </div>

@@ -25,3 +25,19 @@ export const updateUserDetails = async (
     return { message: "Failed to update user" };
   }
 };
+
+export const purchaseCourses = async (courseIds:string[], token:string | null) => {
+  try {
+    const response = await axiosInstance.post(
+      "/user/purchase",
+      { courseIds },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error purchasing courses:", error);
+    throw error;
+  }
+};

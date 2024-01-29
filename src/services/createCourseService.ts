@@ -48,9 +48,16 @@ export const CourseDeletedChapter = async (
     return error.response.data;
   }
 };
-export const CourseData = async (itemId: string | undefined) => {
+export const CourseData = async (
+  itemId: string | undefined,
+  token: string | null
+) => {
   try {
-    const response = await axios.get(`/courses/${itemId}`);
+    const response = await axios.get(`/courses/${itemId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   } catch (error: any) {
     return error.response.data;

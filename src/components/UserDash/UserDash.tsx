@@ -5,13 +5,14 @@ import Typed from 'typed.js';
 import { useEffect } from 'react';
 export default function UserDash({ Data }: any) {
         useEffect(() => {
+                let typed1: any, typed2: any;
                 if (Data && Data.data && Data.data.email && Data.data.username) {
-                        new Typed('#typed-welcome-1', {
+                        typed1 = new Typed('#typed-welcome-1', {
                                 strings: [`👨‍💻 Welcome to Cool Learning, ${Data.data.username} 🚀`],
                                 typeSpeed: 50,
                                 showCursor: false,
                                 onComplete: (self) => {
-                                        new Typed('#typed-welcome-2', {
+                                        typed2 = new Typed('#typed-welcome-2', {
                                                 strings: [`📬 Your Registered Email: ${Data.data.email}.`],
                                                 typeSpeed: 50,
                                                 startDelay: 500,
@@ -20,6 +21,14 @@ export default function UserDash({ Data }: any) {
                                 },
                         });
                 }
+                return () => {
+                        if (typed1) {
+                                typed1.destroy();
+                        }
+                        if (typed2) {
+                                typed2.destroy();
+                        }
+                };
         }, [Data]);
         return (
                 <>

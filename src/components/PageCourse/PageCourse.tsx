@@ -48,7 +48,7 @@ export default function PageCoursePartProps(props: PageCoursePartProps) {
                                                         </div>
                                                 </div>
                                                 <div className="flex-2 w-full md:w-4/6 overflow-y-auto mt-4 md:mt-0 md:ml-6">
-                                                        <RightSide CommentData={props.CommentData} courseId={props.initialCourseData._id} Click={toggleChapter} openChapterIndex={openChapterIndex} Chapters={props.initialCourseData.chapters} LongDescription={props.initialCourseData.longDescription} SrcImage={props.initialCourseData.coursePhoto} />
+                                                        <RightSide isPurchased={props.initialCourseData.isPurchased} CommentData={props.CommentData} courseId={props.initialCourseData._id} Click={toggleChapter} openChapterIndex={openChapterIndex} Chapters={props.initialCourseData.chapters} LongDescription={props.initialCourseData.longDescription} SrcImage={props.initialCourseData.coursePhoto} />
                                                 </div>
                                         </div>
                                 </div>

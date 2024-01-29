@@ -5,7 +5,7 @@ import useAuth from "@/hooks/useAuth";
 import ShoppingCart from "@/components/Cart/CartPart";
 export default function Cart() {
         const { theme, toggleTheme } = useTheme();
-        const { user, isLoading } = useAuth({ restricted: false });
+        const { user } = useAuth({ restricted: false });
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">

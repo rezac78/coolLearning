@@ -15,7 +15,7 @@ export default function EditCourse({ initialCourseData }: { initialCourseData: C
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
         const courseId = Array.isArray(context.params?.id) ? context.params?.id[0] : context.params?.id;
-        const courseData = courseId ? await CourseData(courseId) : null;
+        const courseData = courseId ? await CourseData(courseId, null) : null;
         return {
                 props: { initialCourseData: courseData ? courseData.data : null },
         };
