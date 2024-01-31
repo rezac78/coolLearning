@@ -493,7 +493,7 @@ export const LeftSideCourse: LeftSideCourse[] = [
     Label: "Students:",
     color: "text-blue-500",
     icon: UserGroupIcon,
-    idPart: "peopleNumber",
+    idPart: "purchaseCount",
   },
   {
     id: 2,

@@ -6,6 +6,7 @@ import { CourseAllData } from "@/services/createCourseService";
 import { Course } from "@/types/auth";
 import useAuth from "@/hooks/useAuth";
 import { GetServerSidePropsContext } from "next";
+import { SearchCourse } from "@/services/SearchService";
 interface CoursesProps {
         coursesData: Course[];
 }
@@ -23,8 +24,14 @@ export default function Courses(props: CoursesProps) {
         )
 }
 export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+        const searchTerm = context.query.term;
         try {
-                const coursesData = await CourseAllData();
+                let coursesData;
+                if (searchTerm) {
+                        coursesData = await SearchCourse(searchTerm)
+                } else {
+                        coursesData = await CourseAllData();
+                }
                 if (!coursesData) {
                         throw new Error('Failed to fetch courses data');
                 }

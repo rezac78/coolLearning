@@ -29,7 +29,7 @@ export interface Course {
   duration: string;
   courseType: string;
   coursePrice: string;
-  peopleNumber: string;
+  purchaseCount: number;
   prerequisites: string;
   courseLanguage: string;
   instructorPoster: string;
@@ -53,6 +53,8 @@ export interface Blog {
   cardPhoto: string;
   creatorPhoto: string;
   creatorScope: string;
+  commentsCount:number;
+  likes:any;
   creationDate: Date;
 }
 export interface Token {

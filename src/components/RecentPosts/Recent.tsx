@@ -14,7 +14,7 @@ export default function Recent(props:RecentProps) {
                         </div>
                         <div className="w-full md:w-5/6 mx-auto mb-5 flex flex-wrap justify-center gap-4">
                                 {props.CourseData.slice(0, 3).map((e, i) => (
-                                        <Card LinkId={e._id} key={e._id} user={e.peopleNumber} chapters={e.chapters} duration={e.duration} description={e.description} title={e.title} Type={e.courseType} instructorPoster={e.instructorPoster} instructorName={e.instructorName} instructorScope={e.instructorScope} CardPhoto={e.coursePhoto}  type="courses" />
+                                        <Card LinkId={e._id} key={e._id} user={e.purchaseCount} chapters={e.chapters} duration={e.duration} description={e.description} title={e.title} Type={e.courseType} instructorPoster={e.instructorPoster} instructorName={e.instructorName} instructorScope={e.instructorScope} CardPhoto={e.coursePhoto}  type="courses" />
                                 ))}
                         </div>
                 </>

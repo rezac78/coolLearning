@@ -6,7 +6,6 @@ import { BlogAllData } from "@/services/createBlogService";
 import { Blog } from "@/types/auth";
 import useAuth from "@/hooks/useAuth";
 import { GetServerSidePropsContext } from "next";
-import xssFilters from 'xss-filters';
 interface BlogProps {
         blogsData: Blog[];
 }

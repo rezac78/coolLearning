@@ -1,7 +1,8 @@
 import React from 'react';
 import Card from '@/components/Shared/Card';
+import { Course } from '@/types/auth';
 interface DashCartProps {
-        initialData: any;
+        initialData: Course[];
 }
 export default function DashCart({ initialData }: DashCartProps) {
         return (
@@ -14,7 +15,7 @@ export default function DashCart({ initialData }: DashCartProps) {
                                                         type="courses"
                                                         LinkId={e._id}
                                                         key={e._id}
-                                                        user={e.peopleNumber}
+                                                        user={e.purchaseCount}
                                                         chapters={e.chapters}
                                                         duration={e.duration}
                                                         description={e.description}

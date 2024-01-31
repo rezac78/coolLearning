@@ -14,9 +14,12 @@ interface CardProps {
         duration?: string;
         chapters?: Chapter[];
         DataCreate?: any;
-        user?: string;
+        user?: number;
         LinkId: string;
+        commentsCount?: number;
+        LikeNumber?: any;
         type: 'courses' | 'blog';
+        handleLike?: any;
 }
 export default function Card(props: CardProps) {
         const router = useRouter();
@@ -25,7 +28,7 @@ export default function Card(props: CardProps) {
                         <div className="relative">
                                 <ImagePart className="w-full transition duration-700 hover:brightness-[.5]" Src={props.CardPhoto} width={500} height={300} />
                                 <div className="group/edit invisible group-hover/item:visible absolute top-5 left-1 flex items-center">
-                                        {props.type === 'blog' ? null : <ImagePart className="w-14 h-16 rounded-full mr-2" Src={props.instructorPoster ?? ""} width={500} height={500} />}
+                                        {props.type === 'blog' ? null : <ImagePart className="w-12 h-12 rounded-full mr-2" Src={props.instructorPoster ?? ""} width={500} height={500} />}
                                         <div>
                                                 <span className="block text-dark-color-Font px-2 py-1 text-sm font-bold">{props.instructorName}</span>
                                                 <span className="block text-dark-color-Font px-2 py-1 text-xs">{props.instructorScope}</span>
@@ -42,8 +45,12 @@ export default function Card(props: CardProps) {
                                 <div className="flex justify-between text-xs text-light-color-Font dark:text-dark-color-Font">
                                         {props.type === 'blog' ?
                                                 <>
-                                                        <span className="text-dark-red dark:text-light-red"><HeartIcon width={20} height={20} /> 25</span>
-                                                        <span className="text-dark-blue dark:text-light-blue"><ChatBubbleOvalLeftIcon width={20} height={20} /> 25</span>
+                                                        <div className="text-dark-red dark:text-light-red">
+                                                                <button onClick={() => props.handleLike(props.LinkId)}><HeartIcon width={20} height={20} /><span className="">{props.LikeNumber}</span></button>
+                                                        </div>
+                                                        <div className="text-dark-blue dark:text-light-blue">
+                                                                <ChatBubbleOvalLeftIcon width={20} height={20} /><span className="ml-1">{props.commentsCount}</span>
+                                                        </div>
                                                 </>
                                                 :
                                                 <>

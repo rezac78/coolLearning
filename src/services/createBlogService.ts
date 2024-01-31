@@ -75,3 +75,15 @@ export const ReplayComments = async (commentData: any) => {
     return error.response.data;
   }
 };
+export const LikeBlog = async (blogId: string, token: string | null) => {
+  try {
+    const response = await axios.put(`/blog/like/${blogId}`,{}, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    return response.data;
+  } catch (error: any) {
+    return error.response.data;
+  }
+};

@@ -29,7 +29,7 @@ export default function PageCoursePartProps(props: PageCoursePartProps) {
         }, [successMessage, clearSuccessMessage]);
         return (
                 <div className={`${theme === 'light' ? 'dark' : 'light'}`}>
-                        {successMessage && <Alerts Message={successMessage} />}
+                        {successMessage && <Alerts Message={successMessage} type={true} />}
                         <div className="bg-white dark:bg-black flex flex-col min-h-screen">
                                 <Header Role={props.Role} toggleTheme={toggleTheme} currentTheme={theme} />
                                 <div className="max-w-6xl mx-auto mt-5">
@@ -44,8 +44,7 @@ export default function PageCoursePartProps(props: PageCoursePartProps) {
                                                         <div className="mt-6">
                                                                 {LeftSideCourse.map((e, i) => (
                                                                         <LeftSide key={i} Chapters={props.initialCourseData.chapters} initialCourseData={props.initialCourseData} Label={e.Label} color={e.color} icon={e.icon} idPart={e.idPart} />
-                                                                ))}
-                                                        </div>
+                                                                ))}                                                        </div>
                                                 </div>
                                                 <div className="flex-2 w-full md:w-4/6 overflow-y-auto mt-4 md:mt-0 md:ml-6">
                                                         <RightSide isPurchased={props.initialCourseData.isPurchased} CommentData={props.CommentData} courseId={props.initialCourseData._id} Click={toggleChapter} openChapterIndex={openChapterIndex} Chapters={props.initialCourseData.chapters} LongDescription={props.initialCourseData.longDescription} SrcImage={props.initialCourseData.coursePhoto} />

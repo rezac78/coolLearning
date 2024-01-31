@@ -7,6 +7,7 @@ import useSearch from "@/hooks/useSearch";
 import Links from "../Shared/Link/Link";
 import Button from "../Shared/Button/Button";
 import { useShoppingCart } from "@/context/ShoppingCartContext";
+import { useRouter } from "next/router";
 interface HeaderProps {
         currentTheme: string;
         toggleTheme: () => void;
@@ -14,8 +15,14 @@ interface HeaderProps {
 }
 export default function Header(props: HeaderProps) {
         const [isMenuOpen, setIsMenuOpen] = useState(false);
+        const [searchTerm, setSearchTerm] = useState('');
+        const router = useRouter();
         const toggleMenu = () => {
                 setIsMenuOpen(!isMenuOpen);
+        };
+        const handleSearch = () => {
+                if (!searchTerm.trim()) return;
+                router.push(`/courses?term=${encodeURIComponent(searchTerm)}`);
         };
         const { cartItems } = useShoppingCart();
         const { showSearchInput, toggleSearchInput } = useSearch();
@@ -82,8 +89,11 @@ export default function Header(props: HeaderProps) {
                                         {showSearchInput && (
                                                 <input
                                                         type="text"
+                                                        value={searchTerm}
+                                                        onChange={(e) => setSearchTerm(e.target.value)}
                                                         className="absolute -top-4 z-10 right-56 mt-2 w-full rounded-md border border-gray-300 shadow-sm p-2 transition-all duration-300 ease-in-out"
                                                         autoFocus
+                                                        onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
                                                 />
                                         )}
                                 </div>
