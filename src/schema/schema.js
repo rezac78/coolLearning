@@ -34,7 +34,6 @@ export const courseSchema = Yup.object().shape({
   duration: Yup.string().required("Duration is required"),
   courseType: Yup.string().required("Course type is required"),
   coursePrice: Yup.string().required("Course Price is required"),
-  peopleNumber: Yup.string().required("Course people Number is required"),
   prerequisites: Yup.string().required("Prerequisites are required"),
   courseLanguage: Yup.string().required("Course language is required"),
   instructorPoster: Yup.string()
