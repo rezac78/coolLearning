@@ -2,7 +2,7 @@ import { Chapter } from "@/types/auth";
 import Button from "../Button/Button";
 import ImagePart from "../ImgPart/Image";
 import { useRouter } from "next/router";
-import { HeartIcon, ChatBubbleOvalLeftIcon } from "@heroicons/react/24/solid";
+import { HandThumbUpIcon, ChatBubbleOvalLeftIcon } from "@heroicons/react/24/solid";
 interface CardProps {
         instructorName: string;
         instructorScope?: string;
@@ -45,8 +45,8 @@ export default function Card(props: CardProps) {
                                 <div className="flex justify-between text-xs text-light-color-Font dark:text-dark-color-Font">
                                         {props.type === 'blog' ?
                                                 <>
-                                                        <div className="text-dark-red dark:text-light-red">
-                                                                <button onClick={() => props.handleLike(props.LinkId)}><HeartIcon width={20} height={20} /><span className="">{props.LikeNumber}</span></button>
+                                                        <div className="text-dark-blue dark:text-light-blue">
+                                                                <button onClick={() => props.handleLike(props.LinkId)}><HandThumbUpIcon width={20} height={20} /><span className="">{props.LikeNumber}</span></button>
                                                         </div>
                                                         <div className="text-dark-blue dark:text-light-blue">
                                                                 <ChatBubbleOvalLeftIcon width={20} height={20} /><span className="ml-1">{props.commentsCount}</span>

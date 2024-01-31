@@ -384,42 +384,38 @@ export const TableHead: TableHead[] = [
   },
   {
     id: 5,
-    Title: "People Number",
-  },
-  {
-    id: 6,
     Title: "Prerequisites",
   },
   {
-    id: 7,
+    id: 6,
     Title: "Course Language",
   },
   {
-    id: 8,
+    id: 7,
     Title: "Poster",
   },
   {
-    id: 9,
+    id: 8,
     Title: "Description",
   },
   {
-    id: 10,
+    id: 9,
     Title: "Long Description",
   },
   {
-    id: 11,
+    id: 10,
     Title: "Course Photo",
   },
   {
-    id: 12,
+    id: 11,
     Title: "Instructor Name",
   },
   {
-    id: 13,
+    id: 12,
     Title: "Instructor Scope",
   },
   {
-    id: 14,
+    id: 13,
     Title: "Actions",
   },
 ];
