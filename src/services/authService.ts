@@ -20,12 +20,6 @@ export const LoginReq = async (LoginData: LoginData) => {
 };
 
 export const LogoutReq = async () => {
-  // try {
-  //   const response = await axios.get("/auth/logout");
-  //   return response.data;
-  // } catch (error: any) {
-  //   return error.response.data;
-  // }
   localStorage.removeItem("token");
   return { success: true, message: "Logged out successfully" };
 };

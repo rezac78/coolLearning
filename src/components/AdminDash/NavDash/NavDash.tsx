@@ -67,15 +67,8 @@ export default function NavDash({ open }: NavDashProps) {
                                                 </Links>
                                         ))}
                                 </div>
-                                <div className="border-t border-gray-700 pb-3 pt-4">
-                                        <div className="flex items-center px-5">
-                                                <Button
-                                                        Type="child"
-                                                        className="relative ml-auto flex-shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                                >
-                                                        <ArrowLeftEndOnRectangleIcon className="h-6 w-6" aria-hidden="true" />
-                                                </Button>
-                                        </div>
+                                <div className="border-t border-gray-700 pb-3 pt-4 flex justify-end">
+                                        <Logout Message={setShowSuccessMessage} SuccessMessage={setNumberSuccessMessage} Success={setSuccessMessage} />
                                 </div>
                         </Disclosure.Panel>
                 </>
