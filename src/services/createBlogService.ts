@@ -51,9 +51,9 @@ export const BlogDataUpdate = async (
     return error.response.data;
   }
 };
-export const BlogComments = async (data: CommentForm) => {
+export const BlogComments = async (data: CommentForm, blogId: string) => {
   try {
-    const response = await axios.post(`/blog/comments`, { data });
+    const response = await axios.post(`/blog/comments/${blogId}`, { data });
     return response.data;
   } catch (error: any) {
     return error.response.data;
@@ -77,11 +77,15 @@ export const ReplayComments = async (commentData: any) => {
 };
 export const LikeBlog = async (blogId: string, token: string | null) => {
   try {
-    const response = await axios.put(`/blog/like/${blogId}`,{}, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await axios.put(
+      `/blog/like/${blogId}`,
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return response.data;
   } catch (error: any) {
     return error.response.data;

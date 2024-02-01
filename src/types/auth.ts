@@ -18,7 +18,7 @@ export interface Chapter {
   videoUrl: string;
 }
 export interface CommentForm {
-  _id: string;
+  parentId: string;
   name: string;
   comment: string;
 }

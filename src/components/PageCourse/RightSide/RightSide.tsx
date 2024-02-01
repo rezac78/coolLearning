@@ -1,12 +1,11 @@
-import CommentForm from "@/components/Shared/CommentForm/CommentForm";
 import ImagePart from "@/components/Shared/ImgPart/Image";
-import ShowComment from "@/components/Shared/ShowComment/ShowComment";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/16/solid";
-import { CourseComments, ReplayComments } from '@/services/createCourseService';
 import { useState } from "react";
 import useAuth from "@/hooks/useAuth";
 import { useRouter } from "next/router";
 import Alerts from "@/components/Shared/Alert/Alert";
+import CommentsSection from "@/components/Shared/CommentForm/CommentsSection";
+import { CourseComments } from "@/services/createCourseService";
 interface RightSideProps {
         SrcImage: string;
         LongDescription: string;
@@ -18,27 +17,18 @@ interface RightSideProps {
         isPurchased: any;
 }
 export default function RightSide(props: RightSideProps) {
-        const [comments, setComments] = useState(props.CommentData || []);
         const [successMessage, setSuccessMessage] = useState(false);
+        const [comments, setComments] = useState(props.CommentData || []);
+        const { user } = useAuth({ restricted: false });
+        const router = useRouter();
         const addComment = (newComment: any) => {
                 setComments([newComment, ...comments]);
         };
-        const addReply = (newReply: any) => {
-                setComments(comments.map((comment: { _id: string; replies: any; }) => {
-                        if (comment._id === newReply.parentCommentId) {
-                                const updatedReplies = comment.replies ? [...comment.replies, newReply] : [newReply];
-                                return { ...comment, replies: updatedReplies };
-                        }
-                        return comment;
-                }));
-        };
-        const { user } = useAuth({ restricted: false });
-        const router = useRouter();
         const handleChapterClick = (index: any) => {
                 if (!user) {
                         setSuccessMessage(true);
                         const timer = setTimeout(() => {
-                                setSuccessMessage(false); 
+                                setSuccessMessage(false);
                                 router.push('/login');
                         }, 3000);
                         return () => clearTimeout(timer);
@@ -85,8 +75,7 @@ export default function RightSide(props: RightSideProps) {
                                                 </div>
                                         ))
                                 }
-                                <ShowComment CreateComment={CourseComments} ReplayComment={ReplayComments} courseId={props.courseId} CommentData={comments} onReply={addReply} />
-                                <CommentForm CreateComment={CourseComments} ReplayComment={ReplayComments} courseId={props.courseId} onNewComment={addComment} />
+                                <CommentsSection ApiComments={CourseComments} courseId={props.courseId} onNewComment={addComment} initialComments={comments} />
                         </div>
                 </>
         )

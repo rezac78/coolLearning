@@ -77,9 +77,11 @@ export const CourseDataUpdate = async (
     return error.response.data;
   }
 };
-export const CourseComments = async (data: CommentForm) => {
+export const CourseComments = async (data: CommentForm, courseId: string) => {
   try {
-    const response = await axios.post(`/courses/comments`, { data });
+    const response = await axios.post(`/courses/comments/${courseId}`, {
+      data,
+    });
     return response.data;
   } catch (error: any) {
     return error.response.data;

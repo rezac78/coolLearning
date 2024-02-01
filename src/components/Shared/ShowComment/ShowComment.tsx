@@ -1,44 +1,44 @@
 import { useState } from "react";
-import ImagePart from "../ImgPart/Image";
 import CommentForm from "../CommentForm/CommentForm";
-interface ShowCommentProps {
-        CommentData: any;
+import ImagePart from "../ImgPart/Image";
+import Button from "../Button/Button";
+interface CommentProps {
+        comment: any;
+        children: any;
         onReply: any;
-        courseId: any;
-        CreateComment:any;
-        ReplayComment:any;
 }
-export default function ShowComment(props: ShowCommentProps) {
-        const [replyTo, setReplyTo] = useState(null);
-        const handleReplyClick = (commentId: any) => {
-                setReplyTo(replyTo === commentId ? null : commentId);
+export default function Comment({ comment, children, onReply }: CommentProps) {
+        const [showReplyForm, setShowReplyForm] = useState(false);
+        const handleReplySubmit = (text: string, parentId: any, username: string) => {
+                onReply(text, parentId, username);
+                setShowReplyForm(false);
         };
-        const renderComments = (comments:any) => {
-                return comments.map((comment:any) => (
-                        <div key={comment._id} className="mb-4">
-                                <div className="flex items-start">
-                                        <ImagePart Src={"/user.png"} width={400} height={400} className="w-10 h-10 rounded-full mr-4" />
-                                        <div className="flex-1">
-                                                <div className="flex justify-between items-center">
-                                                        <h2 className="font-bold text-light-color-Font dark:text-dark-color-Font">{comment.name}</h2>
-                                                        <span className="text-sm text-light-color-Font dark:text-dark-color-Font">{new Date(comment.postedAt).toLocaleDateString()}</span>
-                                                </div>
-                                                <p className="text-base text-light-color-Font dark:text-dark-color-Font">{comment.comment}</p>
-                                                <button onClick={() => handleReplyClick(comment._id)} className="text-dark-blue dark:text-light-blue hover:text-blue-700 text-sm mt-2">
-                                                        Reply
-                                                </button>
-                                                {replyTo === comment._id && (
-                                                        <CommentForm CreateComment={props.CreateComment} ReplayComment={props.ReplayComment} parentCommentId={comment._id} courseId={props.courseId} onNewComment={props.onReply} />
-                                                )}
+        return (
+                <div className="mt-4 flex items-start shadow-sm rounded-lg p-4">
+                        <ImagePart Src={"/user.png"} width={400} height={400} className="w-10 h-10 rounded-full mr-4" />
+                        <div className="flex-1">
+                                <div className="border-b border-gray-200 pb-2 mb-2">
+                                        <div className="flex justify-between items-center">
+                                                <strong className="font-bold text-light-color-Font dark:text-dark-color-Font">{comment.name}:</strong>
+                                                <p className="text-sm text-light-color-Font dark:text-dark-color-Font">
+                                                        {new Date(comment.postedAt).toLocaleDateString()}
+                                                </p>
                                         </div>
+                                        <p className="text-base text-light-color-Font dark:text-dark-color-Font">{comment.comment}</p>
+                                        <Button
+                                                Click={() => setShowReplyForm(!showReplyForm)}
+                                                className="text-dark-blue dark:text-light-blue hover:text-blue-700 text-sm mt-2" Type={"child"}                                        >
+                                                Reply
+                                        </Button>
                                 </div>
-                                {comment.replies && comment.replies.length > 0 && (
-                                        <div className="mt-2">
-                                                {renderComments(comment.replies)}
-                                        </div>
+                                {showReplyForm && (
+                                        <CommentForm
+                                                parentId={comment._id}
+                                                onSubmit={handleReplySubmit}
+                                        />
                                 )}
+                                <div className="pl-2 mt-1">{children}</div>
                         </div>
-                ));
-        };
-        return <div>{renderComments(props.CommentData)}</div>;
+                </div>
+        );
 };
