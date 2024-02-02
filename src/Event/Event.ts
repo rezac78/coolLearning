@@ -276,27 +276,27 @@ export const InputForm: InputForm[] = [
   },
   {
     id: 9,
-    IdName: "longDescription",
-    LabelName: "Long Description",
-    type: "text",
-  },
-  {
-    id: 10,
     IdName: "instructorPoster",
     LabelName: "Instructor Poster URL",
     type: "url",
   },
   {
-    id: 11,
+    id: 10,
     IdName: "instructorName",
     LabelName: "Instructor's Name",
     type: "text",
   },
   {
-    id: 12,
+    id: 11,
     IdName: "instructorScope",
     LabelName: "Instructor's Scope",
     type: "text",
+  },
+  {
+    id: 12,
+    IdName: "longDescription",
+    LabelName: "Long Description",
+    type: "textarea",
   },
 ];
 export const InputFormBlog: InputForm[] = [

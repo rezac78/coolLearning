@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Alerts from "@/components/Shared/Alert/Alert";
 import CommentsSection from "@/components/Shared/CommentForm/CommentsSection";
 import { CourseComments } from "@/services/createCourseService";
+import LongDescription from "@/components/Shared/LongDescription/LongDescription";
 interface RightSideProps {
         SrcImage: string;
         LongDescription: string;
@@ -41,11 +42,7 @@ export default function RightSide(props: RightSideProps) {
                         <div className="shadow-lg rounded-lg overflow-hidden">
                                 <ImagePart Src={props.SrcImage} width={600} height={600} className="w-full object-cover" />
                         </div>
-                        <div className="text-light-color-Font dark:text-dark-color-Font mt-4 p-4 bg-light-bg-box dark:bg-dark-bg-box rounded-lg shadow">
-                                <p className="text-justify">
-                                        {props.LongDescription}
-                                </p>
-                        </div>
+                        <LongDescription LongDescription={props.LongDescription} />
                         <div className="mt-4 p-4 bg-light-bg-box dark:bg-dark-bg-box rounded-lg shadow">
                                 <h2 className="text-xl font-semibold text-light-color-Font dark:text-dark-color-Font mb-4">Seasons</h2>
                                 {

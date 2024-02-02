@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import cl from '../../../../cloudinaryConfig';
 interface ImageProps {
         Src: string;
         width: number;

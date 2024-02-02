@@ -30,7 +30,10 @@ export const loginValidationSchema = Yup.object().shape({
 });
 
 export const courseSchema = Yup.object().shape({
-  title: Yup.string().required("Title is required"),
+  title: Yup.string()
+    .min(5, "Course title must be at least 5 characters")
+    .max(17, "Course title must not exceed 17 characters")
+    .required("Title is required"),
   duration: Yup.string().required("Duration is required"),
   courseType: Yup.string().required("Course type is required"),
   coursePrice: Yup.string().required("Course Price is required"),
@@ -39,7 +42,10 @@ export const courseSchema = Yup.object().shape({
   instructorPoster: Yup.string()
     .url("Enter a valid URL")
     .required("Poster URL is required"),
-  description: Yup.string().required("Course description is required"),
+  description: Yup.string()
+    .min(10, "Course description must be at least 10 characters")
+    .max(110, "Course description must not exceed 110 characters")
+    .required("Course description is required"),
   longDescription: Yup.string().required("Course longDescription is required"),
   coursePhoto: Yup.string()
     .url("Enter a valid URL")
@@ -73,11 +79,14 @@ export const blogSchema = Yup.object().shape({
     .required("Card photo URL is required."),
   creatorName: Yup.string().required("Creator name is required."),
   creationDate: Yup.date().default(() => new Date()),
-  subject: Yup.string().required("Subject is required."),
+  subject: Yup.string()
+    .min(10, "Blog subject must be at least 10 characters")
+    .max(32, "Blog subject must not exceed 32 characters")
+    .required("Subject is required."),
   tags: Yup.string().required("tags is required"),
   description: Yup.string().required("Description is required."),
   creatorPhoto: Yup.string()
-  .url("Enter a valid URL for the creator photo.")
-  .required("creator photo URL is required."),
+    .url("Enter a valid URL for the creator photo.")
+    .required("creator photo URL is required."),
   creatorScope: Yup.string().required("Creator Scope is required."),
 });
