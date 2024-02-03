@@ -6,6 +6,7 @@ import { InputFormBlog } from "@/Event/Event";
 import Inputs from '@/components/Shared/Input/Input';
 import Button from '@/components/Shared/Button/Button';
 import { BlogReq } from '@/services/createBlogService';
+import { useRouter } from 'next/router';
 interface BlogFormProps {
         Message: (value: boolean) => void;
         SuccessMessage: (value: boolean) => void;
@@ -16,6 +17,7 @@ export default function BlogForm(props: BlogFormProps) {
                 resolver: yupResolver(blogSchema)
         });
         const token = localStorage.getItem("token");
+        const router = useRouter();
         const onSubmit = async (data: any) => {
                 try {
                         const response = await BlogReq(data, token);
@@ -25,6 +27,7 @@ export default function BlogForm(props: BlogFormProps) {
                         setTimeout(() => {
                                 props.Message(false);
                         }, 5000);
+                        router.push("/admin/blog");
                         reset();
                 } catch (error) {
                         console.error('Registration failed:', error);
@@ -32,9 +35,11 @@ export default function BlogForm(props: BlogFormProps) {
         };
         return (
                 <form onSubmit={handleSubmit(onSubmit)} className="p-4">
-                        {InputFormBlog.map((e) => (
-                                <Inputs Type="Form" key={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
-                        ))}
+                        <div className="flex-1 p-4 shadow rounded-lg">
+                                {InputFormBlog.map((e) => (
+                                        <Inputs Type="Form" key={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
+                                ))}
+                        </div>
                         <div className="text-right">
                                 <Button className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" Type={'child'}>
                                         Submit Course

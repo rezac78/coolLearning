@@ -33,7 +33,7 @@ export default function Table({ data, type, onItemDelete, onChapterDelete }: Tab
                                 {data.map((course: any) => (
                                         <tr key={course._id}>
                                                 {Object.keys(course).map(key => {
-                                                        if (key !== '_id' && key !== 'chapters' && key !== '__v') {
+                                                        if (key !== '_id' && key !== 'chapters' && key !== 'purchaseCount' && key !== '__v') {
                                                                 return (
                                                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-gray max-w-xs truncate">
                                                                                 {course[key]}
@@ -110,7 +110,7 @@ export default function Table({ data, type, onItemDelete, onChapterDelete }: Tab
                                 {data.map((blog: any) => (
                                         <tr key={blog._id}>
                                                 {Object.keys(blog).map(key => {
-                                                        if (key !== '_id' && key !== '__v') {
+                                                        if (key !== '_id' && key !== '__v' && key !== 'commentsCount' && key !== 'likes') {
                                                                 return (
                                                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-dark-gray max-w-xs truncate">
                                                                                 {blog[key]}

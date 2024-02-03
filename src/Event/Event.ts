@@ -217,6 +217,7 @@ export const navigation: Navigation[] = [
   { id: 1, name: "Dashboard", href: "/admin/dashboard" },
   { id: 2, name: "Course", href: "/admin/course" },
   { id: 3, name: "Blog", href: "/admin/blog" },
+  { id: 4, name: "Settings", href: "/admin/settings" },
 ];
 
 export const navigationUser: Navigation[] = [
@@ -326,21 +327,21 @@ export const InputFormBlog: InputForm[] = [
   },
   {
     id: 5,
-    IdName: "description",
-    LabelName: "Description",
-    type: "text",
-  },
-  {
-    id: 6,
     IdName: "creatorPhoto",
     LabelName: "Creator Photo",
     type: "text",
   },
   {
-    id: 7,
+    id: 6,
     IdName: "creatorScope",
     LabelName: "Creator Scope",
     type: "text",
+  },
+  {
+    id: 7,
+    IdName: "description",
+    LabelName: "Description",
+    type: "textarea",
   },
 ];
 

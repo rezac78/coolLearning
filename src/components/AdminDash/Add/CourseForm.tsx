@@ -6,6 +6,7 @@ import { InputForm, InputFormChapter } from "@/Event/Event";
 import Inputs from '@/components/Shared/Input/Input';
 import Button from '@/components/Shared/Button/Button';
 import { CourseReq } from '@/services/createCourseService';
+import { useRouter } from 'next/router';
 interface CourseFormProps {
   Message: (value: boolean) => void;
   SuccessMessage: (value: boolean) => void;
@@ -21,6 +22,7 @@ export default function CourseForm(props: CourseFormProps) {
   });
   const onSubmit = async (data: any) => {
     const token = localStorage.getItem("token");
+    const router = useRouter();
     try {
       const response = await CourseReq(data, token);
       props.SuccessMessage(response.success);
@@ -29,6 +31,7 @@ export default function CourseForm(props: CourseFormProps) {
       setTimeout(() => {
         props.Message(false);
       }, 5000);
+      router.push("/admin/course");
       reset();
     } catch (error) {
       console.error('Registration failed:', error);
@@ -37,9 +40,11 @@ export default function CourseForm(props: CourseFormProps) {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="p-4">
-      {InputForm.map((e) => (
-        <Inputs Type="Form" key={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
-      ))}
+      <div className="flex-1 p-4 shadow rounded-lg">
+        {InputForm.map((e) => (
+          <Inputs Type="Form" key={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
+        ))}
+      </div>
       {fields.map((field, index) => (
         <div key={field.id} className="">
           {InputFormChapter.map((e) => (

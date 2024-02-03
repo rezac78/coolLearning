@@ -52,10 +52,12 @@ export default function LoginPart(props: LoginPartProps) {
                         <div className="relative bg-light-bg-Form dark:bg-dark-bg-Form bg-opacity-80 p-3 sm:p-10 rounded-lg shadow-lg z-10">
                                 <h2 className="text-2xl text-dark-color-Font dark:text-light-color-Font font-bold mb-4">Login</h2>
                                 <form onSubmit={handleSubmit(onSubmit)}>
-                                        {InputLogin.map((e) => (
-                                                <Inputs Type="validation" key={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
-                                        ))}
-                                        <div className="flex items-center justify-between">
+                                        <div>
+                                                {InputLogin.map((e) => (
+                                                        <Inputs Type="validation" key={e.id} IdName={e.IdName} LabelName={e.LabelName} type={e.type} Register={register} Errors={errors} />
+                                                ))}
+                                        </div>
+                                        <div className="flex items-center justify-between mt-3">
                                                 <Button Type="button" Title="Login" className="bg-bg-button hover:bg-bg-button-hover text-dark-color-Font font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" />
                                         </div>
                                         <div className='mt-4 text-sm'>
