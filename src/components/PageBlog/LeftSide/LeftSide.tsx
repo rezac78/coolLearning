@@ -20,8 +20,8 @@ export default function LeftSide(props: LeftSideProps) {
                                 <h4 className="text-md text-light-color-Font dark:text-dark-color-Font font-semibold mb-10">Last Post Title</h4>
                                 {props.blogsData.map((e, i) => (
                                         <Links key={i} Href={`/blog/${e._id}`} type={"icon"}>
-                                                <div key={i} className="flex justify-end ">
-                                                        <div className="mr-10">
+                                                <div key={i} className="flex justify-between my-4">
+                                                        <div className="w-2/3">
                                                                 <p className="text-sm font-medium text-light-color-Font dark:text-dark-color-Font">{e.subject}</p>
                                                                 <p className="text-sm text-dark-gray dark:text-light-gray">{e.creatorName}</p>
                                                         </div>
