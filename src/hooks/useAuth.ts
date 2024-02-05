@@ -8,7 +8,7 @@ const useAuth = ({ restricted = false, redirectToHome = false }) => {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("accessToken");
     if (token) {
       try {
         const decodedUser: Token = jwtDecode(token);
@@ -20,7 +20,7 @@ const useAuth = ({ restricted = false, redirectToHome = false }) => {
         }
       } catch (error) {
         console.error("Token decoding error:", error);
-        localStorage.removeItem("token");
+        localStorage.removeItem("accessToken");
         router.push("/login").then(() => setIsLoading(false));
       }
     } else {

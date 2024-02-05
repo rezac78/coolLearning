@@ -8,7 +8,7 @@ export default function Carts() {
         const [userInfo, setUserInfo] = useState();
         useEffect(() => {
                 const fetchData = async () => {
-                        const token = localStorage.getItem("token");
+                        const token = localStorage.getItem("accessToken");
                         const data = await UserGetData(token);
                         setUserInfo(data.data.purchasedCourses);
                 };

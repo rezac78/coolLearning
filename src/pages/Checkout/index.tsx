@@ -17,7 +17,7 @@ export default function Checkout() {
         const router = useRouter();
         const { cartItems, emptyCart } = useShoppingCart();
         const handlePurchase = async () => {
-                const token = localStorage.getItem("token");
+                const token = localStorage.getItem("accessToken");
                 if (!user) {
                         router.push('/login');
                         return;

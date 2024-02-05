@@ -16,7 +16,7 @@ export default function BlogForm(props: BlogFormProps) {
         const { register, handleSubmit, formState: { errors }, reset } = useForm({
                 resolver: yupResolver(blogSchema)
         });
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("accessToken");
         const router = useRouter();
         const onSubmit = async (data: any) => {
                 try {

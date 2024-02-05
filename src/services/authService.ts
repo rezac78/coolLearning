@@ -20,6 +20,18 @@ export const LoginReq = async (LoginData: LoginData) => {
 };
 
 export const LogoutReq = async () => {
-  localStorage.removeItem("token");
+  localStorage.removeItem("accessToken");
   return { success: true, message: "Logged out successfully" };
+};
+
+export const refreshAccessToken = async () => {
+  const refreshToken = localStorage.getItem("refreshToken");
+  try {
+    const response = await axios.post("/auth/refresh", { refreshToken });
+    localStorage.setItem("accessToken", response.data.accessToken);
+    return response.data.accessToken;
+  } catch (error) {
+    console.error("Error refreshing token:", error);
+    throw new Error("Failed to refresh token");
+  }
 };

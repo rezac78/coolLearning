@@ -14,7 +14,7 @@ export default function DashboardCourse({ initialCoursesData }: DashboardProps) 
         const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
         const [numberSuccessMessage, setNumberSuccessMessage] = useState<boolean>();
         const [SuccessMessage, setSuccessMessage] = useState<string>();
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("accessToken");
         const deleteCourse = async (courseId: string) => {
                 try {
                         const response = await CourseDeletedData(courseId, token);

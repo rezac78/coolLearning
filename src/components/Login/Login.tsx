@@ -21,11 +21,12 @@ export default function LoginPart(props: LoginPartProps) {
         const onSubmit = async (data: any) => {
                 try {
                         const response = await LoginReq(data);
-                        localStorage.setItem('token', response.token);
+                        localStorage.setItem('accessToken', response.token.accessToken);
+                        localStorage.setItem('refreshToken', response.token.refreshToken);                        
                         props.SuccessMessage(response.success);
                         props.Success(response.message);
                         props.Message(true);
-                        const decoded: any = jwtDecode(response.token);
+                        const decoded: any = jwtDecode(response.token.accessToken);
                         if (response.token) {
                                 if (decoded.role === "admin") {
                                         router.push("/admin/dashboard");

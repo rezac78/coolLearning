@@ -1,10 +1,16 @@
 import axios from "../utils/axiosInstance";
 import { Blog, CommentForm } from "../types/auth";
+import isTokenExpired from "@/utils/isTokenExpired";
+import { refreshAccessToken } from "./authService";
 
 export const BlogReq = async (BlogData: Blog, token: string | null) => {
+  let accessToken = token;
+  if (isTokenExpired(token)) {
+    accessToken = await refreshAccessToken();
+  }
   try {
     const response = await axios.post("/blog", BlogData, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${accessToken}` },
     });
     return response.data;
   } catch (error: any) {
@@ -20,9 +26,13 @@ export const BlogAllData = async () => {
   }
 };
 export const BlogDeletedData = async (itemId: string, token: string | null) => {
+  let accessToken = token;
+  if (isTokenExpired(token)) {
+    accessToken = await refreshAccessToken();
+  }
   try {
     const response = await axios.delete(`/blog/${itemId}`, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${accessToken}` },
     });
     return response.data;
   } catch (error: any) {
@@ -42,9 +52,13 @@ export const BlogDataUpdate = async (
   BlogData: Blog,
   token: string | null
 ) => {
+  let accessToken = token;
+  if (isTokenExpired(token)) {
+    accessToken = await refreshAccessToken();
+  }
   try {
     const response = await axios.put(`/blog/${itemId}`, BlogData, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${accessToken}` },
     });
     return response.data;
   } catch (error: any) {
@@ -76,13 +90,17 @@ export const ReplayComments = async (commentData: any) => {
   }
 };
 export const LikeBlog = async (blogId: string, token: string | null) => {
+  let accessToken = token;
+  if (isTokenExpired(token)) {
+    accessToken = await refreshAccessToken();
+  }
   try {
     const response = await axios.put(
       `/blog/like/${blogId}`,
       {},
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       }
     );

@@ -18,7 +18,7 @@ export default function PageCourse(props: CoursesIdProps) {
                 const fetchCourseData = async () => {
                         setLoading(true);
                         try {
-                                const token = localStorage.getItem('token');
+                                const token = localStorage.getItem('accessToken');
                                 const response = await CourseData(props.courseId, token);
                                 setCourseData(response.data);
                         } catch (err) {

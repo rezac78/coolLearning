@@ -1,9 +1,15 @@
 import axios from "../utils/axiosInstance";
 import { Course, CommentForm } from "../types/auth";
+import isTokenExpired from "@/utils/isTokenExpired";
+import { refreshAccessToken } from "./authService";
 export const CourseReq = async (CourseData: Course, token: string | null) => {
+  let accessToken = token;
+  if (isTokenExpired(token)) {
+    accessToken = await refreshAccessToken();
+  }
   try {
     const response = await axios.post("/courses", CourseData, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${accessToken}` },
     });
     return response.data;
   } catch (error: any) {
@@ -22,9 +28,13 @@ export const CourseDeletedData = async (
   itemId: string,
   token: string | null
 ) => {
+  let accessToken = token;
+  if (isTokenExpired(token)) {
+    accessToken = await refreshAccessToken();
+  }
   try {
     const response = await axios.delete(`/courses/${itemId}`, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${accessToken}` },
     });
     return response.data;
   } catch (error: any) {
@@ -36,11 +46,15 @@ export const CourseDeletedChapter = async (
   itemId2: string,
   token: string | null
 ) => {
+  let accessToken = token;
+  if (isTokenExpired(token)) {
+    accessToken = await refreshAccessToken();
+  }
   try {
     const response = await axios.delete(
       `/courses/${itemId}/chapter/${itemId2}`,
       {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${accessToken}` },
       }
     );
     return response.data;
@@ -52,10 +66,14 @@ export const CourseData = async (
   itemId: string | undefined,
   token: string | null
 ) => {
+  let accessToken = token;
+  if (isTokenExpired(token)) {
+    accessToken = await refreshAccessToken();
+  }
   try {
     const response = await axios.get(`/courses/${itemId}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${accessToken}`,
       },
     });
     return response.data;
@@ -68,9 +86,13 @@ export const CourseDataUpdate = async (
   CourseData: Course,
   token: string | null
 ) => {
+  let accessToken = token;
+  if (isTokenExpired(token)) {
+    accessToken = await refreshAccessToken();
+  }
   try {
     const response = await axios.put(`/courses/${itemId}`, CourseData, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${accessToken}` },
     });
     return response.data;
   } catch (error: any) {

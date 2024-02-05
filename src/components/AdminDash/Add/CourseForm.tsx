@@ -21,7 +21,7 @@ export default function CourseForm(props: CourseFormProps) {
     name: 'chapters'
   });
   const onSubmit = async (data: any) => {
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem("accessToken");
     const router = useRouter();
     try {
       const response = await CourseReq(data, token);

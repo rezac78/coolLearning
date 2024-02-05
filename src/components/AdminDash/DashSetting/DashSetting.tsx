@@ -19,7 +19,7 @@ export default function DashSetting({ initialData, Message, SuccessMessage, Succ
                 defaultValues: initialData || {}
         });
         const router = useRouter();
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("accessToken");
         const onSubmit = async (data: any) => {
                 const updateData = {
                         ...data,

@@ -24,7 +24,7 @@ export default function RegisterPart(props: RegisterPartProps) {
                         props.SuccessMessage(response.success);
                         props.Success(response.message);
                         props.Message(true);
-                        if (response.token) {
+                        if (response.token.accessToken) {
                                 router.push('/login');
                         }
                         setTimeout(() => {

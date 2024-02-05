@@ -11,7 +11,7 @@ export default function DashboardBlog({ initialCoursesData }: DashboardProps) {
         const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
         const [numberSuccessMessage, setNumberSuccessMessage] = useState<boolean>();
         const [SuccessMessage, setSuccessMessage] = useState<string>();
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem("accessToken");
         const deleteBlog = async (courseId: string) => {
                 try {
                         const response = await BlogDeletedData(courseId, token);

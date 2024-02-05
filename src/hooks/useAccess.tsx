@@ -8,7 +8,7 @@ const useAccess = (roleRequired: string) => {
         const [loading, setLoading] = useState(true);
         const router = useRouter();
         useEffect(() => {
-                const token = localStorage.getItem('token');
+                const token = localStorage.getItem('accessToken');
                 if (!token) {
                         router.push('/login').then(() => setLoading(false));
                         return;
@@ -23,7 +23,7 @@ const useAccess = (roleRequired: string) => {
                         }
                 } catch (error) {
                         console.error('Token decoding error:', error);
-                        localStorage.removeItem('token');
+                        localStorage.removeItem('accessToken');
                         router.push('/login').then(() => setLoading(false));
                 }
         }, [router, roleRequired]);

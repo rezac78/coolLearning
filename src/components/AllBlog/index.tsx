@@ -12,7 +12,7 @@ export default function AllBlog(props: AllBlogProps) {
         const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
         const [SuccessMessage, setSuccessMessage] = useState<string>();
         const handleLike = async (blogId: string) => {
-                const token: any = localStorage.getItem("token");
+                const token: any = localStorage.getItem("accessToken");
                 if (!token) {
                         setShowSuccessMessage(true);
                         setSuccessMessage("You must log in to like.");
