@@ -22,7 +22,7 @@ export default function BlogForm({ initialBlogData, Message, SuccessMessage, Suc
   const token = localStorage.getItem("accessToken");
   const onSubmit = async (data: any) => {
     try {
-      const response = await BlogDataUpdate(initialBlogData._id, data, token);
+      const response = await BlogDataUpdate(initialBlogData._id, data, token!);
       SuccessMessage(response.success);
       Success(response.message);
       Message(true);

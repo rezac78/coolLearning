@@ -4,7 +4,7 @@ import isTokenExpired from "@/utils/isTokenExpired";
 import { refreshAccessToken } from "./authService";
 export const CourseReq = async (CourseData: Course, token: string | null) => {
   let accessToken = token;
-  if (isTokenExpired(token)) {
+  if (isTokenExpired(token!)) {
     accessToken = await refreshAccessToken();
   }
   try {
@@ -29,7 +29,7 @@ export const CourseDeletedData = async (
   token: string | null
 ) => {
   let accessToken = token;
-  if (isTokenExpired(token)) {
+  if (isTokenExpired(token!)) {
     accessToken = await refreshAccessToken();
   }
   try {
@@ -47,7 +47,7 @@ export const CourseDeletedChapter = async (
   token: string | null
 ) => {
   let accessToken = token;
-  if (isTokenExpired(token)) {
+  if (isTokenExpired(token!)) {
     accessToken = await refreshAccessToken();
   }
   try {
@@ -67,7 +67,7 @@ export const CourseData = async (
   token: string | null
 ) => {
   let accessToken = token;
-  if (isTokenExpired(token)) {
+  if (isTokenExpired(token!)) {
     accessToken = await refreshAccessToken();
   }
   try {
@@ -87,7 +87,7 @@ export const CourseDataUpdate = async (
   token: string | null
 ) => {
   let accessToken = token;
-  if (isTokenExpired(token)) {
+  if (isTokenExpired(token!)) {
     accessToken = await refreshAccessToken();
   }
   try {

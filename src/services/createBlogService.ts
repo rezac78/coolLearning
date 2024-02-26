@@ -3,7 +3,7 @@ import { Blog, CommentForm } from "../types/auth";
 import isTokenExpired from "@/utils/isTokenExpired";
 import { refreshAccessToken } from "./authService";
 
-export const BlogReq = async (BlogData: Blog, token: string | null) => {
+export const BlogReq = async (BlogData: Blog, token: string) => {
   let accessToken = token;
   if (isTokenExpired(token)) {
     accessToken = await refreshAccessToken();
@@ -25,7 +25,7 @@ export const BlogAllData = async () => {
     return error.response.data;
   }
 };
-export const BlogDeletedData = async (itemId: string, token: string | null) => {
+export const BlogDeletedData = async (itemId: string, token: string ) => {
   let accessToken = token;
   if (isTokenExpired(token)) {
     accessToken = await refreshAccessToken();
@@ -50,7 +50,7 @@ export const BlogData = async (itemId: string | undefined) => {
 export const BlogDataUpdate = async (
   itemId: string,
   BlogData: Blog,
-  token: string | null
+  token: string
 ) => {
   let accessToken = token;
   if (isTokenExpired(token)) {
@@ -89,7 +89,7 @@ export const ReplayComments = async (commentData: any) => {
     return error.response.data;
   }
 };
-export const LikeBlog = async (blogId: string, token: string | null) => {
+export const LikeBlog = async (blogId: string, token: string) => {
   let accessToken = token;
   if (isTokenExpired(token)) {
     accessToken = await refreshAccessToken();

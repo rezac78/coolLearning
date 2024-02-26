@@ -4,7 +4,7 @@ import { refreshAccessToken } from "./authService";
 
 export const UserGetData = async (token: string | null) => {
   let accessToken = token;
-  if (isTokenExpired(token)) {
+  if (isTokenExpired(token!)) {
     accessToken = await refreshAccessToken();
   }
   try {
@@ -22,7 +22,7 @@ export const updateUserDetails = async (
   token: string | null
 ) => {
   let accessToken = token;
-  if (isTokenExpired(token)) {
+  if (isTokenExpired(token!)) {
     accessToken = await refreshAccessToken();
   }
   try {
@@ -41,7 +41,7 @@ export const purchaseCourses = async (
   token: string | null
 ) => {
   let accessToken = token;
-  if (isTokenExpired(token)) {
+  if (isTokenExpired(token!)) {
     accessToken = await refreshAccessToken();
   }
   try {

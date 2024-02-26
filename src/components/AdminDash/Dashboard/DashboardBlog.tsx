@@ -14,7 +14,7 @@ export default function DashboardBlog({ initialCoursesData }: DashboardProps) {
         const token = localStorage.getItem("accessToken");
         const deleteBlog = async (courseId: string) => {
                 try {
-                        const response = await BlogDeletedData(courseId, token);
+                        const response = await BlogDeletedData(courseId, token!);
                         setCoursesData(coursesData.filter(course => course._id !== courseId));
                         setShowSuccessMessage(true);
                         setNumberSuccessMessage(response.success);

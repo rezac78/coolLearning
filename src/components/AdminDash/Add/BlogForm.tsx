@@ -20,7 +20,7 @@ export default function BlogForm(props: BlogFormProps) {
         const router = useRouter();
         const onSubmit = async (data: any) => {
                 try {
-                        const response = await BlogReq(data, token);
+                        const response = await BlogReq(data, token!);
                         props.SuccessMessage(response.success);
                         props.Success(response.message);
                         props.Message(true);
