@@ -36,6 +36,23 @@ const config: Config = {
         "light-gray":"#9ca3af",
         "bg-button": "#0B53BC",
         "bg-button-hover": "#1d4ed8",
+
+        "Background-Dark":"#1A1A1A",
+        "Text-Dark":"#FFFFFF ",
+        "Header-Dark":"#2C3E50 ",
+        "ButtonLink-Dark":"#0044CC ",
+        "Poin-Dark":"#2ECC71 ",
+        "Warning-Dark":"#F1C40F",
+        "Borders-Dark":"#0044CC",
+
+        "Background-Light ":"#FFFFFF",
+        "Text-Light":"#333333 ",
+        "Header-Light":"#0044CC",
+        "ButtonLink-Light":"#2ECC71",
+        "Poin-Light":"#0044CC",
+        "Warning-Light":"#F1C40F",
+        "Borders-Light":"#DDD",
+
       },
       screens: {
         sm: "425px",
